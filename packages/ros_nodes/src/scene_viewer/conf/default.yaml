@@ -1,0 +1,41 @@
+# Spin rate (refresh rate)
+spin_rate: 2  # Hz
+
+# Topic name containing ego-pose.
+topic_ego_pose: /ndt_pose
+
+# Topic name containing error messages.
+topic_error_msg: /error_vis
+
+# Distance-interval to visualize for waypoints for ego=vehicle.
+waypoint_distance_interval_to_visualize: 1.0 # [m]
+
+# Initial ID of waypoints
+waypoint_initial_id: 0
+
+# Visualize wheel waypoints
+enable_wheel_waypoints: true
+
+# frame-id of wheels
+wheel_frame_ids:
+  - wheel_fl
+  - wheel_fr
+  - wheel_rl
+  - wheel_rr
+
+# Offsets for visualization
+visualization_offsets:
+  checkpoints:
+    dx: 0.0
+    dy: 0.0
+    dz: 24.0
+    droll: 0.0
+    dpitch: 0.0
+    dyaw: 0.0
+  waypoints:
+    dx: 0.0
+    dy: 0.0
+    dz: 0.0
+    droll: 0.0
+    dpitch: 0.0
+    dyaw: 0.0
