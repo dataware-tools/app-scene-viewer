@@ -1,0 +1,9 @@
+version: "3"
+services:
+  ros-nodes:
+    build: .
+    image: registry.gitlab.com/dataware-tools/app-scene-viewer:ros-nodes-develop
+    container_name: app-scene-viewer-ros-nodes
+    ports:
+      - 9090:9090
+    tty: true

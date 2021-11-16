@@ -1,0 +1,15 @@
+<!-- -->
+<launch>
+
+    <!-- Configurations -->
+    <arg name="path_to_rosbag" default="$(find scene_viewer)/sample/sample.bag" />
+    <arg name="path_to_config_file" default="$(find scene_viewer)/conf/default.yaml" />
+
+    <!-- Node -->
+    <node pkg="scene_viewer" type="waypoints_publisher.py"
+          name="waypoints_publisher" required="true" output="screen" clear_params="true">
+        <param name="path_to_rosbag" value="$(arg path_to_rosbag)"/>
+        <param name="path_to_config_file" value="$(arg path_to_config_file)"/>
+    </node>
+
+</launch>
