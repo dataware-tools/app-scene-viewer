@@ -4,6 +4,13 @@ services:
     build: .
     image: registry.gitlab.com/dataware-tools/app-scene-viewer:ros-nodes-develop
     container_name: app-scene-viewer-ros-nodes
+    volumes:
+      - ./src:/opt/ros_nodes/src:ro
+      - ./utils:/opt/ros_nodes/utils:ro
+    entrypoint: /opt/ros_nodes/utils/entrypoint.sh
+    command:
+      - roslaunch
+      - /opt/ros_nodes/utils/nodes.launch
     ports:
       - 9090:9090
     tty: true

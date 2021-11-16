@@ -1,11 +1,11 @@
 <!-- -->
 <launch>
     <!-- Configurations -->
-    <arg name="path_to_rosbag" default="$(find scene_viewer)/sample/sample.bag" />
+    <arg name="path_to_rosbag" default="/opt/samples/sample.bag" />
     <arg name="path_to_config_file" default="$(find scene_viewer)/conf/default.yaml" />
 
     <!-- Rosbridge-server -->
-    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" if="$(arg is_offline)"/>
+    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" />
 
     <!-- Waypoints Publisher -->
     <node pkg="scene_viewer" type="waypoints_publisher.py"
@@ -20,8 +20,7 @@
           name="rosbag_player_controller"
           required="true"
           output="screen"
-          clear_params="true"
-          if="$(arg is_offline)">
+          clear_params="true">
         <param name="path_to_rosbag" value="$(arg path_to_rosbag)"/>
     </node>
 
