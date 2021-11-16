@@ -1,7 +1,10 @@
-FROM hdwlab/rosbridge-rosbag-player:autoware-v1.0.0
+FROM hdwlab/rosbridge-rosbag-player:autoware-v1.0.1
 MAINTAINER Daiki Hayashi <hayashi.daiki@hdwlab.co.jp>
 ENV LANG="en_US.UTF-8"
 SHELL ["/bin/bash", "-c"]
+
+# Update GPG-key
+RUN curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
 
 # Apt update and rosdep update
 RUN apt update \
@@ -25,9 +28,9 @@ RUN bash -c '\
 '
 
 # Copy files
-RUN mkdir -p /opt/utils || :
-COPY ./utils/* /opt/utils
+RUN mkdir -p /opt/ros_nodes/utils || :
+COPY ./utils/* /opt/ros_nodes/utils
 
 # Set default command
-ENTRYPOINT ["/opt/utils/entrypoint.sh"]
-CMD ["/opt/utils/run.sh"]
+ENTRYPOINT ["/opt/ros_nodes/utils/entrypoint.sh"]
+CMD ["/opt/ros_nodes/utils/run.sh"]

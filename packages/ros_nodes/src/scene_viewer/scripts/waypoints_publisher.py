@@ -23,9 +23,7 @@ import rospy
 import tf2_ros
 import yaml
 
-from ai_instructor.msg import Waypoints
-
-from utils import state_dict_to_waypoints_msg
+from utils import state_dict_to_waypoints_marker_aray_msg
 
 CONFIG_REQUIRED_KEYS = [
     'spin_rate',
@@ -96,7 +94,6 @@ class WaypointsPublisher(object):
         self.diagnostics_updater.add("status", self._diagnose)
 
         # initialize publishers
-        self.publisher_waypoints = rospy.Publisher('~waypoints', Waypoints, queue_size=1, latch=True)
         self.publisher_markers = rospy.Publisher('~markers', MarkerArray, queue_size=1, latch=True)
 
         try:
@@ -113,9 +110,7 @@ class WaypointsPublisher(object):
                 self._load_rosbag()
 
             # publish waypoints
-            waypoints_msg, markers_msg = self._get_waypoints_msg()
-            if waypoints_msg is not None:
-                self.publisher_waypoints.publish(waypoints_msg)
+            markers_msg = self._get_msg_to_publish()
             if markers_msg is not None:
                 self.publisher_markers.publish(markers_msg)
 
@@ -161,10 +156,10 @@ class WaypointsPublisher(object):
             stat.summary(diagnostic_msgs.msg.DiagnosticStatus.OK, "OK")
         return stat
 
-    def _get_waypoints_msg(self):
+    def _get_msg_to_publish(self):
         if len(self.ego_poses) != 0:
-            waypoints, markers = state_dict_to_waypoints_msg(self.states, self.config)
-            return waypoints, markers
+            markers = state_dict_to_waypoints_marker_aray_msg(self.states, self.config)
+            return markers
         return None, None
 
     def _callback(self, msg):
@@ -191,9 +186,8 @@ class WaypointsPublisher(object):
             if not self.diagnostics['is_error']:
                 if self.path_to_rosbag is None:
                     # online mode (publish waypoints)
-                    waypoints, markers = self._get_waypoints_msg()
-                    if waypoints is not None and markers is not None:
-                        self.publisher_waypoints.publish(waypoints)
+                    markers = self._get_msg_to_publish()
+                    if markers is not None:
                         self.publisher_markers.publish(markers)
                         self.states['last_ego_pose'] = list(self.states['ego_poses'].values())[0]
                         del self.states['ego_poses']
@@ -217,9 +211,12 @@ if __name__ == '__main__':
     # for debugging
     import rosparam
     ns = 'waypoints_publisher'
+    if rospy.get_param('~path_to_rosbag', None) is None:
+        rosparam.set_param(ns + '/path_to_rosbag',
+                           '/opt/samples/sample.bag')
     if rospy.get_param('~path_to_config_file', None) is None:
         rosparam.set_param(ns + '/path_to_config_file',
-                           '/opt/ros_nodes/src/ai_instructor/conf/offline.yaml')
+                           '/opt/ros_nodes/src/scene_viewer/conf/default.yaml')
 
     # create handler object
     handler = WaypointsPublisher()
