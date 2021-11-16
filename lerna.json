@@ -1,0 +1,10 @@
+{
+  "npmClient": "npm",
+  "packages": [
+    "packages/scene-viewer-panels",
+    "packages/webviz/packages/*",
+    "packages/webviz/packages/@cruise-automation/*",
+    "packages/webviz"
+  ],
+  "version": "0.0.0"
+}

@@ -1,0 +1,39 @@
+{
+  "name": "scene-viewer-panels",
+  "version": "1.0.0",
+  "description": "panels for scene viewer",
+  "main": "dist/index.js",
+  "module": "dist/index.modern.js",
+  "source": "src/index.ts",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "cross-env NODE_OPTIONS=\"--max-old-space-size=4096\" rimraf dist && node bin/esbuild.js && run-s emit-types",
+    "emit-types": " tsc --emitDeclarationOnly --project tsconfig.json --outDir dist",
+    "test": "cross-env NODE_OPTIONS=\"--max-old-space-size=4096\" run-s lint test:unit test:build test:visual-regression",
+    "lint": "cross-env NODE_OPTIONS=\"--max-old-space-size=4096\" run-s lint:eslint lint:stylelint lint:tsc",
+    "lint:eslint": "eslint .",
+    "lint:stylelint": "stylelint ./src",
+    "lint:tsc": "tsc --noEmit --project tsconfig.json",
+    "test:unit": "jest",
+    "test:build": "cross-env NODE_OPTIONS=\"--max-old-space-size=4096\" run-s build",
+    "test:visual-regression": "build-storybook --quiet && loki --requireReference --reactUri file:./storybook-static",
+    "format": "prettier --write src/*",
+    "download:catalog": "./bin/download_catalog.sh",
+    "generate:openapi": "cross-env C_D=$PWD/bin ./bin/generate_openapi.sh",
+    "storybook": "start-storybook -p 9009",
+    "build-storybook": "build-storybook",
+    "release-it": "release-it --ci"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^17.0.35",
+    "cross-env": "^7.0.3",
+    "esbuild": "^0.13.13",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^4.4.4"
+  },
+  "peerDependencies": {
+    "react": "16.10.2"
+  }
+}
