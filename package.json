@@ -121,6 +121,9 @@
   "scripts": {
     "bootstrap": "npm install && lerna bootstrap --hoist \"{react,react-dom,@storybook/*}\" --ci && ln -s ../../webviz/packages/webviz-core/src/styles packages/scene-viewer-panels/.storybook",
     "bootstrap-ci": "npm ci && lerna bootstrap --hoist \"{react,react-dom,@storybook/*}\" --ci",
+    "test:scene-viewer-panels": "lerna run test --scope scene-viewer-panels --stream",
+    "test:webviz": "lerna run test --scope webviz --stream",
+    "test": "lerna run test --stream",
     "build": "lerna run build",
     "watch": "lerna run watch --parallel",
     "clean": "lerna run clean",
