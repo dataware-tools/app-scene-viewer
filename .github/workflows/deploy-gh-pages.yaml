@@ -1,0 +1,31 @@
+name: GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  deploy-gh-pages:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: "recursive"
+          token: ${{secrets.REPO_ACCESS_TOKEN}}
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12
+
+      - run: npm run bootstrap
+      - run: npm run build-static-webviz
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./packages/webviz/__static_webviz_
