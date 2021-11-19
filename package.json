@@ -55,6 +55,7 @@
     "history": "^4.7.2",
     "html-webpack-plugin": "^4.5.1",
     "http-server": "^0.12.3",
+    "husky": "^7.0.4",
     "jest": "^23.6.0",
     "jest-canvas-mock": "^2.0.0-beta.1",
     "jest-diff": "24.9.0",
@@ -124,7 +125,8 @@
     "watch": "lerna run watch --parallel",
     "clean": "lerna run clean",
     "lerna": "lerna",
-    "dev": "export NODE_OPTIONS=\"--max-old-space-size=4096\" && npx lerna run docs-dev --stream"
+    "dev": "export NODE_OPTIONS=\"--max-old-space-size=4096\" && npx lerna run docs-dev --stream",
+    "prepare": "husky install"
   },
   "volta": {
     "node": "12.22.7"
