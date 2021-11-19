@@ -1,13 +1,12 @@
-/** @jsx jsx */
-import { css, jsx } from "@emotion/react";
-import { Fragment } from "react";
+import { css } from "@emotion/css";
+import React from "react";
 
 export const SamplePresentation = () => {
   const color = "white";
   return (
-    <Fragment>
+    <>
       <div
-        css={css`
+        className={css`
           background-color: hotpink;
           &:hover {
             color: ${color};
@@ -16,7 +15,7 @@ export const SamplePresentation = () => {
       >
         div + emotion
       </div>
-    </Fragment>
+    </>
   );
 };
 

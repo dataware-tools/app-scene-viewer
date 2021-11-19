@@ -8,7 +8,6 @@ const CommonConfig = {
   sourcemap: true,
   target: ["es6"],
   external: Object.keys(packageInfo.peerDependencies),
-  jsxFactory: "jsx",
 };
 
 esbuild
