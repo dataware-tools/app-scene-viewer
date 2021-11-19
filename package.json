@@ -125,6 +125,8 @@
     "test:webviz": "lerna run test --scope webviz --stream",
     "test": "lerna run test --stream",
     "build": "lerna run build",
+    "build-static-webviz": "lerna run build --stream && lerna run build-static-webviz --stream",
+    "serve-static-webviz": "lerna run serve-static-webviz --stream",
     "watch": "lerna run watch --parallel",
     "clean": "lerna run clean",
     "lerna": "lerna",
