@@ -4,4 +4,4 @@
 # Copyright 2021 Human Dataware Lab. Co. Ltd.
 #
 
-roslaunch nodes.launch
+# TODO: Execute launch file

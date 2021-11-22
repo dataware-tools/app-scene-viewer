@@ -6,18 +6,30 @@
 # Created by Daiki Hayashi (hayashi.daiki@hdwlab.co.jp)
 #
 
-source /opt/ros/*/setup.sh
-source /opt/path.sh
+# unsetting ROS_DISTRO to silence ROS_DISTRO override warning
+unset ROS_DISTRO
+# setup ros1 environment
+source "/opt/ros/${ROS1_DISTRO}/setup.bash"
+
+# unsetting ROS_DISTRO to silence ROS_DISTRO override warning
+unset ROS_DISTRO
+# setup ros2 environment
+source "/opt/ros/${ROS2_DISTRO}/setup.bash"
 
 # Start roscore for debugging
-[[ $1 =~ ros* ]] || [[ $1 =~ run.sh ]] || [[ $1 =~ bash ]] || [[ $(rosnode list 2>/dev/null) ]] || roscore &
+require_roscore=false
+[[ $1 =~ ros* ]] || [[ $1 =~ run.sh ]] || [[ $1 =~ bash ]] || [[ $(rosnode list 2>/dev/null) ]] || require_roscore=true
 
-echo "Waiting for roscore to become ready..."
-while true;
-do
-  sleep 1
-  rosnode list > /dev/null 2>&1 && break
-done
+if ${require_roscore}; then
+  roscore &
+
+  echo "Waiting for roscore to become ready..."
+  while true;
+  do
+    sleep 1
+    rosnode list > /dev/null 2>&1 && break
+  done
+fi
 
 set -x
 

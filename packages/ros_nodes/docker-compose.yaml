@@ -2,15 +2,14 @@ version: "3"
 services:
   ros-nodes:
     build: .
-    image: registry.gitlab.com/dataware-tools/app-scene-viewer:ros-nodes-develop
+    image: registry.gitlab.com/dataware-tools/app-scene-viewer:ros-nodes-latest
     container_name: app-scene-viewer-ros-nodes
     volumes:
-      - ./src:/opt/ros_nodes/src:ro
-      - ./utils:/opt/ros_nodes/utils:ro
+      - ./src:/opt/ros_nodes/src:rw
+      - ./utils:/opt/ros_nodes/utils:rw
     entrypoint: /opt/ros_nodes/utils/entrypoint.sh
     command:
-      - roslaunch
-      - /opt/ros_nodes/utils/nodes.launch
+      - bash
     ports:
       - 9090:9090
     tty: true
