@@ -25,5 +25,5 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.REPO_ACCESS_TOKEN}}
 
-      - name: Test
-        run: npm run test
+      - name: Test scene-viewer-panels
+        run: npm run test:scene-viewer-panels
