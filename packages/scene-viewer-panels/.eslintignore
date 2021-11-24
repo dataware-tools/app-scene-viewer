@@ -1,0 +1,7 @@
+dist/
+node_modules/
+
+src/openapi
+src/api/utils.tsx
+
+storybook-static

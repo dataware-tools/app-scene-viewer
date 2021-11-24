@@ -1,0 +1,29 @@
+name: Test
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    timeout-minutes: 300
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: "recursive"
+          token: ${{secrets.REPO_ACCESS_TOKEN}}
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12
+          cache: "npm"
+          cache-dependency-path: "**/package-lock.json"
+
+      - name: bootstrap repository
+        run: npm run bootstrap
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.REPO_ACCESS_TOKEN}}
+
+      - name: Test scene-viewer-panels
+        run: npm run test:scene-viewer-panels
