@@ -22,6 +22,7 @@ module.exports = {
     "rule-empty-line-before": null,
     "no-empty-first-line": null,
     "no-eol-whitespace": null,
+    "value-keyword-case": null,
   },
   reportNeedlessDisables: true,
   reportInvalidScopeDisables: true,

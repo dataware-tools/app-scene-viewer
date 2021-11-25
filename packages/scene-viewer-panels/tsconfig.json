@@ -28,7 +28,8 @@
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
     "target": "es6",
-    "downlevelIteration": true
+    "downlevelIteration": true,
+    "strictBindCallApply": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist", "example"]
