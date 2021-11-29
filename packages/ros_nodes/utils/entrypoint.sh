@@ -18,7 +18,12 @@ source "/opt/ros/${ROS2_DISTRO}/setup.bash"
 
 # Start roscore for debugging
 require_roscore=false
-[[ $1 =~ ros* ]] || [[ $1 =~ run.sh ]] || [[ $1 =~ bash ]] || [[ $(rosnode list 2>/dev/null) ]] || require_roscore=true
+[[ $1 = "" ]] \
+  || [[ $1 =~ ros* ]] \
+  || [[ $1 =~ run.sh ]] \
+  || [[ $1 =~ bash ]] \
+  || [[ $(rosnode list 2>/dev/null) ]] \
+  || require_roscore=true
 
 if ${require_roscore}; then
   roscore &
@@ -30,8 +35,6 @@ if ${require_roscore}; then
     rosnode list > /dev/null 2>&1 && break
   done
 fi
-
-set -x
 
 # Execute commands
 exec "$@"
