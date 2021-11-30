@@ -34,7 +34,7 @@ $ docker-compose up sample
 ## Developers' Guide
 ### 開発を始めるには？
 ROSを使うため、開発は基本的にコンテナ内で行います。  
-2つ上の階層で以下のコマンドを叩くことでコンテナを起動します
+このディレクトリ内で以下のコマンドを叩くことでコンテナを起動します
 ```bash
 $ docker-compose up
 
@@ -43,9 +43,7 @@ $ docker-compose up
 コンテナが立ち上がった状態で、別の端末から exec します
 ```bash
 $ docker exec -it app-scene-viewer-ros-nodes-dev bash
-
 <コンテナ内>
-
 $ cd /opt/ros_nodes
 $ source utils/entrypoint.sh
 ```
@@ -62,7 +60,7 @@ $ vim my_node.py
 ```
 その後、ノードを実行可能にするために `pyproject.toml` の `[tool.poetry.script]` に以下の様なものを追加します
 ```toml
-<コマンド名> = "scene_viewer.<pythonスクリプト>:<スクリプト内の関数>"
+コマンド名 = "scene_viewer.<pythonスクリプト>:<スクリプト内の関数>"
 
 (例)
 my_node = "scene_viewer.my_node:cli"
