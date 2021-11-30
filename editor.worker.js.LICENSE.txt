@@ -1,14 +1,14 @@
-/*! ./../../../../../../../../../../node_modules/timers-browserify/main.js */
+/*! ./../../../../../../../timers-browserify/main.js */
 
-/*! ./../../../../../../../../../../node_modules/webpack/buildin/global.js */
+/*! ./../../../../../../../webpack/buildin/global.js */
 
-/*! ./../../../../../../../../node_modules/process/browser.js */
+/*! ./../../../../../webpack/buildin/global.js */
 
-/*! ./../../../../../../../../node_modules/webpack/buildin/global.js */
-
-/*! ./../process/browser.js */
+/*! ./../../../../../webpack/node_modules/process/browser.js */
 
 /*! ./../webpack/buildin/global.js */
+
+/*! ./../webpack/node_modules/process/browser.js */
 
 /*! ModuleConcatenation bailout: Cannot concat with ./node_modules/monaco-editor/esm/vs/base/common/platform.js (<- Module uses injected variables (process, global)) */
 
@@ -32,6 +32,18 @@
   !*** (webpack)/buildin/global.js ***!
   \***********************************/
 
+/*!************************************************!*\
+  !*** ./node_modules/timers-browserify/main.js ***!
+  \************************************************/
+
+/*!*************************************************!*\
+  !*** (webpack)/node_modules/process/browser.js ***!
+  \*************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/setimmediate/setImmediate.js ***!
+  \***************************************************/
+
 /*!*******************************************************************!*\
   !*** ./node_modules/monaco-editor/esm/vs/base/common/platform.js ***!
   \*******************************************************************/
@@ -40,18 +52,6 @@
   !*** ./node_modules/monaco-editor/esm/vs/editor/editor.worker.js + 31 modules ***!
   \********************************************************************************/
 
-/*!*******************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/process/browser.js ***!
-  \*******************************************************************************************/
-
 /*!*************************************************************************************************!*\
   !*** ./node_modules/monaco-editor/esm/vs/editor/common/standalone/promise-polyfill/polyfill.js ***!
   \*************************************************************************************************/
-
-/*!**************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/timers-browserify/main.js ***!
-  \**************************************************************************************************/
-
-/*!*****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/setimmediate/setImmediate.js ***!
-  \*****************************************************************************************************/

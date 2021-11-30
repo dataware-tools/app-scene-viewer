@@ -140,27 +140,29 @@ object-assign
 
 /*! ./ */
 
-/*! ./../../../../../../../../../node_modules/webpack/buildin/global.js */
-
-/*! ./../../../../../../../../node_modules/webpack/buildin/global.js */
-
-/*! ./../../../../../../../node_modules/buffer/index.js */
-
-/*! ./../../../../../../../node_modules/process/browser.js */
-
 /*! ./../../../../../../../node_modules/webpack/buildin/global.js */
-
-/*! ./../../../../../../../node_modules/webpack/buildin/module.js */
-
-/*! ./../../../../../../node_modules/process/browser.js */
 
 /*! ./../../../../../../node_modules/webpack/buildin/global.js */
 
-/*! ./../../../../../../node_modules/webpack/buildin/module.js */
+/*! ./../../../../../node_modules/buffer/index.js */
 
-/*! ./../../../webpack/buildin/global.js */
+/*! ./../../../../../node_modules/webpack/buildin/global.js */
 
-/*! ./../../../webpack/buildin/module.js */
+/*! ./../../../../../node_modules/webpack/buildin/module.js */
+
+/*! ./../../../../../node_modules/webpack/node_modules/process/browser.js */
+
+/*! ./../../../../node_modules/webpack/buildin/global.js */
+
+/*! ./../../../../node_modules/webpack/buildin/module.js */
+
+/*! ./../../../../node_modules/webpack/node_modules/process/browser.js */
+
+/*! ./../../../../webpack/node_modules/process/browser.js */
+
+/*! ./../../buildin/global.js */
+
+/*! ./../../buildin/module.js */
 
 /*! ./Alpha */
 
@@ -1042,6 +1044,10 @@ object-assign
  * Copyright (c) 2016 Jorik Tangelder;
  * Licensed under the MIT license */
 
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react-dom/index.js (<- Module is not an ECMAScript module) */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react/index.js (<- Module is not an ECMAScript module) */
+
 /*! ModuleConcatenation bailout: Cannot concat with ./packages/webviz-core/node_modules/add-dom-event-listener/lib/index.js (<- Module is not an ECMAScript module) */
 
 /*! ModuleConcatenation bailout: Cannot concat with ./packages/webviz-core/node_modules/babel-runtime/core-js/object/assign.js (<- Module is not an ECMAScript module) */
@@ -1116,10 +1122,6 @@ object-assign
 
 /*! ModuleConcatenation bailout: Cannot concat with ./packages/webviz-core/node_modules/shallowequal/index.js (<- Module is not an ECMAScript module) */
 
-/*! ModuleConcatenation bailout: Cannot concat with /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/react-dom/index.js (<- Module is not an ECMAScript module) */
-
-/*! ModuleConcatenation bailout: Cannot concat with /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/react/index.js (<- Module is not an ECMAScript module) */
-
 /*! ModuleConcatenation bailout: Module is not an ECMAScript module */
 
 /*! ModuleConcatenation bailout: Module is referenced from these modules with unsupported syntax: ./packages/regl-worldview/dist/index.cjs.js (referenced with cjs require) */
@@ -1175,8 +1177,6 @@ object-assign
 /*! ModuleConcatenation bailout: Module is referenced from these modules with unsupported syntax: ./packages/webviz-core/src/panels/RawMessages/index.js (referenced with cjs require) */
 
 /*! ModuleConcatenation bailout: Module is referenced from these modules with unsupported syntax: ./packages/webviz-core/src/panels/RawMessages/index.js (referenced with cjs require), ./packages/webviz-core/src/panels/ThreeDimensionalViz/TopicTree/TopicTree.js (referenced with cjs require), ./packages/webviz-core/src/panels/diagnostics/DiagnosticStatus.js (referenced with cjs require) */
-
-/*! ModuleConcatenation bailout: Module is referenced from these modules with unsupported syntax: ./packages/webviz-core/src/panels/Sample/index.js (referenced with cjs require) */
 
 /*! ModuleConcatenation bailout: Module is referenced from these modules with unsupported syntax: ./packages/webviz-core/src/panels/Table/TableSettings.js (referenced with cjs require), ./packages/webviz-core/src/panels/ThreeDimensionalViz/DrawingTools/index.js (referenced with cjs require) */
 
@@ -1350,8 +1350,6 @@ object-assign
 
 /*! exports provided: CSSMotionList, default */
 
-/*! exports provided: Sample, SamplePresentation */
-
 /*! exports provided: TabPane, default */
 
 /*! exports provided: TreeNode, default */
@@ -1524,6 +1522,14 @@ object-assign
 
 /*! xtend */
 
+/*!*********************************!*\
+  !*** ./node_modules/url/url.js ***!
+  \*********************************/
+
+/*!**********************************!*\
+  !*** ./node_modules/url/util.js ***!
+  \**********************************/
+
 /*!*************************************!*\
   !*** ./node_modules/gl-vec3/add.js ***!
   \*************************************/
@@ -1569,11 +1575,23 @@ object-assign
   \***********************************************/
 
 /*!***********************************************!*\
+  !*** ./node_modules/querystring-es3/index.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
   !*** ./node_modules/quickhull3d/dist/Face.js ***!
   \***********************************************/
 
 /*!************************************************!*\
   !*** ./node_modules/get-plane-normal/index.js ***!
+  \************************************************/
+
+/*!************************************************!*\
+  !*** ./node_modules/querystring-es3/decode.js ***!
+  \************************************************/
+
+/*!************************************************!*\
+  !*** ./node_modules/querystring-es3/encode.js ***!
   \************************************************/
 
 /*!************************************************!*\
@@ -1587,6 +1605,10 @@ object-assign
 /*!*************************************************!*\
   !*** ./node_modules/quickhull3d/dist/Vertex.js ***!
   \*************************************************/
+
+/*!***************************************************!*\
+  !*** (webpack)/node_modules/punycode/punycode.js ***!
+  \***************************************************/
 
 /*!***************************************************!*\
   !*** ./node_modules/point-line-distance/index.js ***!
@@ -3092,6 +3114,10 @@ object-assign
   !*** ./packages/webviz-core/node_modules/react-json-tree/lib/index.js ***!
   \************************************************************************/
 
+/*!************************************************************************!*\
+  !*** ./packages/webviz-core/node_modules/scene-viewer-panels/index.js ***!
+  \************************************************************************/
+
 /*!*************************************************************************!*\
   !*** ./packages/regl-worldview/node_modules/draco3d/draco_decoder.wasm ***!
   \*************************************************************************/
@@ -3636,24 +3662,12 @@ object-assign
   !*** ./packages/webviz-core/node_modules/react-json-tree/lib/themes/solarized.js ***!
   \***********************************************************************************/
 
-/*!***********************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/url/url.js ***!
-  \***********************************************************************************/
-
 /*!************************************************************************************!*\
   !*** ./packages/regl-worldview/node_modules/normalize-wheel/src/normalizeWheel.js ***!
   \************************************************************************************/
 
 /*!************************************************************************************!*\
   !*** ./packages/webviz-core/node_modules/babel-runtime/core-js/symbol/iterator.js ***!
-  \************************************************************************************/
-
-/*!************************************************************************************!*\
-  !*** ./packages/webviz-core/node_modules/scene-viewer-panels/dist/index.modern.js ***!
-  \************************************************************************************/
-
-/*!************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/url/util.js ***!
   \************************************************************************************/
 
 /*!*************************************************************************************!*\
@@ -3916,10 +3930,6 @@ object-assign
   !*** ./packages/webviz-core/node_modules/react-lifecycles-compat/react-lifecycles-compat.es.js ***!
   \*************************************************************************************************/
 
-/*!*************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/querystring-es3/index.js ***!
-  \*************************************************************************************************/
-
 /*!**************************************************************************************************!*\
   !*** ./packages/webviz-core/node_modules/babel-runtime/core-js/object/get-own-property-names.js ***!
   \**************************************************************************************************/
@@ -3934,14 +3944,6 @@ object-assign
 
 /*!**************************************************************************************************!*\
   !*** ./packages/webviz-core/node_modules/sanitize-html/node_modules/entities/maps/entities.json ***!
-  \**************************************************************************************************/
-
-/*!**************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/querystring-es3/decode.js ***!
-  \**************************************************************************************************/
-
-/*!**************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/querystring-es3/encode.js ***!
   \**************************************************************************************************/
 
 /*!***************************************************************************************************!*\
@@ -4514,10 +4516,6 @@ object-assign
 
 /*!****************************************************************************************************************************!*\
   !*** ./packages/webviz-core/node_modules/babel-runtime/node_modules/core-js/library/modules/es6.object.define-property.js ***!
-  \****************************************************************************************************************************/
-
-/*!****************************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/node-libs-browser/node_modules/punycode/punycode.js ***!
   \****************************************************************************************************************************/
 
 /*!*****************************************************************************************************************************!*\

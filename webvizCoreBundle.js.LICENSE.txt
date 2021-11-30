@@ -27,13 +27,6 @@ object-assign
 /*!
  * The buffer module from node.js, for the browser.
  *
- * @author   Feross Aboukhadijeh <http://feross.org>
- * @license  MIT
- */
-
-/*!
- * The buffer module from node.js, for the browser.
- *
  * @author   Feross Aboukhadijeh <https://feross.org>
  * @license  MIT
  */
@@ -129,8 +122,6 @@ and limitations under the License.
 
 /*! ../../../@cruise-automation/tooltip/lib */
 
-/*! ../../../errors */
-
 /*! ../../../shared/delay */
 
 /*! ../../../shared/layout */
@@ -144,6 +135,8 @@ and limitations under the License.
 /*! ../../../shared/url */
 
 /*! ../../actions/panels */
+
+/*! ../../asn1 */
 
 /*! ../../assets/emptyBox.svg */
 
@@ -162,6 +155,8 @@ and limitations under the License.
 /*! ../../components/Menu */
 
 /*! ../../components/TextHighlight */
+
+/*! ../../elliptic */
 
 /*! ../../loadWebviz */
 
@@ -251,8 +246,6 @@ and limitations under the License.
 
 /*! ../../util/topicUtils */
 
-/*! ../2020/IsArray */
-
 /*! ../5/CheckObjectCoercible */
 
 /*! ../5/Type */
@@ -271,7 +264,7 @@ and limitations under the License.
 
 /*! ../Flex */
 
-/*! ../GetIntrinsic.js */
+/*! ../GetIntrinsic */
 
 /*! ../HelpModal */
 
@@ -333,17 +326,15 @@ and limitations under the License.
 
 /*! ../actions/userNodes */
 
+/*! ../asn1 */
+
 /*! ../assets/layout.svg */
 
 /*! ../assets/logo.svg */
 
 /*! ../bag */
 
-/*! ../base/buffer */
-
-/*! ../base/node */
-
-/*! ../base/reporter */
+/*! ../base */
 
 /*! ../common */
 
@@ -363,8 +354,6 @@ and limitations under the License.
 
 /*! ../constants */
 
-/*! ../constants/der */
-
 /*! ../contextTypes */
 
 /*! ../core-js/array/from */
@@ -381,7 +370,7 @@ and limitations under the License.
 
 /*! ../core-js/symbol/iterator */
 
-/*! ../curves */
+/*! ../curve */
 
 /*! ../dataProviders/ParsedMessageCache */
 
@@ -393,7 +382,9 @@ and limitations under the License.
 
 /*! ../dataProviders/standardDataProviderDescriptors */
 
-/*! ../errors */
+/*! ../des */
+
+/*! ../elliptic */
 
 /*! ../filterMap */
 
@@ -405,6 +396,8 @@ and limitations under the License.
 
 /*! ../helpers/assertRecord */
 
+/*! ../helpers/callBound */
+
 /*! ../helpers/getOwnPropertyDescriptor */
 
 /*! ../helpers/isFinite */
@@ -412,8 +405,6 @@ and limitations under the License.
 /*! ../helpers/isNaN */
 
 /*! ../helpers/isPrimitive */
-
-/*! ../helpers/isPropertyDescriptor */
 
 /*! ../helpers/regexTester */
 
@@ -601,51 +592,39 @@ and limitations under the License.
 
 /*! ../utils/common */
 
-/*! ./ */
-
-/*! ./../../../../../../../../../../node_modules/webpack/buildin/global.js */
-
-/*! ./../../../../../../../../../node_modules/process/browser.js */
-
-/*! ./../../../../../../../../../node_modules/webpack/buildin/global.js */
-
-/*! ./../../../../../../../../node_modules/process/browser.js */
-
 /*! ./../../../../../../../../node_modules/webpack/buildin/global.js */
-
-/*! ./../../../../../../../../node_modules/webpack/buildin/harmony-module.js */
-
-/*! ./../../../../../../../node_modules/buffer/index.js */
-
-/*! ./../../../../../../../node_modules/process/browser.js */
-
-/*! ./../../../../../../../node_modules/timers-browserify/main.js */
 
 /*! ./../../../../../../../node_modules/webpack/buildin/global.js */
 
-/*! ./../../../../../../../node_modules/webpack/buildin/harmony-module.js */
-
-/*! ./../../../../../../node_modules/buffer/index.js */
-
-/*! ./../../../../../../node_modules/process/browser.js */
-
-/*! ./../../../../../../node_modules/timers-browserify/main.js */
+/*! ./../../../../../../../node_modules/webpack/node_modules/process/browser.js */
 
 /*! ./../../../../../../node_modules/webpack/buildin/global.js */
 
-/*! ./../../../../../../node_modules/webpack/buildin/module.js */
+/*! ./../../../../../../node_modules/webpack/buildin/harmony-module.js */
 
-/*! ./../../../../../node_modules/process/browser.js */
+/*! ./../../../../../../node_modules/webpack/node_modules/process/browser.js */
 
-/*! ./../../../../../node_modules/webpack/buildin/module.js */
+/*! ./../../../../../node_modules/buffer/index.js */
 
-/*! ./../../../../process/browser.js */
+/*! ./../../../../../node_modules/timers-browserify/main.js */
 
-/*! ./../../../../timers-browserify/main.js */
+/*! ./../../../../../node_modules/webpack/buildin/global.js */
 
-/*! ./../../../../webpack/buildin/global.js */
+/*! ./../../../../../node_modules/webpack/buildin/harmony-module.js */
 
-/*! ./../../../../webpack/buildin/module.js */
+/*! ./../../../../../node_modules/webpack/node_modules/process/browser.js */
+
+/*! ./../../../../node_modules/buffer/index.js */
+
+/*! ./../../../../node_modules/timers-browserify/main.js */
+
+/*! ./../../../../node_modules/webpack/buildin/global.js */
+
+/*! ./../../../../node_modules/webpack/buildin/module.js */
+
+/*! ./../../../../node_modules/webpack/node_modules/process/browser.js */
+
+/*! ./../../../node_modules/webpack/node_modules/process/browser.js */
 
 /*! ./../../../webpack/buildin/global.js */
 
@@ -653,11 +632,13 @@ and limitations under the License.
 
 /*! ./../../node_modules/timers-browserify/main.js */
 
-/*! ./../../process/browser.js */
+/*! ./../../timers-browserify/main.js */
 
 /*! ./../../webpack/buildin/global.js */
 
 /*! ./../../webpack/buildin/module.js */
+
+/*! ./../../webpack/node_modules/process/browser.js */
 
 /*! ./../buffer/index.js */
 
@@ -671,6 +652,8 @@ and limitations under the License.
 
 /*! ./../webpack/buildin/global.js */
 
+/*! ./../webpack/node_modules/process/browser.js */
+
 /*! ./2020.05.06.00:00:03.migrate3DPanel */
 
 /*! ./256 */
@@ -680,8 +663,6 @@ and limitations under the License.
 /*! ./ApiCheckerDataProvider */
 
 /*! ./AppMenu */
-
-/*! ./ArrayCreate */
 
 /*! ./ArrayViews */
 
@@ -710,8 +691,6 @@ and limitations under the License.
 /*! ./Database */
 
 /*! ./DbWriter */
-
-/*! ./DefinePropertyOrThrow */
 
 /*! ./DndContext */
 
@@ -761,8 +740,6 @@ and limitations under the License.
 
 /*! ./IdbCacheReaderDataProvider */
 
-/*! ./IsAccessorDescriptor */
-
 /*! ./IsArray */
 
 /*! ./IsCallable */
@@ -773,7 +750,7 @@ and limitations under the License.
 
 /*! ./IsExtensible */
 
-/*! ./IsIntegralNumber */
+/*! ./IsInteger */
 
 /*! ./IsPropertyKey */
 
@@ -1375,8 +1352,6 @@ and limitations under the License.
 
 /*! ./_wks-ext */
 
-/*! ./abs */
-
 /*! ./adler32 */
 
 /*! ./aes */
@@ -1453,6 +1428,8 @@ and limitations under the License.
 
 /*! ./buttons/defaultToolbarControls */
 
+/*! ./callBind */
+
 /*! ./cbc */
 
 /*! ./certificate */
@@ -1462,8 +1439,6 @@ and limitations under the License.
 /*! ./cfb1 */
 
 /*! ./cfb8 */
-
-/*! ./cipher */
 
 /*! ./cjs/react-dom.production.min.js */
 
@@ -1501,8 +1476,6 @@ and limitations under the License.
 
 /*! ./ctr */
 
-/*! ./curve */
-
 /*! ./curves.json */
 
 /*! ./data/packed/latest.json */
@@ -1515,8 +1488,6 @@ and limitations under the License.
 
 /*! ./decode-entity */
 
-/*! ./decoders */
-
 /*! ./decrypter */
 
 /*! ./default-encoding */
@@ -1524,8 +1495,6 @@ and limitations under the License.
 /*! ./defaults */
 
 /*! ./der */
-
-/*! ./des */
 
 /*! ./des/cbc */
 
@@ -1557,11 +1526,7 @@ and limitations under the License.
 
 /*! ./emptyFunction */
 
-/*! ./encoders */
-
 /*! ./encrypter */
-
-/*! ./end-of-stream */
 
 /*! ./eq */
 
@@ -1574,8 +1539,6 @@ and limitations under the License.
 /*! ./fields */
 
 /*! ./fixProc */
-
-/*! ./floor */
 
 /*! ./freeze */
 
@@ -1669,15 +1632,7 @@ and limitations under the License.
 
 /*! ./internal/streams/BufferList */
 
-/*! ./internal/streams/async_iterator */
-
-/*! ./internal/streams/buffer_list */
-
 /*! ./internal/streams/destroy */
-
-/*! ./internal/streams/from */
-
-/*! ./internal/streams/state */
 
 /*! ./internal/streams/stream */
 
@@ -1752,10 +1707,6 @@ and limitations under the License.
 /*! ./lib/generatePrime */
 
 /*! ./lib/heap */
-
-/*! ./lib/internal/streams/end-of-stream.js */
-
-/*! ./lib/internal/streams/pipeline.js */
 
 /*! ./lib/memoize */
 
@@ -1934,8 +1885,6 @@ and limitations under the License.
 /*! ./tests */
 
 /*! ./time */
-
-/*! ./to-buffer */
 
 /*! ./toFinite */
 
@@ -2165,6 +2114,10 @@ and limitations under the License.
 
 /*! @sentry/utils */
 
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react-dom/index.js (<- Module is not an ECMAScript module) */
+
+/*! ModuleConcatenation bailout: Cannot concat with ./node_modules/react/index.js (<- Module is not an ECMAScript module) */
+
 /*! ModuleConcatenation bailout: Cannot concat with ./packages/@cruise-automation/tooltip/node_modules/babel-runtime/core-js/object/get-prototype-of.js (<- Module is not an ECMAScript module) */
 
 /*! ModuleConcatenation bailout: Cannot concat with ./packages/@cruise-automation/tooltip/node_modules/babel-runtime/helpers/classCallCheck.js (<- Module is not an ECMAScript module) */
@@ -2267,15 +2220,11 @@ and limitations under the License.
 
 /*! ModuleConcatenation bailout: Cannot concat with ./packages/webviz-core/node_modules/redux/es/redux.js (<- Module is referenced from these modules with unsupported syntax: ./packages/webviz-core/src/components/Panel.js (referenced with cjs require), ./packages/webviz-core/src/components/PanelLayout.js (referenced with cjs require), ./packages/webviz-core/src/components/PanelToolbar/MosaicDragHandle.js (referenced with cjs require), ./packages/webviz-core/src/components/PanelToolbar/index.js (referenced with cjs require), ./packages/webviz-core/src/hooks/useGlobalVariables.js (referenced with cjs require), ./packages/webviz-core/src/panels/ThreeDimensionalViz/Interactions/useLinkedGlobalVariables.js (referenced with cjs require), ./packages/webviz-core/src/store/configureStore.js (referenced with cjs require)) */
 
-/*! ModuleConcatenation bailout: Cannot concat with ./packages/webviz-core/node_modules/tiny-invariant/dist/tiny-invariant.esm.js because of ./packages/webviz-core/node_modules/history/esm/history.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./packages/webviz-core/node_modules/tiny-invariant/dist/tiny-invariant.esm.js because of ./packages/webviz-core/node_modules/react-router-dom/esm/react-router-dom.js */
 
 /*! ModuleConcatenation bailout: Cannot concat with ./packages/webviz-core/node_modules/tiny-invariant/dist/tiny-invariant.esm.js because of ./packages/webviz-core/node_modules/react-router/esm/react-router.js */
 
 /*! ModuleConcatenation bailout: Cannot concat with ./packages/webviz-core/node_modules/tslib/tslib.es6.js because of ./packages/webviz-core/node_modules/@sentry/hub/esm/hub.js */
-
-/*! ModuleConcatenation bailout: Cannot concat with /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/react-dom/index.js (<- Module is not an ECMAScript module) */
-
-/*! ModuleConcatenation bailout: Cannot concat with /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/react/index.js (<- Module is not an ECMAScript module) */
 
 /*! ModuleConcatenation bailout: Module is not an ECMAScript module */
 
@@ -2402,10 +2351,6 @@ and limitations under the License.
 
 /*! buffer-xor */
 
-/*! call-bind */
-
-/*! call-bind/callBound */
-
 /*! cbor-js */
 
 /*! character-entities-legacy */
@@ -2462,29 +2407,33 @@ and limitations under the License.
 
 /*! elliptic */
 
-/*! es-abstract/2021/ArraySpeciesCreate */
+/*! es-abstract/2019/ArraySpeciesCreate */
 
-/*! es-abstract/2021/Call */
+/*! es-abstract/2019/Call */
 
-/*! es-abstract/2021/CreateDataPropertyOrThrow */
+/*! es-abstract/2019/CreateDataPropertyOrThrow */
 
-/*! es-abstract/2021/Get */
+/*! es-abstract/2019/Get */
 
-/*! es-abstract/2021/HasProperty */
+/*! es-abstract/2019/HasProperty */
 
-/*! es-abstract/2021/IsCallable */
+/*! es-abstract/2019/IsCallable */
 
-/*! es-abstract/2021/PromiseResolve */
+/*! es-abstract/2019/PromiseResolve */
 
-/*! es-abstract/2021/RequireObjectCoercible */
+/*! es-abstract/2019/RequireObjectCoercible */
 
-/*! es-abstract/2021/ToObject */
+/*! es-abstract/2019/ToObject */
 
-/*! es-abstract/2021/ToString */
+/*! es-abstract/2019/ToString */
 
-/*! es-abstract/2021/ToUint32 */
+/*! es-abstract/2019/ToUint32 */
 
-/*! es-abstract/2021/Type */
+/*! es-abstract/2019/Type */
+
+/*! es-abstract/GetIntrinsic */
+
+/*! es-abstract/helpers/callBound */
 
 /*! es-array-method-boxes-properly */
 
@@ -2666,8 +2615,6 @@ and limitations under the License.
 
 /*! fuzzysort */
 
-/*! get-intrinsic */
-
 /*! gud */
 
 /*! has */
@@ -2675,8 +2622,6 @@ and limitations under the License.
 /*! has-symbols */
 
 /*! has-symbols/shams */
-
-/*! has-tostringtag/shams */
 
 /*! hash-base */
 
@@ -2904,8 +2849,6 @@ and limitations under the License.
 
 /*! react-router-dom */
 
-/*! readable-stream */
-
 /*! readable-stream/duplex.js */
 
 /*! readable-stream/passthrough.js */
@@ -2935,10 +2878,6 @@ and limitations under the License.
 /*! roslib/build/roslib */
 
 /*! safe-buffer */
-
-/*! safe-buffer. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
-
-/*! safer-buffer */
 
 /*! scheduler */
 
@@ -3009,6 +2948,8 @@ and limitations under the License.
 /*! vfile-location */
 
 /*! vfile-message */
+
+/*! vm */
 
 /*! wasm-lz4 */
 
@@ -3094,12 +3035,68 @@ and limitations under the License.
   !*** ./node_modules/heap/index.js ***!
   \************************************/
 
+/*!************************************!*\
+  !*** ./node_modules/sha.js/sha.js ***!
+  \************************************/
+
 /*!*************************************!*\
   !*** ./node_modules/int53/index.js ***!
   \*************************************/
 
+/*!*************************************!*\
+  !*** ./node_modules/react/index.js ***!
+  \*************************************/
+
+/*!*************************************!*\
+  !*** ./node_modules/sha.js/hash.js ***!
+  \*************************************/
+
+/*!*************************************!*\
+  !*** ./node_modules/sha.js/sha1.js ***!
+  \*************************************/
+
+/*!**************************************!*\
+  !*** ./node_modules/bn.js/lib/bn.js ***!
+  \**************************************/
+
+/*!**************************************!*\
+  !*** ./node_modules/buffer/index.js ***!
+  \**************************************/
+
+/*!**************************************!*\
+  !*** ./node_modules/is-map/index.js ***!
+  \**************************************/
+
+/*!**************************************!*\
+  !*** ./node_modules/is-set/index.js ***!
+  \**************************************/
+
+/*!**************************************!*\
+  !*** ./node_modules/md5.js/index.js ***!
+  \**************************************/
+
+/*!**************************************!*\
+  !*** ./node_modules/sha.js/index.js ***!
+  \**************************************/
+
 /*!***************************************!*\
   !*** (webpack)/buildin/amd-define.js ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./node_modules/assert/assert.js ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./node_modules/brorand/index.js ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./node_modules/events/events.js ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./node_modules/has/src/index.js ***!
   \***************************************/
 
 /*!***************************************!*\
@@ -3115,11 +3112,35 @@ and limitations under the License.
   \***************************************/
 
 /*!***************************************!*\
+  !*** ./node_modules/sha.js/sha224.js ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./node_modules/sha.js/sha256.js ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./node_modules/sha.js/sha384.js ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./node_modules/sha.js/sha512.js ***!
+  \***************************************/
+
+/*!***************************************!*\
   !*** ./src/parseMessageDefinition.js ***!
   \***************************************/
 
 /*!****************************************!*\
   !*** (webpack)/buildin/amd-options.js ***!
+  \****************************************/
+
+/*!****************************************!*\
+  !*** ./node_modules/des.js/lib/des.js ***!
+  \****************************************/
+
+/*!****************************************!*\
+  !*** ./node_modules/pbkdf2/browser.js ***!
   \****************************************/
 
 /*!****************************************!*\
@@ -3131,8 +3152,56 @@ and limitations under the License.
   \*****************************************/
 
 /*!*****************************************!*\
+  !*** ./node_modules/create-hash/md5.js ***!
+  \*****************************************/
+
+/*!*****************************************!*\
+  !*** ./node_modules/hash-base/index.js ***!
+  \*****************************************/
+
+/*!*****************************************!*\
+  !*** ./node_modules/is-string/index.js ***!
+  \*****************************************/
+
+/*!*****************************************!*\
+  !*** ./node_modules/is-symbol/index.js ***!
+  \*****************************************/
+
+/*!*****************************************!*\
+  !*** ./node_modules/parse-asn1/asn1.js ***!
+  \*****************************************/
+
+/*!*****************************************!*\
   !*** ./node_modules/process/browser.js ***!
   \*****************************************/
+
+/*!*****************************************!*\
+  !*** ./node_modules/react-dom/index.js ***!
+  \*****************************************/
+
+/*!*****************************************!*\
+  !*** ./node_modules/ripemd160/index.js ***!
+  \*****************************************/
+
+/*!******************************************!*\
+  !*** ./node_modules/asn1.js/lib/asn1.js ***!
+  \******************************************/
+
+/*!******************************************!*\
+  !*** ./node_modules/buffer-xor/index.js ***!
+  \******************************************/
+
+/*!******************************************!*\
+  !*** ./node_modules/hash.js/lib/hash.js ***!
+  \******************************************/
+
+/*!******************************************!*\
+  !*** ./node_modules/parse-asn1/index.js ***!
+  \******************************************/
+
+/*!******************************************!*\
+  !*** ./node_modules/pbkdf2/lib/async.js ***!
+  \******************************************/
 
 /*!******************************************!*\
   !*** ./node_modules/prop-types/index.js ***!
@@ -3147,6 +3216,30 @@ and limitations under the License.
   \*******************************************/
 
 /*!*******************************************!*\
+  !*** (webpack)/node_modules/util/util.js ***!
+  \*******************************************/
+
+/*!*******************************************!*\
+  !*** ./node_modules/cipher-base/index.js ***!
+  \*******************************************/
+
+/*!*******************************************!*\
+  !*** ./node_modules/has-symbols/index.js ***!
+  \*******************************************/
+
+/*!*******************************************!*\
+  !*** ./node_modules/has-symbols/shams.js ***!
+  \*******************************************/
+
+/*!*******************************************!*\
+  !*** ./node_modules/object-keys/index.js ***!
+  \*******************************************/
+
+/*!*******************************************!*\
+  !*** ./node_modules/safe-buffer/index.js ***!
+  \*******************************************/
+
+/*!*******************************************!*\
   !*** ./node_modules/stylis/stylis.min.js ***!
   \*******************************************/
 
@@ -3155,12 +3248,136 @@ and limitations under the License.
   \*******************************************/
 
 /*!********************************************!*\
+  !*** ./node_modules/browserify-aes/aes.js ***!
+  \********************************************/
+
+/*!********************************************!*\
+  !*** ./node_modules/create-hmac/legacy.js ***!
+  \********************************************/
+
+/*!********************************************!*\
+  !*** ./node_modules/des.js/lib/des/cbc.js ***!
+  \********************************************/
+
+/*!********************************************!*\
+  !*** ./node_modules/des.js/lib/des/des.js ***!
+  \********************************************/
+
+/*!********************************************!*\
+  !*** ./node_modules/des.js/lib/des/ede.js ***!
+  \********************************************/
+
+/*!********************************************!*\
+  !*** ./node_modules/elliptic/package.json ***!
+  \********************************************/
+
+/*!********************************************!*\
+  !*** ./node_modules/is-arguments/index.js ***!
+  \********************************************/
+
+/*!********************************************!*\
+  !*** ./node_modules/parse-asn1/aesid.json ***!
+  \********************************************/
+
+/*!********************************************!*\
+  !*** ./node_modules/parse-asn1/fixProc.js ***!
+  \********************************************/
+
+/*!********************************************!*\
+  !*** ./node_modules/public-encrypt/mgf.js ***!
+  \********************************************/
+
+/*!********************************************!*\
+  !*** ./node_modules/public-encrypt/xor.js ***!
+  \********************************************/
+
+/*!********************************************!*\
+  !*** ./node_modules/randomfill/browser.js ***!
+  \********************************************/
+
+/*!********************************************!*\
   !*** ./packages/webviz-core/shared/url.js ***!
   \********************************************/
 
 /*!*********************************************!*\
+  !*** ./node_modules/create-ecdh/browser.js ***!
+  \*********************************************/
+
+/*!*********************************************!*\
+  !*** ./node_modules/create-hash/browser.js ***!
+  \*********************************************/
+
+/*!*********************************************!*\
+  !*** ./node_modules/create-hmac/browser.js ***!
+  \*********************************************/
+
+/*!*********************************************!*\
+  !*** ./node_modules/function-bind/index.js ***!
+  \*********************************************/
+
+/*!*********************************************!*\
+  !*** ./node_modules/iterate-value/index.js ***!
+  \*********************************************/
+
+/*!*********************************************!*\
+  !*** ./node_modules/miller-rabin/lib/mr.js ***!
+  \*********************************************/
+
+/*!*********************************************!*\
+  !*** ./node_modules/object-assign/index.js ***!
+  \*********************************************/
+
+/*!*********************************************!*\
+  !*** ./node_modules/pako/lib/zlib/crc32.js ***!
+  \*********************************************/
+
+/*!*********************************************!*\
+  !*** ./node_modules/pako/lib/zlib/trees.js ***!
+  \*********************************************/
+
+/*!*********************************************!*\
+  !*** ./node_modules/randombytes/browser.js ***!
+  \*********************************************/
+
+/*!*********************************************!*\
   !*** ./node_modules/seedrandom/lib/alea.js ***!
   \*********************************************/
+
+/*!**********************************************!*\
+  !*** ./node_modules/asn1.js/lib/asn1/api.js ***!
+  \**********************************************/
+
+/*!**********************************************!*\
+  !*** ./node_modules/browserify-aes/ghash.js ***!
+  \**********************************************/
+
+/*!**********************************************!*\
+  !*** ./node_modules/browserify-des/index.js ***!
+  \**********************************************/
+
+/*!**********************************************!*\
+  !*** ./node_modules/browserify-des/modes.js ***!
+  \**********************************************/
+
+/*!**********************************************!*\
+  !*** ./node_modules/browserify-rsa/index.js ***!
+  \**********************************************/
+
+/*!**********************************************!*\
+  !*** ./node_modules/des.js/lib/des/utils.js ***!
+  \**********************************************/
+
+/*!**********************************************!*\
+  !*** ./node_modules/evp_bytestokey/index.js ***!
+  \**********************************************/
+
+/*!**********************************************!*\
+  !*** ./node_modules/hash.js/lib/hash/sha.js ***!
+  \**********************************************/
+
+/*!**********************************************!*\
+  !*** ./node_modules/is-date-object/index.js ***!
+  \**********************************************/
 
 /*!**********************************************!*\
   !*** ./packages/webviz-core/shared/delay.js ***!
@@ -3173,6 +3390,62 @@ and limitations under the License.
 /*!**********************************************!*\
   !*** ./packages/webviz-core/src/util/dev.js ***!
   \**********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/browserify-aes/incr32.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/browserify-sign/algos.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/core-util-is/lib/util.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/des.js/lib/des/cipher.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/diffie-hellman/lib/dh.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/elliptic/lib/elliptic.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/es-get-iterator/index.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/hash.js/lib/hash/hmac.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/pako/lib/utils/common.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/pako/lib/zlib/adler32.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/pako/lib/zlib/deflate.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/pako/lib/zlib/inffast.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/pako/lib/zlib/inflate.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/pako/lib/zlib/zstream.js ***!
+  \***********************************************/
 
 /*!***********************************************!*\
   !*** ./node_modules/seedrandom/lib/tychei.js ***!
@@ -3215,11 +3488,51 @@ and limitations under the License.
   \***********************************************/
 
 /*!************************************************!*\
+  !*** ./node_modules/browserify-aes/browser.js ***!
+  \************************************************/
+
+/*!************************************************!*\
+  !*** ./node_modules/diffie-hellman/browser.js ***!
+  \************************************************/
+
+/*!************************************************!*\
+  !*** ./node_modules/hash.js/lib/hash/sha/1.js ***!
+  \************************************************/
+
+/*!************************************************!*\
+  !*** ./node_modules/hash.js/lib/hash/utils.js ***!
+  \************************************************/
+
+/*!************************************************!*\
+  !*** ./node_modules/iterate-iterator/index.js ***!
+  \************************************************/
+
+/*!************************************************!*\
+  !*** ./node_modules/pako/lib/zlib/inftrees.js ***!
+  \************************************************/
+
+/*!************************************************!*\
+  !*** ./node_modules/pako/lib/zlib/messages.js ***!
+  \************************************************/
+
+/*!************************************************!*\
+  !*** ./node_modules/parse-asn1/certificate.js ***!
+  \************************************************/
+
+/*!************************************************!*\
+  !*** ./node_modules/public-encrypt/browser.js ***!
+  \************************************************/
+
+/*!************************************************!*\
   !*** ./node_modules/seedrandom/lib/xor4096.js ***!
   \************************************************/
 
 /*!************************************************!*\
   !*** ./node_modules/timers-browserify/main.js ***!
+  \************************************************/
+
+/*!************************************************!*\
+  !*** ./node_modules/util-deprecate/browser.js ***!
   \************************************************/
 
 /*!************************************************!*\
@@ -3235,7 +3548,55 @@ and limitations under the License.
   \************************************************/
 
 /*!*************************************************!*\
+  !*** (webpack)/node_modules/process/browser.js ***!
+  \*************************************************/
+
+/*!*************************************************!*\
+  !*** ./node_modules/crypto-browserify/index.js ***!
+  \*************************************************/
+
+/*!*************************************************!*\
   !*** ./node_modules/css-loader/lib/css-base.js ***!
+  \*************************************************/
+
+/*!*************************************************!*\
+  !*** ./node_modules/define-properties/index.js ***!
+  \*************************************************/
+
+/*!*************************************************!*\
+  !*** ./node_modules/hash.js/lib/hash/common.js ***!
+  \*************************************************/
+
+/*!*************************************************!*\
+  !*** ./node_modules/hash.js/lib/hash/ripemd.js ***!
+  \*************************************************/
+
+/*!*************************************************!*\
+  !*** ./node_modules/hmac-drbg/lib/hmac-drbg.js ***!
+  \*************************************************/
+
+/*!*************************************************!*\
+  !*** ./node_modules/object-keys/isArguments.js ***!
+  \*************************************************/
+
+/*!*************************************************!*\
+  !*** ./node_modules/pako/lib/zlib/constants.js ***!
+  \*************************************************/
+
+/*!*************************************************!*\
+  !*** ./node_modules/pbkdf2/lib/precondition.js ***!
+  \*************************************************/
+
+/*!*************************************************!*\
+  !*** ./node_modules/pbkdf2/lib/sync-browser.js ***!
+  \*************************************************/
+
+/*!*************************************************!*\
+  !*** ./node_modules/promise.allsettled/shim.js ***!
+  \*************************************************/
+
+/*!*************************************************!*\
+  !*** ./node_modules/stream-browserify/index.js ***!
   \*************************************************/
 
 /*!*************************************************!*\
@@ -3257,6 +3618,58 @@ and limitations under the License.
 /*!*************************************************!*\
   !*** ./packages/webviz-core/src/util/ranges.js ***!
   \*************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/array.prototype.map/shim.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/browserify-aes/decrypter.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/browserify-aes/encrypter.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/browserify-aes/modes/cbc.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/browserify-aes/modes/cfb.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/browserify-aes/modes/ctr.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/browserify-aes/modes/ecb.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/browserify-aes/modes/ofb.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/hash.js/lib/hash/sha/224.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/hash.js/lib/hash/sha/256.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/hash.js/lib/hash/sha/384.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/hash.js/lib/hash/sha/512.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
+  !*** ./node_modules/promise.allsettled/index.js ***!
+  \**************************************************/
 
 /*!**************************************************!*\
   !*** ./node_modules/seedrandom/lib/xorshift7.js ***!
@@ -3283,7 +3696,47 @@ and limitations under the License.
   \**************************************************/
 
 /*!***************************************************!*\
+  !*** ./node_modules/array.prototype.map/index.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/browserify-aes/authCipher.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/browserify-aes/modes/cfb1.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/browserify-aes/modes/cfb8.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/browserify-cipher/browser.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/browserify-zlib/lib/index.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
   !*** ./node_modules/css-loader/lib/url/escape.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/inherits/inherits_browser.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/minimalistic-assert/index.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/public-encrypt/withPublic.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/readable-stream/transform.js ***!
   \***************************************************/
 
 /*!***************************************************!*\
@@ -3301,6 +3754,18 @@ and limitations under the License.
 /*!***************************************************!*\
   !*** ./packages/webviz-core/src/util/logEvent.js ***!
   \***************************************************/
+
+/*!****************************************************!*\
+  !*** ./node_modules/asn1.js/lib/asn1/base/node.js ***!
+  \****************************************************/
+
+/*!****************************************************!*\
+  !*** ./node_modules/browserify-aes/modes/index.js ***!
+  \****************************************************/
+
+/*!****************************************************!*\
+  !*** ./node_modules/process-nextick-args/index.js ***!
+  \****************************************************/
 
 /*!****************************************************!*\
   !*** ./node_modules/style-loader/lib/addStyles.js ***!
@@ -3355,6 +3820,50 @@ and limitations under the License.
   \****************************************************/
 
 /*!*****************************************************!*\
+  !*** (webpack)/node_modules/vm-browserify/index.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/asn1.js/lib/asn1/base/index.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/browserify-aes/modes/list.json ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/browserify-aes/streamCipher.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/browserify-zlib/lib/binding.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/diffie-hellman/lib/primes.json ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/elliptic/lib/elliptic/utils.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/hash.js/lib/hash/sha/common.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/pbkdf2/lib/default-encoding.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/promise.allsettled/polyfill.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/readable-stream/passthrough.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
   !*** ./packages/webviz-core/src/components/Flex.js ***!
   \*****************************************************/
 
@@ -3395,6 +3904,34 @@ and limitations under the License.
   \*****************************************************/
 
 /*!******************************************************!*\
+  !*** ./node_modules/array.prototype.map/polyfill.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
+  !*** ./node_modules/asn1.js/lib/asn1/base/buffer.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
+  !*** ./node_modules/browserify-sign/browser/sign.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
+  !*** ./node_modules/elliptic/lib/elliptic/curves.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
+  !*** ./node_modules/elliptic/lib/elliptic/ec/key.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
+  !*** ./node_modules/function-bind/implementation.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
+  !*** ./node_modules/public-encrypt/publicEncrypt.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
   !*** ./packages/webviz-core/node_modules/uuid/v1.js ***!
   \******************************************************/
 
@@ -3421,6 +3958,34 @@ and limitations under the License.
 /*!******************************************************!*\
   !*** ./packages/webviz-core/src/util/naturalSort.js ***!
   \******************************************************/
+
+/*!*******************************************************!*\
+  !*** (webpack)/node_modules/path-browserify/index.js ***!
+  \*******************************************************/
+
+/*!*******************************************************!*\
+  !*** ./node_modules/asn1.js/lib/asn1/decoders/der.js ***!
+  \*******************************************************/
+
+/*!*******************************************************!*\
+  !*** ./node_modules/asn1.js/lib/asn1/decoders/pem.js ***!
+  \*******************************************************/
+
+/*!*******************************************************!*\
+  !*** ./node_modules/asn1.js/lib/asn1/encoders/der.js ***!
+  \*******************************************************/
+
+/*!*******************************************************!*\
+  !*** ./node_modules/asn1.js/lib/asn1/encoders/pem.js ***!
+  \*******************************************************/
+
+/*!*******************************************************!*\
+  !*** ./node_modules/browserify-sign/browser/index.js ***!
+  \*******************************************************/
+
+/*!*******************************************************!*\
+  !*** ./node_modules/public-encrypt/privateDecrypt.js ***!
+  \*******************************************************/
 
 /*!*******************************************************!*\
   !*** ./packages/webviz-core/shared/promiseTimeout.js ***!
@@ -3453,6 +4018,30 @@ and limitations under the License.
 /*!*******************************************************!*\
   !*** ./packages/webviz-core/src/util/stateHistory.js ***!
   \*******************************************************/
+
+/*!********************************************************!*\
+  !*** ./node_modules/asn1.js/lib/asn1/base/reporter.js ***!
+  \********************************************************/
+
+/*!********************************************************!*\
+  !*** ./node_modules/asn1.js/lib/asn1/constants/der.js ***!
+  \********************************************************/
+
+/*!********************************************************!*\
+  !*** ./node_modules/browserify-sign/browser/verify.js ***!
+  \********************************************************/
+
+/*!********************************************************!*\
+  !*** ./node_modules/elliptic/lib/elliptic/ec/index.js ***!
+  \********************************************************/
+
+/*!********************************************************!*\
+  !*** ./node_modules/react/cjs/react.production.min.js ***!
+  \********************************************************/
+
+/*!********************************************************!*\
+  !*** ./node_modules/readable-stream/duplex-browser.js ***!
+  \********************************************************/
 
 /*!********************************************************!*\
   !*** ./packages/webviz-core/node_modules/lodash/eq.js ***!
@@ -3489,6 +4078,18 @@ and limitations under the License.
 /*!********************************************************!*\
   !*** ./packages/webviz-core/src/test/MemoryStorage.js ***!
   \********************************************************/
+
+/*!*********************************************************!*\
+  !*** ./node_modules/asn1.js/lib/asn1/decoders/index.js ***!
+  \*********************************************************/
+
+/*!*********************************************************!*\
+  !*** ./node_modules/asn1.js/lib/asn1/encoders/index.js ***!
+  \*********************************************************/
+
+/*!*********************************************************!*\
+  !*** ./node_modules/elliptic/lib/elliptic/eddsa/key.js ***!
+  \*********************************************************/
 
 /*!*********************************************************!*\
   !*** ./packages/@cruise-automation/button/lib/index.js ***!
@@ -3543,7 +4144,35 @@ and limitations under the License.
   \*********************************************************/
 
 /*!**********************************************************!*\
+  !*** ./node_modules/asn1.js/lib/asn1/constants/index.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/browserify-sign/browser/curves.json ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/diffie-hellman/lib/generatePrime.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/elliptic/lib/elliptic/curve/base.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/elliptic/lib/elliptic/curve/mont.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
   !*** ./node_modules/memoize-one/dist/memoize-one.esm.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/readable-stream/readable-browser.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/readable-stream/writable-browser.js ***!
   \**********************************************************/
 
 /*!**********************************************************!*\
@@ -3627,6 +4256,30 @@ and limitations under the License.
   \**********************************************************/
 
 /*!***********************************************************!*\
+  !*** ./node_modules/elliptic/lib/elliptic/curve/index.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/elliptic/lib/elliptic/curve/short.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/elliptic/lib/elliptic/eddsa/index.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/promise.allsettled/implementation.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/promise.allsettled/requirePromise.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/string_decoder/lib/string_decoder.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
   !*** ./packages/webviz-core/node_modules/buffer/index.js ***!
   \***********************************************************/
 
@@ -3705,6 +4358,18 @@ and limitations under the License.
 /*!***********************************************************!*\
   !*** ./packages/webviz-core/src/util/sendNotification.js ***!
   \***********************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/array.prototype.map/implementation.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/elliptic/lib/elliptic/ec/signature.js ***!
+  \************************************************************/
+
+/*!************************************************************!*\
+  !*** ./node_modules/readable-stream/lib/_stream_duplex.js ***!
+  \************************************************************/
 
 /*!************************************************************!*\
   !*** ./packages/webviz-core/migrations/constants/index.js ***!
@@ -3807,6 +4472,14 @@ and limitations under the License.
   \************************************************************/
 
 /*!*************************************************************!*\
+  !*** ./node_modules/elliptic/lib/elliptic/curve/edwards.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
+  !*** ./node_modules/minimalistic-crypto-utils/lib/utils.js ***!
+  \*************************************************************/
+
+/*!*************************************************************!*\
   !*** ./node_modules/prop-types/factoryWithThrowingShims.js ***!
   \*************************************************************/
 
@@ -3903,7 +4576,31 @@ and limitations under the License.
   \*************************************************************/
 
 /*!**************************************************************!*\
+  !*** (webpack)/node_modules/node-libs-browser/mock/empty.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** (webpack)/node_modules/util/support/isBufferBrowser.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/browserify-sign/browser/algorithms.json ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/es-array-method-boxes-properly/index.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
   !*** ./node_modules/react-is/cjs/react-is.production.min.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/readable-stream/lib/_stream_readable.js ***!
+  \**************************************************************/
+
+/*!**************************************************************!*\
+  !*** ./node_modules/readable-stream/lib/_stream_writable.js ***!
   \**************************************************************/
 
 /*!**************************************************************!*\
@@ -4067,6 +4764,14 @@ and limitations under the License.
   \**************************************************************/
 
 /*!***************************************************************!*\
+  !*** ./node_modules/elliptic/lib/elliptic/eddsa/signature.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/readable-stream/lib/_stream_transform.js ***!
+  \***************************************************************/
+
+/*!***************************************************************!*\
   !*** ./packages/webviz-core/node_modules/classnames/index.js ***!
   \***************************************************************/
 
@@ -4215,6 +4920,14 @@ and limitations under the License.
   \***************************************************************/
 
 /*!****************************************************************!*\
+  !*** ./node_modules/react-dom/cjs/react-dom.production.min.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
+  !*** ./node_modules/react-dom/node_modules/scheduler/index.js ***!
+  \****************************************************************/
+
+/*!****************************************************************!*\
   !*** ./packages/webviz-core/node_modules/@mdi/svg/svg/cog.svg ***!
   \****************************************************************/
 
@@ -4341,6 +5054,10 @@ and limitations under the License.
 /*!****************************************************************!*\
   !*** ./packages/webviz-core/src/players/RandomAccessPlayer.js ***!
   \****************************************************************/
+
+/*!*****************************************************************!*\
+  !*** ./node_modules/readable-stream/lib/_stream_passthrough.js ***!
+  \*****************************************************************/
 
 /*!*****************************************************************!*\
   !*** ./packages/webviz-core/node_modules/@mdi/svg/svg/bell.svg ***!
@@ -4835,6 +5552,10 @@ and limitations under the License.
   \*******************************************************************/
 
 /*!********************************************************************!*\
+  !*** ./node_modules/es-get-iterator/node_modules/isarray/index.js ***!
+  \********************************************************************/
+
+/*!********************************************************************!*\
   !*** ./packages/webviz-core/node_modules/@mdi/svg/svg/account.svg ***!
   \********************************************************************/
 
@@ -4943,6 +5664,10 @@ and limitations under the License.
   \********************************************************************/
 
 /*!*********************************************************************!*\
+  !*** ./node_modules/elliptic/lib/elliptic/precomputed/secp256k1.js ***!
+  \*********************************************************************/
+
+/*!*********************************************************************!*\
   !*** ./node_modules/node-libs-browser/node_modules/buffer/index.js ***!
   \*********************************************************************/
 
@@ -5037,6 +5762,14 @@ and limitations under the License.
 /*!*********************************************************************!*\
   !*** ./packages/webviz-core/src/panels/PanelList/index.module.scss ***!
   \*********************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./node_modules/es-get-iterator/node_modules/is-string/index.js ***!
+  \**********************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./node_modules/readable-stream/lib/internal/streams/destroy.js ***!
+  \**********************************************************************/
 
 /*!**********************************************************************!*\
   !*** ./packages/webviz-core/node_modules/@mdi/svg/svg/code-json.svg ***!
@@ -5207,6 +5940,14 @@ and limitations under the License.
   \***********************************************************************/
 
 /*!************************************************************************!*\
+  !*** ./node_modules/es-get-iterator/node_modules/has-symbols/index.js ***!
+  \************************************************************************/
+
+/*!************************************************************************!*\
+  !*** ./node_modules/es-get-iterator/node_modules/has-symbols/shams.js ***!
+  \************************************************************************/
+
+/*!************************************************************************!*\
   !*** ./packages/webviz-core/node_modules/@mdi/svg/svg/image-frame.svg ***!
   \************************************************************************/
 
@@ -5253,6 +5994,14 @@ and limitations under the License.
 /*!************************************************************************!*\
   !*** ./packages/webviz-core/src/styles/assets/latin-roboto-mono.woff2 ***!
   \************************************************************************/
+
+/*!*************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/is-regex/index.js ***!
+  \*************************************************************************/
+
+/*!*************************************************************************!*\
+  !*** ./node_modules/readable-stream/lib/internal/streams/BufferList.js ***!
+  \*************************************************************************/
 
 /*!*************************************************************************!*\
   !*** ./packages/webviz-core/node_modules/@mdi/svg/svg/check-circle.svg ***!
@@ -5347,6 +6096,14 @@ and limitations under the License.
   \**************************************************************************/
 
 /*!***************************************************************************!*\
+  !*** ./node_modules/promise.allsettled/node_modules/has-symbols/index.js ***!
+  \***************************************************************************/
+
+/*!***************************************************************************!*\
+  !*** ./node_modules/promise.allsettled/node_modules/has-symbols/shams.js ***!
+  \***************************************************************************/
+
+/*!***************************************************************************!*\
   !*** ./packages/webviz-core/migrations/frozenHelpers/incrementVersion.js ***!
   \***************************************************************************/
 
@@ -5383,6 +6140,22 @@ and limitations under the License.
   \***************************************************************************/
 
 /*!****************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/has-symbols/index.js ***!
+  \****************************************************************************/
+
+/*!****************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/has-symbols/shams.js ***!
+  \****************************************************************************/
+
+/*!****************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/is-callable/index.js ***!
+  \****************************************************************************/
+
+/*!****************************************************************************!*\
+  !*** ./node_modules/promise.allsettled/node_modules/es-abstract/5/Type.js ***!
+  \****************************************************************************/
+
+/*!****************************************************************************!*\
   !*** ./packages/webviz-core/node_modules/@mdi/svg/svg/radiobox-marked.svg ***!
   \****************************************************************************/
 
@@ -5417,6 +6190,14 @@ and limitations under the License.
 /*!****************************************************************************!*\
   !*** ./packages/webviz-core/src/util/binaryObjects/binaryMessageWriter.js ***!
   \****************************************************************************/
+
+/*!*****************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/5/Type.js ***!
+  \*****************************************************************************/
+
+/*!*****************************************************************************!*\
+  !*** ./node_modules/readable-stream/lib/internal/streams/stream-browser.js ***!
+  \*****************************************************************************/
 
 /*!*****************************************************************************!*\
   !*** ./packages/@cruise-automation/button/node_modules/classnames/index.js ***!
@@ -5567,6 +6348,22 @@ and limitations under the License.
   \******************************************************************************/
 
 /*!*******************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/2019/Get.js ***!
+  \*******************************************************************************/
+
+/*!*******************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/object-inspect/index.js ***!
+  \*******************************************************************************/
+
+/*!*******************************************************************************!*\
+  !*** ./node_modules/es-get-iterator/node_modules/es-abstract/GetIntrinsic.js ***!
+  \*******************************************************************************/
+
+/*!*******************************************************************************!*\
+  !*** ./node_modules/promise.allsettled/node_modules/es-abstract/2019/Type.js ***!
+  \*******************************************************************************/
+
+/*!*******************************************************************************!*\
   !*** ./packages/webviz-core/node_modules/memoize-one/dist/memoize-one.esm.js ***!
   \*******************************************************************************/
 
@@ -5635,6 +6432,14 @@ and limitations under the License.
   \*******************************************************************************/
 
 /*!********************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/2019/Call.js ***!
+  \********************************************************************************/
+
+/*!********************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/2019/Type.js ***!
+  \********************************************************************************/
+
+/*!********************************************************************************!*\
   !*** ./packages/webviz-core/node_modules/@mdi/svg/svg/help-circle-outline.svg ***!
   \********************************************************************************/
 
@@ -5691,6 +6496,10 @@ and limitations under the License.
   \********************************************************************************/
 
 /*!*********************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-to-primitive/es2015.js ***!
+  \*********************************************************************************/
+
+/*!*********************************************************************************!*\
   !*** ./packages/webviz-core/node_modules/@babel/runtime/helpers/esm/extends.js ***!
   \*********************************************************************************/
 
@@ -5725,6 +6534,10 @@ and limitations under the License.
 /*!*********************************************************************************!*\
   !*** ./packages/webviz-core/src/dataProviders/rawMessageDefinitionsToParsed.js ***!
   \*********************************************************************************/
+
+/*!**********************************************************************************!*\
+  !*** ./node_modules/promise.allsettled/node_modules/es-abstract/GetIntrinsic.js ***!
+  \**********************************************************************************/
 
 /*!**********************************************************************************!*\
   !*** ./packages/webviz-core/node_modules/@mdi/svg/svg/skip-previous-outline.svg ***!
@@ -5767,6 +6580,18 @@ and limitations under the License.
   \**********************************************************************************/
 
 /*!***********************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/2019/IsArray.js ***!
+  \***********************************************************************************/
+
+/*!***********************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/GetIntrinsic.js ***!
+  \***********************************************************************************/
+
+/*!***********************************************************************************!*\
+  !*** ./node_modules/es-get-iterator/node_modules/es-abstract/helpers/callBind.js ***!
+  \***********************************************************************************/
+
+/*!***********************************************************************************!*\
   !*** ./packages/webviz-core/node_modules/@mdi/svg/svg/arrow-split-horizontal.svg ***!
   \***********************************************************************************/
 
@@ -5805,6 +6630,34 @@ and limitations under the License.
 /*!***********************************************************************************!*\
   !*** ./packages/webviz-core/src/dataProviders/standardDataProviderDescriptors.js ***!
   \***********************************************************************************/
+
+/*!************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/2019/IsRegExp.js ***!
+  \************************************************************************************/
+
+/*!************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/2019/ToNumber.js ***!
+  \************************************************************************************/
+
+/*!************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/2019/ToObject.js ***!
+  \************************************************************************************/
+
+/*!************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/2019/ToString.js ***!
+  \************************************************************************************/
+
+/*!************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/2019/ToUint32.js ***!
+  \************************************************************************************/
+
+/*!************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/helpers/isNaN.js ***!
+  \************************************************************************************/
+
+/*!************************************************************************************!*\
+  !*** ./node_modules/es-get-iterator/node_modules/es-abstract/helpers/callBound.js ***!
+  \************************************************************************************/
 
 /*!************************************************************************************!*\
   !*** ./packages/@cruise-automation/tooltip/node_modules/fbjs/lib/emptyFunction.js ***!
@@ -5855,6 +6708,18 @@ and limitations under the License.
   \************************************************************************************/
 
 /*!*************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/2019/IsInteger.js ***!
+  \*************************************************************************************/
+
+/*!*************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/2019/SameValue.js ***!
+  \*************************************************************************************/
+
+/*!*************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/2019/ToBoolean.js ***!
+  \*************************************************************************************/
+
+/*!*************************************************************************************!*\
   !*** ./packages/webviz-core/node_modules/@sentry/browser/esm/index.js + 35 modules ***!
   \*************************************************************************************/
 
@@ -5870,9 +6735,13 @@ and limitations under the License.
   !*** ./packages/webviz-core/src/players/automatedRun/performanceMeasuringClient.js ***!
   \*************************************************************************************/
 
-/*!*************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/util/util.js ***!
-  \*************************************************************************************/
+/*!**************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/2019/IsCallable.js ***!
+  \**************************************************************************************/
+
+/*!**************************************************************************************!*\
+  !*** ./node_modules/promise.allsettled/node_modules/es-abstract/helpers/callBind.js ***!
+  \**************************************************************************************/
 
 /*!**************************************************************************************!*\
   !*** ./packages/webviz-core/node_modules/@react-dnd/invariant/dist/invariant.esm.js ***!
@@ -5894,9 +6763,29 @@ and limitations under the License.
   !*** ./packages/webviz-core/node_modules/remark-parse/lib/tokenize/code-indented.js ***!
   \**************************************************************************************/
 
-/*!**************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/sha.js/sha.js ***!
-  \**************************************************************************************/
+/*!***************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/2019/HasProperty.js ***!
+  \***************************************************************************************/
+
+/*!***************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/2019/ToPrimitive.js ***!
+  \***************************************************************************************/
+
+/*!***************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/helpers/callBind.js ***!
+  \***************************************************************************************/
+
+/*!***************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/helpers/isFinite.js ***!
+  \***************************************************************************************/
+
+/*!***************************************************************************************!*\
+  !*** ./node_modules/promise.allsettled/node_modules/es-abstract/helpers/callBound.js ***!
+  \***************************************************************************************/
+
+/*!***************************************************************************************!*\
+  !*** ./node_modules/react-dom/node_modules/scheduler/cjs/scheduler.production.min.js ***!
+  \***************************************************************************************/
 
 /*!***************************************************************************************!*\
   !*** ./packages/@cruise-automation/tooltip/node_modules/popper.js/dist/esm/popper.js ***!
@@ -5926,17 +6815,13 @@ and limitations under the License.
   !*** ./packages/webviz-core/node_modules/remark-parse/lib/util/remove-indentation.js ***!
   \***************************************************************************************/
 
-/*!***************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/react/index.js ***!
-  \***************************************************************************************/
+/*!****************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/2019/IsExtensible.js ***!
+  \****************************************************************************************/
 
-/*!***************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/sha.js/hash.js ***!
-  \***************************************************************************************/
-
-/*!***************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/sha.js/sha1.js ***!
-  \***************************************************************************************/
+/*!****************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/helpers/callBound.js ***!
+  \****************************************************************************************/
 
 /*!****************************************************************************************!*\
   !*** ./packages/webviz-core/node_modules/react-redux/node_modules/prop-types/index.js ***!
@@ -5950,29 +6835,17 @@ and limitations under the License.
   !*** ./packages/webviz-core/src/components/MessagePipeline/warnOnOutOfSyncMessages.js ***!
   \****************************************************************************************/
 
-/*!****************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/bn.js/lib/bn.js ***!
-  \****************************************************************************************/
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/2019/IsConstructor.js ***!
+  \*****************************************************************************************/
 
-/*!****************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/buffer/index.js ***!
-  \****************************************************************************************/
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/2019/IsPropertyKey.js ***!
+  \*****************************************************************************************/
 
-/*!****************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/is-map/index.js ***!
-  \****************************************************************************************/
-
-/*!****************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/is-set/index.js ***!
-  \****************************************************************************************/
-
-/*!****************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/md5.js/index.js ***!
-  \****************************************************************************************/
-
-/*!****************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/sha.js/index.js ***!
-  \****************************************************************************************/
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/promise.allsettled/node_modules/es-abstract/2019/PromiseResolve.js ***!
+  \*****************************************************************************************/
 
 /*!*****************************************************************************************!*\
   !*** ./packages/webviz-core/node_modules/react-mosaic-component/lib/MosaicZeroState.js ***!
@@ -5986,45 +6859,13 @@ and limitations under the License.
   !*** ./packages/webviz-core/src/util/binaryObjects/binaryTranslation/bin/translator.js ***!
   \*****************************************************************************************/
 
-/*!*****************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/assert/assert.js ***!
-  \*****************************************************************************************/
+/*!******************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/helpers/isPrimitive.js ***!
+  \******************************************************************************************/
 
-/*!*****************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/brorand/index.js ***!
-  \*****************************************************************************************/
-
-/*!*****************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/events/events.js ***!
-  \*****************************************************************************************/
-
-/*!*****************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/has/src/index.js ***!
-  \*****************************************************************************************/
-
-/*!*****************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/ieee754/index.js ***!
-  \*****************************************************************************************/
-
-/*!*****************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/isarray/index.js ***!
-  \*****************************************************************************************/
-
-/*!*****************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/sha.js/sha224.js ***!
-  \*****************************************************************************************/
-
-/*!*****************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/sha.js/sha256.js ***!
-  \*****************************************************************************************/
-
-/*!*****************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/sha.js/sha384.js ***!
-  \*****************************************************************************************/
-
-/*!*****************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/sha.js/sha512.js ***!
-  \*****************************************************************************************/
+/*!******************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/helpers/regexTester.js ***!
+  \******************************************************************************************/
 
 /*!******************************************************************************************!*\
   !*** ./packages/@cruise-automation/tooltip/node_modules/babel-runtime/core-js/symbol.js ***!
@@ -6070,17 +6911,9 @@ and limitations under the License.
   !*** ./packages/webviz-core/node_modules/react-mosaic-component/lib/util/assertNever.js ***!
   \******************************************************************************************/
 
-/*!******************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/des.js/lib/des.js ***!
-  \******************************************************************************************/
-
-/*!******************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/is-regex/index.js ***!
-  \******************************************************************************************/
-
-/*!******************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/pbkdf2/browser.js ***!
-  \******************************************************************************************/
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/helpers/assertRecord.js ***!
+  \*******************************************************************************************/
 
 /*!*******************************************************************************************!*\
   !*** ./packages/@cruise-automation/tooltip/node_modules/babel-runtime/helpers/extends.js ***!
@@ -6126,49 +6959,9 @@ and limitations under the License.
   !*** ./packages/webviz-core/src/util/binaryObjects/binaryTranslation/bin/translator.wasm ***!
   \*******************************************************************************************/
 
-/*!*******************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/base64-js/index.js ***!
-  \*******************************************************************************************/
-
-/*!*******************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/call-bind/index.js ***!
-  \*******************************************************************************************/
-
-/*!*******************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/create-hash/md5.js ***!
-  \*******************************************************************************************/
-
-/*!*******************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/hash-base/index.js ***!
-  \*******************************************************************************************/
-
-/*!*******************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/is-string/index.js ***!
-  \*******************************************************************************************/
-
-/*!*******************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/is-symbol/index.js ***!
-  \*******************************************************************************************/
-
-/*!*******************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/parse-asn1/asn1.js ***!
-  \*******************************************************************************************/
-
-/*!*******************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/process/browser.js ***!
-  \*******************************************************************************************/
-
-/*!*******************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/react-dom/index.js ***!
-  \*******************************************************************************************/
-
-/*!*******************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/ripemd160/index.js ***!
-  \*******************************************************************************************/
-
-/*!*******************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/scheduler/index.js ***!
-  \*******************************************************************************************/
+/*!********************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/2019/IsDataDescriptor.js ***!
+  \********************************************************************************************/
 
 /*!********************************************************************************************!*\
   !*** ./packages/@cruise-automation/tooltip/node_modules/babel-runtime/helpers/inherits.js ***!
@@ -6202,25 +6995,9 @@ and limitations under the License.
   !*** ./packages/webviz-core/node_modules/remark-parse/lib/tokenize/footnote-definition.js ***!
   \********************************************************************************************/
 
-/*!********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/asn1.js/lib/asn1.js ***!
-  \********************************************************************************************/
-
-/*!********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/buffer-xor/index.js ***!
-  \********************************************************************************************/
-
-/*!********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/hash.js/lib/hash.js ***!
-  \********************************************************************************************/
-
-/*!********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/parse-asn1/index.js ***!
-  \********************************************************************************************/
-
-/*!********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/pbkdf2/lib/async.js ***!
-  \********************************************************************************************/
+/*!*********************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/5/CheckObjectCoercible.js ***!
+  \*********************************************************************************************/
 
 /*!*********************************************************************************************!*\
   !*** ./packages/@cruise-automation/tooltip/node_modules/core-js/library/fn/symbol/index.js ***!
@@ -6250,29 +7027,17 @@ and limitations under the License.
   !*** ./packages/webviz-core/node_modules/react-mosaic-component/react-mosaic-component.css ***!
   \*********************************************************************************************/
 
-/*!*********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/cipher-base/index.js ***!
-  \*********************************************************************************************/
+/*!**********************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/2019/ArraySpeciesCreate.js ***!
+  \**********************************************************************************************/
 
-/*!*********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/has-symbols/index.js ***!
-  \*********************************************************************************************/
+/*!**********************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/2019/CreateDataProperty.js ***!
+  \**********************************************************************************************/
 
-/*!*********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/has-symbols/shams.js ***!
-  \*********************************************************************************************/
-
-/*!*********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/is-callable/index.js ***!
-  \*********************************************************************************************/
-
-/*!*********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/object-keys/index.js ***!
-  \*********************************************************************************************/
-
-/*!*********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/safe-buffer/index.js ***!
-  \*********************************************************************************************/
+/*!**********************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-to-primitive/helpers/isPrimitive.js ***!
+  \**********************************************************************************************/
 
 /*!**********************************************************************************************!*\
   !*** ./packages/@cruise-automation/tooltip/node_modules/babel-runtime/core-js/array/from.js ***!
@@ -6330,62 +7095,6 @@ and limitations under the License.
   !*** ./packages/webviz-core/node_modules/react-mosaic-component/lib/util/mosaicUtilities.js ***!
   \**********************************************************************************************/
 
-/*!**********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/browserify-aes/aes.js ***!
-  \**********************************************************************************************/
-
-/*!**********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/create-hmac/legacy.js ***!
-  \**********************************************************************************************/
-
-/*!**********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/des.js/lib/des/cbc.js ***!
-  \**********************************************************************************************/
-
-/*!**********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/des.js/lib/des/des.js ***!
-  \**********************************************************************************************/
-
-/*!**********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/des.js/lib/des/ede.js ***!
-  \**********************************************************************************************/
-
-/*!**********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/elliptic/package.json ***!
-  \**********************************************************************************************/
-
-/*!**********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/5/Type.js ***!
-  \**********************************************************************************************/
-
-/*!**********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/is-arguments/index.js ***!
-  \**********************************************************************************************/
-
-/*!**********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/parse-asn1/aesid.json ***!
-  \**********************************************************************************************/
-
-/*!**********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/parse-asn1/fixProc.js ***!
-  \**********************************************************************************************/
-
-/*!**********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/public-encrypt/mgf.js ***!
-  \**********************************************************************************************/
-
-/*!**********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/public-encrypt/xor.js ***!
-  \**********************************************************************************************/
-
-/*!**********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/randomfill/browser.js ***!
-  \**********************************************************************************************/
-
-/*!**********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/safer-buffer/safer.js ***!
-  \**********************************************************************************************/
-
 /*!***********************************************************************************************!*\
   !*** ./packages/@cruise-automation/tooltip/node_modules/babel-runtime/helpers/createClass.js ***!
   \***********************************************************************************************/
@@ -6402,53 +7111,13 @@ and limitations under the License.
   !*** ./packages/webviz-core/node_modules/react-mosaic-component/lib/buttons/ReplaceButton.js ***!
   \***********************************************************************************************/
 
-/*!***********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/call-bind/callBound.js ***!
-  \***********************************************************************************************/
+/*!************************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/2019/ToPropertyDescriptor.js ***!
+  \************************************************************************************************/
 
-/*!***********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/create-ecdh/browser.js ***!
-  \***********************************************************************************************/
-
-/*!***********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/create-hash/browser.js ***!
-  \***********************************************************************************************/
-
-/*!***********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/create-hmac/browser.js ***!
-  \***********************************************************************************************/
-
-/*!***********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/function-bind/index.js ***!
-  \***********************************************************************************************/
-
-/*!***********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/get-intrinsic/index.js ***!
-  \***********************************************************************************************/
-
-/*!***********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/iterate-value/index.js ***!
-  \***********************************************************************************************/
-
-/*!***********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/miller-rabin/lib/mr.js ***!
-  \***********************************************************************************************/
-
-/*!***********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/object-assign/index.js ***!
-  \***********************************************************************************************/
-
-/*!***********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/pako/lib/zlib/crc32.js ***!
-  \***********************************************************************************************/
-
-/*!***********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/pako/lib/zlib/trees.js ***!
-  \***********************************************************************************************/
-
-/*!***********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/randombytes/browser.js ***!
-  \***********************************************************************************************/
+/*!************************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/helpers/DefineOwnProperty.js ***!
+  \************************************************************************************************/
 
 /*!************************************************************************************************!*\
   !*** ./packages/@cruise-automation/tooltip/node_modules/core-js/library/fn/symbol/iterator.js ***!
@@ -6520,58 +7189,6 @@ and limitations under the License.
 
 /*!************************************************************************************************!*\
   !*** ./packages/webviz-core/node_modules/react-router-dom/esm/react-router-dom.js + 4 modules ***!
-  \************************************************************************************************/
-
-/*!************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/asn1.js/lib/asn1/api.js ***!
-  \************************************************************************************************/
-
-/*!************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/browserify-aes/ghash.js ***!
-  \************************************************************************************************/
-
-/*!************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/browserify-des/index.js ***!
-  \************************************************************************************************/
-
-/*!************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/browserify-des/modes.js ***!
-  \************************************************************************************************/
-
-/*!************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/browserify-rsa/index.js ***!
-  \************************************************************************************************/
-
-/*!************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/des.js/lib/des/utils.js ***!
-  \************************************************************************************************/
-
-/*!************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/Get.js ***!
-  \************************************************************************************************/
-
-/*!************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/abs.js ***!
-  \************************************************************************************************/
-
-/*!************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/evp_bytestokey/index.js ***!
-  \************************************************************************************************/
-
-/*!************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/hash.js/lib/hash/sha.js ***!
-  \************************************************************************************************/
-
-/*!************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/is-date-object/index.js ***!
-  \************************************************************************************************/
-
-/*!************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/object-inspect/index.js ***!
-  \************************************************************************************************/
-
-/*!************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/pbkdf2/lib/to-buffer.js ***!
   \************************************************************************************************/
 
 /*!*************************************************************************************************!*\
@@ -6646,77 +7263,17 @@ and limitations under the License.
   !*** ./packages/webviz-core/src/players/UserNodePlayer/nodeTransformerWorker/typescript/ros.js ***!
   \*************************************************************************************************/
 
-/*!*************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/browserify-aes/incr32.js ***!
-  \*************************************************************************************************/
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/2019/FromPropertyDescriptor.js ***!
+  \**************************************************************************************************/
 
-/*!*************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/browserify-sign/algos.js ***!
-  \*************************************************************************************************/
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/2019/OrdinaryGetOwnProperty.js ***!
+  \**************************************************************************************************/
 
-/*!*************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/core-util-is/lib/util.js ***!
-  \*************************************************************************************************/
-
-/*!*************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/des.js/lib/des/cipher.js ***!
-  \*************************************************************************************************/
-
-/*!*************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/diffie-hellman/lib/dh.js ***!
-  \*************************************************************************************************/
-
-/*!*************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/elliptic/lib/elliptic.js ***!
-  \*************************************************************************************************/
-
-/*!*************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/Call.js ***!
-  \*************************************************************************************************/
-
-/*!*************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/Type.js ***!
-  \*************************************************************************************************/
-
-/*!*************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-get-iterator/index.js ***!
-  \*************************************************************************************************/
-
-/*!*************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/has-tostringtag/shams.js ***!
-  \*************************************************************************************************/
-
-/*!*************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/hash.js/lib/hash/hmac.js ***!
-  \*************************************************************************************************/
-
-/*!*************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/pako/lib/utils/common.js ***!
-  \*************************************************************************************************/
-
-/*!*************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/pako/lib/zlib/adler32.js ***!
-  \*************************************************************************************************/
-
-/*!*************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/pako/lib/zlib/deflate.js ***!
-  \*************************************************************************************************/
-
-/*!*************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/pako/lib/zlib/inffast.js ***!
-  \*************************************************************************************************/
-
-/*!*************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/pako/lib/zlib/inflate.js ***!
-  \*************************************************************************************************/
-
-/*!*************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/pako/lib/zlib/zstream.js ***!
-  \*************************************************************************************************/
-
-/*!*************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/path-browserify/index.js ***!
-  \*************************************************************************************************/
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/2019/RequireObjectCoercible.js ***!
+  \**************************************************************************************************/
 
 /*!**************************************************************************************************!*\
   !*** ./packages/@cruise-automation/tooltip/node_modules/babel-runtime/helpers/classCallCheck.js ***!
@@ -6758,58 +7315,6 @@ and limitations under the License.
   !*** ./packages/webviz-core/node_modules/react-dnd-html5-backend/dist/esm/index.js + 13 modules ***!
   \**************************************************************************************************/
 
-/*!**************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/browserify-aes/browser.js ***!
-  \**************************************************************************************************/
-
-/*!**************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/diffie-hellman/browser.js ***!
-  \**************************************************************************************************/
-
-/*!**************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/floor.js ***!
-  \**************************************************************************************************/
-
-/*!**************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-to-primitive/es2015.js ***!
-  \**************************************************************************************************/
-
-/*!**************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/hash.js/lib/hash/sha/1.js ***!
-  \**************************************************************************************************/
-
-/*!**************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/hash.js/lib/hash/utils.js ***!
-  \**************************************************************************************************/
-
-/*!**************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/iterate-iterator/index.js ***!
-  \**************************************************************************************************/
-
-/*!**************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/pako/lib/zlib/inftrees.js ***!
-  \**************************************************************************************************/
-
-/*!**************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/pako/lib/zlib/messages.js ***!
-  \**************************************************************************************************/
-
-/*!**************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/parse-asn1/certificate.js ***!
-  \**************************************************************************************************/
-
-/*!**************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/public-encrypt/browser.js ***!
-  \**************************************************************************************************/
-
-/*!**************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/timers-browserify/main.js ***!
-  \**************************************************************************************************/
-
-/*!**************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/util-deprecate/browser.js ***!
-  \**************************************************************************************************/
-
 /*!***************************************************************************************************!*\
   !*** ./packages/@cruise-automation/tooltip/node_modules/babel-runtime/core-js/symbol/iterator.js ***!
   \***************************************************************************************************/
@@ -6824,50 +7329,6 @@ and limitations under the License.
 
 /*!***************************************************************************************************!*\
   !*** ./packages/webviz-core/node_modules/react-dnd/dist/esm/hooks/internal/useDragDropManager.js ***!
-  \***************************************************************************************************/
-
-/*!***************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/crypto-browserify/index.js ***!
-  \***************************************************************************************************/
-
-/*!***************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/define-properties/index.js ***!
-  \***************************************************************************************************/
-
-/*!***************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/hash.js/lib/hash/common.js ***!
-  \***************************************************************************************************/
-
-/*!***************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/hash.js/lib/hash/ripemd.js ***!
-  \***************************************************************************************************/
-
-/*!***************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/hmac-drbg/lib/hmac-drbg.js ***!
-  \***************************************************************************************************/
-
-/*!***************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/object-keys/isArguments.js ***!
-  \***************************************************************************************************/
-
-/*!***************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/pako/lib/zlib/constants.js ***!
-  \***************************************************************************************************/
-
-/*!***************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/pbkdf2/lib/precondition.js ***!
-  \***************************************************************************************************/
-
-/*!***************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/pbkdf2/lib/sync-browser.js ***!
-  \***************************************************************************************************/
-
-/*!***************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/promise.allsettled/shim.js ***!
-  \***************************************************************************************************/
-
-/*!***************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/stream-browserify/index.js ***!
   \***************************************************************************************************/
 
 /*!****************************************************************************************************!*\
@@ -6902,69 +7363,9 @@ and limitations under the License.
   !*** ./packages/@cruise-automation/tooltip/node_modules/react-popper/lib/esm/index.js + 4 modules ***!
   \****************************************************************************************************/
 
-/*!****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/array.prototype.map/shim.js ***!
-  \****************************************************************************************************/
-
-/*!****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/browserify-aes/decrypter.js ***!
-  \****************************************************************************************************/
-
-/*!****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/browserify-aes/encrypter.js ***!
-  \****************************************************************************************************/
-
-/*!****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/browserify-aes/modes/cbc.js ***!
-  \****************************************************************************************************/
-
-/*!****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/browserify-aes/modes/cfb.js ***!
-  \****************************************************************************************************/
-
-/*!****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/browserify-aes/modes/ctr.js ***!
-  \****************************************************************************************************/
-
-/*!****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/browserify-aes/modes/ecb.js ***!
-  \****************************************************************************************************/
-
-/*!****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/browserify-aes/modes/ofb.js ***!
-  \****************************************************************************************************/
-
-/*!****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2020/IsArray.js ***!
-  \****************************************************************************************************/
-
-/*!****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/IsArray.js ***!
-  \****************************************************************************************************/
-
-/*!****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/GetIntrinsic.js ***!
-  \****************************************************************************************************/
-
-/*!****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/hash.js/lib/hash/sha/224.js ***!
-  \****************************************************************************************************/
-
-/*!****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/hash.js/lib/hash/sha/256.js ***!
-  \****************************************************************************************************/
-
-/*!****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/hash.js/lib/hash/sha/384.js ***!
-  \****************************************************************************************************/
-
-/*!****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/hash.js/lib/hash/sha/512.js ***!
-  \****************************************************************************************************/
-
-/*!****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/promise.allsettled/index.js ***!
-  \****************************************************************************************************/
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/2019/CreateDataPropertyOrThrow.js ***!
+  \*****************************************************************************************************/
 
 /*!*****************************************************************************************************!*\
   !*** ./packages/@cruise-automation/tooltip/node_modules/babel-runtime/helpers/toConsumableArray.js ***!
@@ -6986,70 +7387,6 @@ and limitations under the License.
   !*** ./packages/webviz-core/migrations/frozenMigrations/2020.05.06.00:00:05.migrateSourcePrefix.js ***!
   \*****************************************************************************************************/
 
-/*!*****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/array.prototype.map/index.js ***!
-  \*****************************************************************************************************/
-
-/*!*****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/browserify-aes/authCipher.js ***!
-  \*****************************************************************************************************/
-
-/*!*****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/browserify-aes/modes/cfb1.js ***!
-  \*****************************************************************************************************/
-
-/*!*****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/browserify-aes/modes/cfb8.js ***!
-  \*****************************************************************************************************/
-
-/*!*****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/browserify-cipher/browser.js ***!
-  \*****************************************************************************************************/
-
-/*!*****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/browserify-zlib/lib/index.js ***!
-  \*****************************************************************************************************/
-
-/*!*****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/IsRegExp.js ***!
-  \*****************************************************************************************************/
-
-/*!*****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/ToNumber.js ***!
-  \*****************************************************************************************************/
-
-/*!*****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/ToObject.js ***!
-  \*****************************************************************************************************/
-
-/*!*****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/ToString.js ***!
-  \*****************************************************************************************************/
-
-/*!*****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/ToUint32.js ***!
-  \*****************************************************************************************************/
-
-/*!*****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/helpers/isNaN.js ***!
-  \*****************************************************************************************************/
-
-/*!*****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/inherits/inherits_browser.js ***!
-  \*****************************************************************************************************/
-
-/*!*****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/minimalistic-assert/index.js ***!
-  \*****************************************************************************************************/
-
-/*!*****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/public-encrypt/withPublic.js ***!
-  \*****************************************************************************************************/
-
-/*!*****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/setimmediate/setImmediate.js ***!
-  \*****************************************************************************************************/
-
 /*!******************************************************************************************************!*\
   !*** ./packages/@cruise-automation/tooltip/node_modules/core-js/library/modules/_create-property.js ***!
   \******************************************************************************************************/
@@ -7066,29 +7403,9 @@ and limitations under the License.
   !*** ./packages/webviz-core/node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js ***!
   \******************************************************************************************************/
 
-/*!******************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/asn1.js/lib/asn1/base/node.js ***!
-  \******************************************************************************************************/
-
-/*!******************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/browserify-aes/modes/index.js ***!
-  \******************************************************************************************************/
-
-/*!******************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/SameValue.js ***!
-  \******************************************************************************************************/
-
-/*!******************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/ToBoolean.js ***!
-  \******************************************************************************************************/
-
-/*!******************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/object-keys/implementation.js ***!
-  \******************************************************************************************************/
-
-/*!******************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/process-nextick-args/index.js ***!
-  \******************************************************************************************************/
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/array.prototype.map/node_modules/es-abstract/helpers/getOwnPropertyDescriptor.js ***!
+  \*******************************************************************************************************/
 
 /*!*******************************************************************************************************!*\
   !*** ./packages/@cruise-automation/tooltip/node_modules/core-js/library/fn/object/define-property.js ***!
@@ -7100,46 +7417,6 @@ and limitations under the License.
 
 /*!*******************************************************************************************************!*\
   !*** ./packages/@cruise-automation/tooltip/node_modules/core-js/library/modules/es6.object.create.js ***!
-  \*******************************************************************************************************/
-
-/*!*******************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/asn1.js/lib/asn1/base/index.js ***!
-  \*******************************************************************************************************/
-
-/*!*******************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/browserify-aes/modes/list.json ***!
-  \*******************************************************************************************************/
-
-/*!*******************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/browserify-aes/streamCipher.js ***!
-  \*******************************************************************************************************/
-
-/*!*******************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/browserify-zlib/lib/binding.js ***!
-  \*******************************************************************************************************/
-
-/*!*******************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/diffie-hellman/lib/primes.json ***!
-  \*******************************************************************************************************/
-
-/*!*******************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/elliptic/lib/elliptic/utils.js ***!
-  \*******************************************************************************************************/
-
-/*!*******************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/IsCallable.js ***!
-  \*******************************************************************************************************/
-
-/*!*******************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/hash.js/lib/hash/sha/common.js ***!
-  \*******************************************************************************************************/
-
-/*!*******************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/pbkdf2/lib/default-encoding.js ***!
-  \*******************************************************************************************************/
-
-/*!*******************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/promise.allsettled/polyfill.js ***!
   \*******************************************************************************************************/
 
 /*!********************************************************************************************************!*\
@@ -7166,58 +7443,6 @@ and limitations under the License.
   !*** ./packages/webviz-core/node_modules/react-mosaic-component/lib/buttons/defaultToolbarControls.js ***!
   \********************************************************************************************************/
 
-/*!********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/array.prototype.map/polyfill.js ***!
-  \********************************************************************************************************/
-
-/*!********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/asn1.js/lib/asn1/base/buffer.js ***!
-  \********************************************************************************************************/
-
-/*!********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/browserify-sign/browser/sign.js ***!
-  \********************************************************************************************************/
-
-/*!********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/elliptic/lib/elliptic/curves.js ***!
-  \********************************************************************************************************/
-
-/*!********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/elliptic/lib/elliptic/ec/key.js ***!
-  \********************************************************************************************************/
-
-/*!********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/ArrayCreate.js ***!
-  \********************************************************************************************************/
-
-/*!********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/HasProperty.js ***!
-  \********************************************************************************************************/
-
-/*!********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/ToPrimitive.js ***!
-  \********************************************************************************************************/
-
-/*!********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/helpers/isFinite.js ***!
-  \********************************************************************************************************/
-
-/*!********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/function-bind/implementation.js ***!
-  \********************************************************************************************************/
-
-/*!********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/node-libs-browser/mock/empty.js ***!
-  \********************************************************************************************************/
-
-/*!********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/public-encrypt/publicEncrypt.js ***!
-  \********************************************************************************************************/
-
-/*!********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/util/support/isBufferBrowser.js ***!
-  \********************************************************************************************************/
-
 /*!*********************************************************************************************************!*\
   !*** ./packages/@cruise-automation/tooltip/node_modules/core-js/library/modules/_add-to-unscopables.js ***!
   \*********************************************************************************************************/
@@ -7228,34 +7453,6 @@ and limitations under the License.
 
 /*!*********************************************************************************************************!*\
   !*** ./packages/webviz-core/node_modules/react-resizable/node_modules/react-draggable/build/cjs/cjs.js ***!
-  \*********************************************************************************************************/
-
-/*!*********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/asn1.js/lib/asn1/decoders/der.js ***!
-  \*********************************************************************************************************/
-
-/*!*********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/asn1.js/lib/asn1/decoders/pem.js ***!
-  \*********************************************************************************************************/
-
-/*!*********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/asn1.js/lib/asn1/encoders/der.js ***!
-  \*********************************************************************************************************/
-
-/*!*********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/asn1.js/lib/asn1/encoders/pem.js ***!
-  \*********************************************************************************************************/
-
-/*!*********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/browserify-sign/browser/index.js ***!
-  \*********************************************************************************************************/
-
-/*!*********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/IsExtensible.js ***!
-  \*********************************************************************************************************/
-
-/*!*********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/public-encrypt/privateDecrypt.js ***!
   \*********************************************************************************************************/
 
 /*!**********************************************************************************************************!*\
@@ -7272,38 +7469,6 @@ and limitations under the License.
 
 /*!**********************************************************************************************************!*\
   !*** ./packages/webviz-core/node_modules/react-dnd/dist/esm/hooks/internal/useIsomorphicLayoutEffect.js ***!
-  \**********************************************************************************************************/
-
-/*!**********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/asn1.js/lib/asn1/base/reporter.js ***!
-  \**********************************************************************************************************/
-
-/*!**********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/asn1.js/lib/asn1/constants/der.js ***!
-  \**********************************************************************************************************/
-
-/*!**********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/browserify-sign/browser/verify.js ***!
-  \**********************************************************************************************************/
-
-/*!**********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/elliptic/lib/elliptic/ec/index.js ***!
-  \**********************************************************************************************************/
-
-/*!**********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/IsConstructor.js ***!
-  \**********************************************************************************************************/
-
-/*!**********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/IsPropertyKey.js ***!
-  \**********************************************************************************************************/
-
-/*!**********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/react/cjs/react.production.min.js ***!
-  \**********************************************************************************************************/
-
-/*!**********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/readable-stream/errors-browser.js ***!
   \**********************************************************************************************************/
 
 /*!***********************************************************************************************************!*\
@@ -7334,58 +7499,6 @@ and limitations under the License.
   !*** ./packages/webviz-core/node_modules/unist-util-visit/node_modules/unist-util-visit-parents/index.js ***!
   \***********************************************************************************************************/
 
-/*!***********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/asn1.js/lib/asn1/decoders/index.js ***!
-  \***********************************************************************************************************/
-
-/*!***********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/asn1.js/lib/asn1/encoders/index.js ***!
-  \***********************************************************************************************************/
-
-/*!***********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/elliptic/lib/elliptic/eddsa/key.js ***!
-  \***********************************************************************************************************/
-
-/*!***********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/PromiseResolve.js ***!
-  \***********************************************************************************************************/
-
-/*!***********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/helpers/isPrimitive.js ***!
-  \***********************************************************************************************************/
-
-/*!***********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/helpers/regexTester.js ***!
-  \***********************************************************************************************************/
-
-/*!************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/asn1.js/lib/asn1/constants/index.js ***!
-  \************************************************************************************************************/
-
-/*!************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/browserify-sign/browser/curves.json ***!
-  \************************************************************************************************************/
-
-/*!************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/diffie-hellman/lib/generatePrime.js ***!
-  \************************************************************************************************************/
-
-/*!************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/elliptic/lib/elliptic/curve/base.js ***!
-  \************************************************************************************************************/
-
-/*!************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/elliptic/lib/elliptic/curve/mont.js ***!
-  \************************************************************************************************************/
-
-/*!************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/helpers/assertRecord.js ***!
-  \************************************************************************************************************/
-
-/*!************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/readable-stream/readable-browser.js ***!
-  \************************************************************************************************************/
-
 /*!*************************************************************************************************************!*\
   !*** ./packages/@cruise-automation/tooltip/node_modules/babel-runtime/helpers/possibleConstructorReturn.js ***!
   \*************************************************************************************************************/
@@ -7398,64 +7511,8 @@ and limitations under the License.
   !*** ./packages/webviz-core/migrations/frozenMigrations/2020.11.02.14:16:21.migrateColorToOverrideColor.js ***!
   \*************************************************************************************************************/
 
-/*!*************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/asn1.js/node_modules/bn.js/lib/bn.js ***!
-  \*************************************************************************************************************/
-
-/*!*************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/elliptic/lib/elliptic/curve/index.js ***!
-  \*************************************************************************************************************/
-
-/*!*************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/elliptic/lib/elliptic/curve/short.js ***!
-  \*************************************************************************************************************/
-
-/*!*************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/elliptic/lib/elliptic/eddsa/index.js ***!
-  \*************************************************************************************************************/
-
-/*!*************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/IsDataDescriptor.js ***!
-  \*************************************************************************************************************/
-
-/*!*************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/IsIntegralNumber.js ***!
-  \*************************************************************************************************************/
-
-/*!*************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/promise.allsettled/implementation.js ***!
-  \*************************************************************************************************************/
-
-/*!*************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/promise.allsettled/requirePromise.js ***!
-  \*************************************************************************************************************/
-
-/*!*************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/string_decoder/lib/string_decoder.js ***!
-  \*************************************************************************************************************/
-
 /*!**************************************************************************************************************!*\
   !*** ./packages/@cruise-automation/tooltip/node_modules/core-js/library/modules/core.get-iterator-method.js ***!
-  \**************************************************************************************************************/
-
-/*!**************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/array.prototype.map/implementation.js ***!
-  \**************************************************************************************************************/
-
-/*!**************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/elliptic/lib/elliptic/ec/signature.js ***!
-  \**************************************************************************************************************/
-
-/*!**************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/elliptic/node_modules/bn.js/lib/bn.js ***!
-  \**************************************************************************************************************/
-
-/*!**************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/5/CheckObjectCoercible.js ***!
-  \**************************************************************************************************************/
-
-/*!**************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/readable-stream/lib/_stream_duplex.js ***!
   \**************************************************************************************************************/
 
 /*!***************************************************************************************************************!*\
@@ -7470,48 +7527,12 @@ and limitations under the License.
   !*** ./packages/webviz-core/node_modules/react-resizable/node_modules/react-draggable/build/cjs/utils/log.js ***!
   \***************************************************************************************************************/
 
-/*!***************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/elliptic/lib/elliptic/curve/edwards.js ***!
-  \***************************************************************************************************************/
-
-/*!***************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/ArraySpeciesCreate.js ***!
-  \***************************************************************************************************************/
-
-/*!***************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/CreateDataProperty.js ***!
-  \***************************************************************************************************************/
-
-/*!***************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-to-primitive/helpers/isPrimitive.js ***!
-  \***************************************************************************************************************/
-
-/*!***************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/minimalistic-crypto-utils/lib/utils.js ***!
-  \***************************************************************************************************************/
-
 /*!****************************************************************************************************************!*\
   !*** ./packages/@cruise-automation/tooltip/node_modules/core-js/library/modules/es6.object.define-property.js ***!
   \****************************************************************************************************************/
 
 /*!****************************************************************************************************************!*\
   !*** ./packages/webviz-core/migrations/frozenMigrations/2020.05.14.13:39:17.migrate3DPanelFeatureGroupKeys.js ***!
-  \****************************************************************************************************************/
-
-/*!****************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/browserify-sign/browser/algorithms.json ***!
-  \****************************************************************************************************************/
-
-/*!****************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-array-method-boxes-properly/index.js ***!
-  \****************************************************************************************************************/
-
-/*!****************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/readable-stream/lib/_stream_readable.js ***!
-  \****************************************************************************************************************/
-
-/*!****************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/readable-stream/lib/_stream_writable.js ***!
   \****************************************************************************************************************/
 
 /*!*****************************************************************************************************************!*\
@@ -7538,48 +7559,8 @@ and limitations under the License.
   !*** ./packages/webviz-core/node_modules/react-resizable/node_modules/react-draggable/build/cjs/utils/shims.js ***!
   \*****************************************************************************************************************/
 
-/*!*****************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/create-ecdh/node_modules/bn.js/lib/bn.js ***!
-  \*****************************************************************************************************************/
-
-/*!*****************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/elliptic/lib/elliptic/eddsa/signature.js ***!
-  \*****************************************************************************************************************/
-
-/*!*****************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/IsAccessorDescriptor.js ***!
-  \*****************************************************************************************************************/
-
-/*!*****************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/ToPropertyDescriptor.js ***!
-  \*****************************************************************************************************************/
-
-/*!*****************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/helpers/DefineOwnProperty.js ***!
-  \*****************************************************************************************************************/
-
-/*!*****************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/readable-stream/lib/_stream_transform.js ***!
-  \*****************************************************************************************************************/
-
 /*!******************************************************************************************************************!*\
   !*** ./packages/webviz-core/node_modules/react-resizable/node_modules/react-draggable/build/cjs/utils/domFns.js ***!
-  \******************************************************************************************************************/
-
-/*!******************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/DefinePropertyOrThrow.js ***!
-  \******************************************************************************************************************/
-
-/*!******************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/miller-rabin/node_modules/bn.js/lib/bn.js ***!
-  \******************************************************************************************************************/
-
-/*!******************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/react-dom/cjs/react-dom.production.min.js ***!
-  \******************************************************************************************************************/
-
-/*!******************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/scheduler/cjs/scheduler.production.min.js ***!
   \******************************************************************************************************************/
 
 /*!*******************************************************************************************************************!*\
@@ -7594,36 +7575,8 @@ and limitations under the License.
   !*** ./packages/webviz-core/node_modules/react-resizable/node_modules/react-draggable/build/cjs/DraggableCore.js ***!
   \*******************************************************************************************************************/
 
-/*!*******************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/FromPropertyDescriptor.js ***!
-  \*******************************************************************************************************************/
-
-/*!*******************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/OrdinaryGetOwnProperty.js ***!
-  \*******************************************************************************************************************/
-
-/*!*******************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/RequireObjectCoercible.js ***!
-  \*******************************************************************************************************************/
-
-/*!*******************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/readable-stream/lib/_stream_passthrough.js ***!
-  \*******************************************************************************************************************/
-
 /*!********************************************************************************************************************!*\
   !*** ./packages/webviz-core/migrations/frozenMigrations/2020.05.06.00:00:04.migrateGlobalDataToGlobalVariables.js ***!
-  \********************************************************************************************************************/
-
-/*!********************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/diffie-hellman/node_modules/bn.js/lib/bn.js ***!
-  \********************************************************************************************************************/
-
-/*!********************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/helpers/isPropertyDescriptor.js ***!
-  \********************************************************************************************************************/
-
-/*!********************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/public-encrypt/node_modules/bn.js/lib/bn.js ***!
   \********************************************************************************************************************/
 
 /*!*********************************************************************************************************************!*\
@@ -7642,18 +7595,6 @@ and limitations under the License.
   !*** ./packages/webviz-core/node_modules/connected-react-router/node_modules/prop-types/lib/ReactPropTypesSecret.js ***!
   \**********************************************************************************************************************/
 
-/*!**********************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/2021/CreateDataPropertyOrThrow.js ***!
-  \**********************************************************************************************************************/
-
-/*!**********************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-get-iterator/node_modules/isarray/index.js ***!
-  \**********************************************************************************************************************/
-
-/*!**********************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/readable-stream/lib/internal/streams/state.js ***!
-  \**********************************************************************************************************************/
-
 /*!***********************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--14-oneOf-1!./packages/webviz-core/node_modules/rc-color-picker/assets/index.css ***!
   \***********************************************************************************************************************/
@@ -7661,26 +7602,6 @@ and limitations under the License.
 /*!***********************************************************************************************************************!*\
   !*** ./packages/webviz-core/node_modules/react-resizable/node_modules/react-draggable/build/cjs/utils/positionFns.js ***!
   \***********************************************************************************************************************/
-
-/*!***********************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/elliptic/lib/elliptic/precomputed/secp256k1.js ***!
-  \***********************************************************************************************************************/
-
-/*!***********************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/util/node_modules/inherits/inherits_browser.js ***!
-  \***********************************************************************************************************************/
-
-/*!************************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/es-abstract/helpers/getOwnPropertyDescriptor.js ***!
-  \************************************************************************************************************************/
-
-/*!************************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/readable-stream/lib/internal/streams/destroy.js ***!
-  \************************************************************************************************************************/
-
-/*!*************************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/readable-stream/lib/internal/streams/pipeline.js ***!
-  \*************************************************************************************************************************/
 
 /*!**************************************************************************************************************************!*\
   !*** ./node_modules/styled-components/node_modules/@emotion/is-prop-valid/dist/is-prop-valid.browser.esm.js + 1 modules ***!
@@ -7694,33 +7615,9 @@ and limitations under the License.
   !*** ./packages/webviz-core/migrations/frozenMigrations/2020.06.03.13:56:52.migrate3DPanelTopicSettingsToSettingsByKey.js ***!
   \****************************************************************************************************************************/
 
-/*!****************************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/readable-stream/lib/internal/streams/buffer_list.js ***!
-  \****************************************************************************************************************************/
-
-/*!****************************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/stream-browserify/node_modules/safe-buffer/index.js ***!
-  \****************************************************************************************************************************/
-
-/*!*****************************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/readable-stream/lib/internal/streams/from-browser.js ***!
-  \*****************************************************************************************************************************/
-
 /*!******************************************************************************************************************************!*\
   !*** ./packages/webviz-core/node_modules/react-dnd/node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js ***!
   \******************************************************************************************************************************/
-
-/*!******************************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/readable-stream/lib/internal/streams/end-of-stream.js ***!
-  \******************************************************************************************************************************/
-
-/*!*******************************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/readable-stream/lib/internal/streams/async_iterator.js ***!
-  \*******************************************************************************************************************************/
-
-/*!*******************************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/readable-stream/lib/internal/streams/stream-browser.js ***!
-  \*******************************************************************************************************************************/
 
 /*!********************************************************************************************************************************!*\
   !*** ./packages/webviz-core/node_modules/react-redux/node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js ***!
@@ -7730,61 +7627,9 @@ and limitations under the License.
   !*** ./packages/webviz-core/node_modules/react-router/node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js ***!
   \*********************************************************************************************************************************/
 
-/*!************************************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/stream-browserify/node_modules/readable-stream/transform.js ***!
-  \************************************************************************************************************************************/
-
-/*!**************************************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/stream-browserify/node_modules/readable-stream/passthrough.js ***!
-  \**************************************************************************************************************************************/
-
-/*!*****************************************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/stream-browserify/node_modules/readable-stream/duplex-browser.js ***!
-  \*****************************************************************************************************************************************/
-
 /*!******************************************************************************************************************************************!*\
   !*** ./packages/webviz-core/node_modules/mini-create-react-context/node_modules/@babel/runtime/helpers/esm/inheritsLoose.js + 1 modules ***!
   \******************************************************************************************************************************************/
-
-/*!*******************************************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/stream-browserify/node_modules/readable-stream/readable-browser.js ***!
-  \*******************************************************************************************************************************************/
-
-/*!*******************************************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/stream-browserify/node_modules/readable-stream/writable-browser.js ***!
-  \*******************************************************************************************************************************************/
-
-/*!*********************************************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/stream-browserify/node_modules/readable-stream/lib/_stream_duplex.js ***!
-  \*********************************************************************************************************************************************/
-
-/*!***********************************************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/stream-browserify/node_modules/readable-stream/lib/_stream_readable.js ***!
-  \***********************************************************************************************************************************************/
-
-/*!***********************************************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/stream-browserify/node_modules/readable-stream/lib/_stream_writable.js ***!
-  \***********************************************************************************************************************************************/
-
-/*!************************************************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/stream-browserify/node_modules/readable-stream/lib/_stream_transform.js ***!
-  \************************************************************************************************************************************************/
-
-/*!**************************************************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/stream-browserify/node_modules/readable-stream/lib/_stream_passthrough.js ***!
-  \**************************************************************************************************************************************************/
-
-/*!*******************************************************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/stream-browserify/node_modules/readable-stream/lib/internal/streams/destroy.js ***!
-  \*******************************************************************************************************************************************************/
-
-/*!**********************************************************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/stream-browserify/node_modules/readable-stream/lib/internal/streams/BufferList.js ***!
-  \**********************************************************************************************************************************************************/
-
-/*!**************************************************************************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/stream-browserify/node_modules/readable-stream/lib/internal/streams/stream-browser.js ***!
-  \**************************************************************************************************************************************************************/
 
 /*!****************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--14-oneOf-1!./node_modules/postcss-loader/src??postcss!./packages/webviz-core/node_modules/react-resizable/css/styles.css ***!

@@ -19,15 +19,15 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*! ../../util/sendNotification */
 
-/*! ./../../../../../../../../node_modules/process/browser.js */
-
-/*! ./../../../../../../../../node_modules/webpack/buildin/global.js */
-
-/*! ./../../../../../../../../node_modules/webpack/buildin/harmony-module.js */
-
-/*! ./../../../../../../../node_modules/webpack/buildin/global.js */
-
 /*! ./../../../../../../node_modules/webpack/buildin/global.js */
+
+/*! ./../../../../../../node_modules/webpack/buildin/harmony-module.js */
+
+/*! ./../../../../../../node_modules/webpack/node_modules/process/browser.js */
+
+/*! ./../../../../../node_modules/webpack/buildin/global.js */
+
+/*! ./../../../../node_modules/webpack/buildin/global.js */
 
 /*! ./CameraModel */
 
@@ -196,6 +196,10 @@ PERFORMANCE OF THIS SOFTWARE.
   \**********************************************/
 
 /*!*************************************************!*\
+  !*** (webpack)/node_modules/process/browser.js ***!
+  \*************************************************/
+
+/*!*************************************************!*\
   !*** ./packages/webviz-core/src/util/errors.js ***!
   \*************************************************/
 
@@ -342,10 +346,6 @@ PERFORMANCE OF THIS SOFTWARE.
 /*!*************************************************************************************!*\
   !*** ./packages/webviz-core/node_modules/@sentry/browser/esm/index.js + 35 modules ***!
   \*************************************************************************************/
-
-/*!*******************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/process/browser.js ***!
-  \*******************************************************************************************/
 
 /*!************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib?cacheDirectory!./packages/webviz-core/src/panels/ImageView/ImageCanvas.worker.js ***!

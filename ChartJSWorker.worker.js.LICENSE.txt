@@ -46,17 +46,17 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*! ../helpers.js */
 
-/*! ./../../../../../../../../node_modules/process/browser.js */
-
-/*! ./../../../../../../../../node_modules/webpack/buildin/global.js */
-
-/*! ./../../../../../../../../node_modules/webpack/buildin/harmony-module.js */
-
-/*! ./../../../../../../../node_modules/webpack/buildin/global.js */
-
 /*! ./../../../../../../node_modules/webpack/buildin/global.js */
 
-/*! ./../../../../../../node_modules/webpack/buildin/module.js */
+/*! ./../../../../../../node_modules/webpack/buildin/harmony-module.js */
+
+/*! ./../../../../../../node_modules/webpack/node_modules/process/browser.js */
+
+/*! ./../../../../../node_modules/webpack/buildin/global.js */
+
+/*! ./../../../../node_modules/webpack/buildin/global.js */
+
+/*! ./../../../../node_modules/webpack/buildin/module.js */
 
 /*! ./ChartJSManager */
 
@@ -571,6 +571,10 @@ PERFORMANCE OF THIS SOFTWARE.
 /*!************************************************!*\
   !*** ./packages/webviz-core/src/util/index.js ***!
   \************************************************/
+
+/*!*************************************************!*\
+  !*** (webpack)/node_modules/process/browser.js ***!
+  \*************************************************/
 
 /*!*************************************************!*\
   !*** ./packages/webviz-core/src/util/errors.js ***!
@@ -1399,10 +1403,6 @@ PERFORMANCE OF THIS SOFTWARE.
 /*!***************************************************************************************!*\
   !*** ./packages/webviz-core/node_modules/chartjs-plugin-annotation/src/types/line.js ***!
   \***************************************************************************************/
-
-/*!*******************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/process/browser.js ***!
-  \*******************************************************************************************/
 
 /*!*******************************************************************************************************!*\
   !*** ./packages/webviz-core/node_modules/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.js ***!

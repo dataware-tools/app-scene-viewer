@@ -129,27 +129,27 @@ PERFORMANCE OF THIS SOFTWARE.
 
 /*! ../utils/maybeConvertSphericalCoordinatePointCloudToCartesian */
 
-/*! ./../../../../../../../../node_modules/process/browser.js */
-
-/*! ./../../../../../../../../node_modules/timers-browserify/main.js */
-
-/*! ./../../../../../../../../node_modules/webpack/buildin/global.js */
-
-/*! ./../../../../../../../../node_modules/webpack/buildin/harmony-module.js */
-
-/*! ./../../../../../../../node_modules/process/browser.js */
-
-/*! ./../../../../../../../node_modules/webpack/buildin/module.js */
-
-/*! ./../../../../../../node_modules/process/browser.js */
+/*! ./../../../../../../node_modules/timers-browserify/main.js */
 
 /*! ./../../../../../../node_modules/webpack/buildin/global.js */
 
-/*! ./../../../../../../node_modules/webpack/buildin/module.js */
+/*! ./../../../../../../node_modules/webpack/buildin/harmony-module.js */
 
-/*! ./../../../../../node_modules/process/browser.js */
+/*! ./../../../../../../node_modules/webpack/node_modules/process/browser.js */
 
-/*! ./../../../../../node_modules/webpack/buildin/global.js */
+/*! ./../../../../../node_modules/webpack/buildin/module.js */
+
+/*! ./../../../../node_modules/webpack/buildin/global.js */
+
+/*! ./../../../../node_modules/webpack/buildin/module.js */
+
+/*! ./../../../../node_modules/webpack/node_modules/process/browser.js */
+
+/*! ./../../../../webpack/node_modules/process/browser.js */
+
+/*! ./../../../node_modules/webpack/buildin/global.js */
+
+/*! ./../../../node_modules/webpack/node_modules/process/browser.js */
 
 /*! ./../../../webpack/buildin/global.js */
 
@@ -164,6 +164,8 @@ PERFORMANCE OF THIS SOFTWARE.
 /*! ./../process/browser.js */
 
 /*! ./../webpack/buildin/global.js */
+
+/*! ./../webpack/node_modules/process/browser.js */
 
 /*! ./ArrayViews */
 
@@ -1091,6 +1093,10 @@ PERFORMANCE OF THIS SOFTWARE.
   !*** ./node_modules/int53/index.js ***!
   \*************************************/
 
+/*!*************************************!*\
+  !*** ./node_modules/react/index.js ***!
+  \*************************************/
+
 /*!**************************************!*\
   !*** ./node_modules/gl-vec3/copy.js ***!
   \**************************************/
@@ -1151,6 +1157,10 @@ PERFORMANCE OF THIS SOFTWARE.
   !*** ./node_modules/gl-vec3/scaleAndAdd.js ***!
   \*********************************************/
 
+/*!*********************************************!*\
+  !*** ./node_modules/object-assign/index.js ***!
+  \*********************************************/
+
 /*!**********************************************!*\
   !*** ./packages/webviz-core/src/util/Rpc.js ***!
   \**********************************************/
@@ -1198,6 +1208,10 @@ PERFORMANCE OF THIS SOFTWARE.
 /*!************************************************!*\
   !*** ./packages/webviz-core/src/util/index.js ***!
   \************************************************/
+
+/*!*************************************************!*\
+  !*** (webpack)/node_modules/process/browser.js ***!
+  \*************************************************/
 
 /*!*************************************************!*\
   !*** ./node_modules/gl-vec3/squaredDistance.js ***!
@@ -1262,6 +1276,14 @@ PERFORMANCE OF THIS SOFTWARE.
 /*!******************************************************!*\
   !*** ./packages/webviz-core/src/util/naturalSort.js ***!
   \******************************************************/
+
+/*!*******************************************************!*\
+  !*** (webpack)/node_modules/path-browserify/index.js ***!
+  \*******************************************************/
+
+/*!********************************************************!*\
+  !*** ./node_modules/react/cjs/react.production.min.js ***!
+  \********************************************************/
 
 /*!********************************************************!*\
   !*** ./packages/webviz-core/node_modules/lodash/eq.js ***!
@@ -1410,6 +1432,10 @@ PERFORMANCE OF THIS SOFTWARE.
 /*!*************************************************************!*\
   !*** ./packages/webviz-core/node_modules/lodash/memoize.js ***!
   \*************************************************************/
+
+/*!**************************************************************!*\
+  !*** (webpack)/node_modules/node-libs-browser/mock/empty.js ***!
+  \**************************************************************/
 
 /*!**************************************************************!*\
   !*** ./node_modules/gl-matrix/lib/gl-matrix.js + 10 modules ***!
@@ -2999,10 +3025,6 @@ PERFORMANCE OF THIS SOFTWARE.
   !*** ./packages/regl-worldview/node_modules/@babel/runtime/helpers/defineProperty.js ***!
   \***************************************************************************************/
 
-/*!***************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/react/index.js ***!
-  \***************************************************************************************/
-
 /*!****************************************************************************************!*\
   !*** ./packages/webviz-core/src/panels/ThreeDimensionalViz/commands/CarModel/index.js ***!
   \****************************************************************************************/
@@ -3055,10 +3077,6 @@ PERFORMANCE OF THIS SOFTWARE.
   !*** ./packages/webviz-core/src/panels/ThreeDimensionalViz/commands/PointClouds/types.js ***!
   \*******************************************************************************************/
 
-/*!*******************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/process/browser.js ***!
-  \*******************************************************************************************/
-
 /*!********************************************************************************************!*\
   !*** ./packages/webviz-core/node_modules/react-reconciler/node_modules/scheduler/index.js ***!
   \********************************************************************************************/
@@ -3087,10 +3105,6 @@ PERFORMANCE OF THIS SOFTWARE.
   !*** ./packages/webviz-core/src/panels/ThreeDimensionalViz/commands/PointClouds/selection.js ***!
   \***********************************************************************************************/
 
-/*!***********************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/object-assign/index.js ***!
-  \***********************************************************************************************/
-
 /*!************************************************************************************************!*\
   !*** ./packages/regl-worldview/node_modules/@babel/runtime/helpers/objectWithoutProperties.js ***!
   \************************************************************************************************/
@@ -3103,20 +3117,12 @@ PERFORMANCE OF THIS SOFTWARE.
   !*** ./packages/webviz-core/src/panels/ThreeDimensionalViz/commands/PointClouds/memoization.js ***!
   \*************************************************************************************************/
 
-/*!*************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/path-browserify/index.js ***!
-  \*************************************************************************************************/
-
 /*!**************************************************************************************************!*\
   !*** ./packages/webviz-core/src/panels/ThreeDimensionalViz/commands/PointClouds/decodeMarker.js ***!
   \**************************************************************************************************/
 
 /*!**************************************************************************************************!*\
   !*** ./packages/webviz-core/src/panels/ThreeDimensionalViz/commands/RadarPointClusters/index.js ***!
-  \**************************************************************************************************/
-
-/*!**************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/timers-browserify/main.js ***!
   \**************************************************************************************************/
 
 /*!***************************************************************************************************!*\
@@ -3127,21 +3133,9 @@ PERFORMANCE OF THIS SOFTWARE.
   !*** ./packages/regl-worldview/node_modules/@babel/runtime/helpers/objectWithoutPropertiesLoose.js ***!
   \*****************************************************************************************************/
 
-/*!*****************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/setimmediate/setImmediate.js ***!
-  \*****************************************************************************************************/
-
 /*!*******************************************************************************************************!*\
   !*** ./packages/webviz-core/src/panels/ThreeDimensionalViz/commands/PointClouds/VertexBufferCache.js ***!
   \*******************************************************************************************************/
-
-/*!********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/node-libs-browser/mock/empty.js ***!
-  \********************************************************************************************************/
-
-/*!**********************************************************************************************************!*\
-  !*** /home/runner/work/app-scene-viewer/app-scene-viewer/node_modules/react/cjs/react.production.min.js ***!
-  \**********************************************************************************************************/
 
 /*!***********************************************************************************************************!*\
   !*** ./packages/webviz-core/src/panels/ThreeDimensionalViz/TopicTree/useSceneBuilderAndTransformsData.js ***!
