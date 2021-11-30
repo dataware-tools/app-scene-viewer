@@ -1,4 +1,6 @@
 import { css } from "@emotion/css";
+import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import React from "react";
 
 type TimestampCaption = { timestamp: number; caption: string };
@@ -136,10 +138,15 @@ export const CurrentCaptionPresentation = ({
             }
             disabled={currentSceneIndex < 1}
             className={css`
+              align-items: center;
               border-radius: 100%;
+              display: flex;
+              height: 30px;
+              justify-content: center;
+              width: 30px;
             `}
           >
-            ↑
+            <KeyboardArrowUpIcon fontSize="large" />
           </button>
           <span
             className={css`
@@ -152,10 +159,15 @@ export const CurrentCaptionPresentation = ({
             }
             disabled={currentSceneIndex >= captions.length - 1}
             className={css`
+              align-items: center;
               border-radius: 100%;
+              display: flex;
+              height: 30px;
+              justify-content: center;
+              width: 30px;
             `}
           >
-            ↓
+            <KeyboardArrowDownIcon fontSize="large" />
           </button>
           <span
             className={css`
