@@ -62,8 +62,6 @@ export const CurrentCaptionPresentation = ({
             flex-direction: column;
             flex-grow: 1;
             height: 150px;
-            justify-content: center;
-            overflow-x: scroll;
             overflow-y: hidden;
             position: relative;
           `}
@@ -84,27 +82,38 @@ export const CurrentCaptionPresentation = ({
                   display: flex;
                   display: ${isDisplayed ? null : "none"};
                   flex-direction: row;
+                  justify-content: center;
                   position: absolute;
                   top: 0;
                   transform: translateY(${determinePlacement(index)}px);
                   transition: transform 0.4s ease, opacity 0.4s ease;
                   visibility: ${isVisible ? "visible" : "hidden"};
+                  width: 100%;
                 `}
               >
-                <span>{timestamp}</span>
+                <span
+                  className={css`
+                    flex-shrink: 0;
+                  `}
+                >
+                  {timestamp}
+                </span>
                 <span
                   className={css`
                     flex-shrink: 0;
                     width: 10px;
                   `}
                 />
-                <span
+                <div
                   className={css`
-                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ${index !== currentSceneIndex && "ellipsis"};
+                    white-space: ${index !== currentSceneIndex && "nowrap"};
+                    word-break: ${index === currentSceneIndex && "break-all"};
                   `}
                 >
                   {caption}
-                </span>
+                </div>
               </div>
             );
           })}
