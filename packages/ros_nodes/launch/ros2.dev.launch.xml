@@ -1,0 +1,7 @@
+<!-- -->
+<launch>
+
+  <!-- start ros1-bridge node -->
+  <node pkg="ros1_bridge" exec="dynamic_bridge" args="--bridge-all-2to1-topics"/>
+
+</launch>
