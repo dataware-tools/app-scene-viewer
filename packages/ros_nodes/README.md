@@ -19,8 +19,14 @@ app-scene-viewer 用の ROS2 パッケージです
 ```
 
 ## 使い方
+1. サンプルデータをダウンロード
 ```bash
-$ docker-compose up prod
+$ docker-compose up get-rosbag
+```
+
+2. ROSノードを起動し、サンプルデータを配信
+```bash
+$ docker-compose up sample
 ```
 
 ↑をすると `ws://localhost:9090` で rosbridge が使えるようになります.
