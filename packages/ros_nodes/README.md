@@ -9,13 +9,16 @@ app-scene-viewer 用の ROS2 パッケージです
 ├── Makefile
 ├── README.md
 ├── docker-compose.yaml
+├── launch                            roslaunchファイル
+├── sample_data                       サンプルデータ
 ├── src
 │   ├── scene_viewer            app-scene-viewer用のROS2ノード
 │   └── scene_viewer_msgs       app-scene-viewer用のROS2メッセージおよびサービス
 └── utils
-    ├── entrypoint.sh
+    ├── entrypoint.sh                 コンテナ起動時に初期化するスクリプト
     ├── get-version.sh
-    └── run.sh
+    ├── get_sample_rosbag.sh          サンプルデータを取得するためのスクリプト
+    └── run.sh                        コンテナ起動時に実行するスクリプト
 ```
 
 ## 使い方
