@@ -1,34 +1,19 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-    <name>scene_viewer</name>
-    <version>0.1.0</version>
-    <description>
-        This package provides ros-nodes for scene-viewer
-    </description>
-    <maintainer email="hayashi.daiki@hdwlab.co.jp">Daiki Hayashi</maintainer>
-    <license>MIT</license>
+  <name>scene_viewer</name>
+  <version>0.0.0</version>
+  <description>ROS2 nodes for app-scene-viewer</description>
+  <maintainer email="hayashi.daiki@hdwlab.co.jp">Daiki Hayashi</maintainer>
+  <maintainer email="yusuke.adachi@hdwlab.co.jp">Yusuke Adachi</maintainer>
+  <license>Apache-2.0</license>
 
-    <url>https://</url>
-    <author>Daiki Hayashi</author>
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
 
-    <buildtool_depend>catkin</buildtool_depend>
-    <buildtool_depend>message_generation</buildtool_depend>
-
-    <depend>rospy</depend>
-    <depend>std_srvs</depend>
-    <depend>std_msgs</depend>
-    <depend>geometry_msgs</depend>
-    <depend>tf2_msgs</depend>
-    <depend>tf</depend>
-    <depend>message_runtime</depend>
-    <depend>controllable_rosbag_player</depend>
-
-    <exec_depend condition="$ROS_PYTHON_VERSION == 2">python-pycryptodome</exec_depend>
-    <exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-pycryptodome</exec_depend>
-    <exec_depend condition="$ROS_PYTHON_VERSION == 2">python-gnupg</exec_depend>
-    <exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-gnupg</exec_depend>
-    <exec_depend condition="$ROS_PYTHON_VERSION == 2">python-rospkg</exec_depend>
-    <exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-rospkg</exec_depend>
-    <exec_depend condition="$ROS_PYTHON_VERSION == 2">python-yaml</exec_depend>
-    <exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-yaml</exec_depend>
-
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
 </package>
