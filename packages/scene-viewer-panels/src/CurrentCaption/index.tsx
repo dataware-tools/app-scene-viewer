@@ -13,18 +13,37 @@ export type CurrentCaptionProps = {
 
 export const CurrentCaptionPresentation = ({
   captions: propsCaptions,
-  currentSceneIndex: propsCurrentSceneIndex,
+  currentSceneIndex,
   onChangeScene,
 }: CurrentCaptionPresentationProps) => {
   const captions = [...propsCaptions];
-  const dummyEl = {
-    timestamp: null as unknown as number,
-    caption: "",
-  };
-  captions.unshift(dummyEl, dummyEl);
-  captions.push(dummyEl, dummyEl);
 
-  const currentSceneIndex = propsCurrentSceneIndex + 2;
+  const determinePlacement = (itemIndex: number) => {
+    const halfwayIndex = Math.ceil(captions.length / 2);
+    const itemHeight = 50;
+
+    if (currentSceneIndex === itemIndex) return 0;
+    if (itemIndex >= halfwayIndex) {
+      if (currentSceneIndex > itemIndex - halfwayIndex) {
+        return (itemIndex - currentSceneIndex) * itemHeight;
+      } else {
+        return -(captions.length + currentSceneIndex - itemIndex) * itemHeight;
+      }
+    }
+
+    if (itemIndex > currentSceneIndex) {
+      return (itemIndex - currentSceneIndex) * itemHeight;
+    }
+
+    if (itemIndex < currentSceneIndex) {
+      if (currentSceneIndex - itemIndex >= halfwayIndex) {
+        return (captions.length - (currentSceneIndex - itemIndex)) * itemHeight;
+      }
+      return -(currentSceneIndex - itemIndex) * itemHeight;
+    }
+    return null;
+  };
+
   return (
     <>
       <div
@@ -40,47 +59,53 @@ export const CurrentCaptionPresentation = ({
             display: flex;
             flex-direction: column;
             flex-grow: 1;
+            height: 150px;
             justify-content: center;
-            overflow: auto;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            position: relative;
           `}
         >
-          <ul>
-            {captions
-              .map(({ timestamp, caption }, index) => {
-                return (
-                  <li
-                    key={timestamp}
-                    className={css`
-                      align-items: center;
-                      color: ${index === currentSceneIndex ? "white" : "gray"};
-                      display: flex;
-                      flex-direction: row;
-                      padding: 5px 0;
-                    `}
-                  >
-                    <span>{timestamp}</span>
-                    <span
-                      className={css`
-                        flex-shrink: 0;
-                        width: 10px;
-                      `}
-                    />
-                    <span
-                      className={css`
-                        white-space: nowrap;
-                      `}
-                    >
-                      {caption}
-                    </span>
-                  </li>
-                );
-              })
-              .filter(
-                (_, index) =>
-                  currentSceneIndex - 1 <= index &&
-                  index <= currentSceneIndex + 1
-              )}
-          </ul>
+          {captions.map(({ timestamp, caption }, index) => {
+            const isVisible =
+              currentSceneIndex - 1 <= index && index <= currentSceneIndex + 1;
+            const isDisplayed =
+              currentSceneIndex - 2 <= index && index <= currentSceneIndex + 2;
+
+            return (
+              <div
+                key={timestamp}
+                className={css`
+                  align-items: center;
+                  bottom: 0;
+                  color: ${index === currentSceneIndex ? "white" : "gray"};
+                  display: flex;
+                  display: ${isDisplayed ? null : "none"};
+                  flex-direction: row;
+                  position: absolute;
+                  top: 0;
+                  transform: translateY(${determinePlacement(index)}px);
+                  transition: transform 0.4s ease, opacity 0.4s ease;
+                  visibility: ${isVisible ? "visible" : "hidden"};
+                `}
+              >
+                <span>{timestamp}</span>
+                <span
+                  className={css`
+                    flex-shrink: 0;
+                    width: 10px;
+                  `}
+                />
+                <span
+                  className={css`
+                    white-space: nowrap;
+                  `}
+                >
+                  {caption}
+                </span>
+              </div>
+            );
+          })}
         </div>
         <span
           className={css`
@@ -109,7 +134,7 @@ export const CurrentCaptionPresentation = ({
             onClick={async () =>
               await onChangeScene(captions[currentSceneIndex - 1])
             }
-            disabled={currentSceneIndex < 1 + 2}
+            disabled={currentSceneIndex < 1}
             className={css`
               border-radius: 100%;
             `}
@@ -125,7 +150,7 @@ export const CurrentCaptionPresentation = ({
             onClick={async () =>
               await onChangeScene(captions[currentSceneIndex + 1])
             }
-            disabled={currentSceneIndex >= captions.length - (1 + 2)}
+            disabled={currentSceneIndex >= captions.length - 1}
             className={css`
               border-radius: 100%;
             `}

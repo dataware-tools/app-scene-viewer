@@ -130,7 +130,7 @@ export const InSmallContainer = Template.bind({});
 
 InSmallContainer.args = {
   width: "200px",
-  height: "50px",
+  height: "100px",
   captions: [
     { timestamp: 100000, caption: "1111111111111" },
     { timestamp: 100100, caption: "2222222222222" },
