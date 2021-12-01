@@ -1,0 +1,14 @@
+<!-- -->
+<launch>
+
+  <!-- args that can be set from the command line or a default will be used -->
+  <arg name="talk_message" default="Hello world!"/>
+
+  <!-- start ros1-bridge node -->
+  <node pkg="ros1_bridge" exec="dynamic_bridge" args="--bridge-all-2to1-topics"/>
+
+  <!-- start template-node -->
+  <node pkg="scene_viewer" exec="template_node" name="talker" args="$(var talk_message)">
+    <remap from="topic" to="talkers_line"/>
+  </node>
+</launch>
