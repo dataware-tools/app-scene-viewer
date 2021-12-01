@@ -27,11 +27,23 @@ export const Default = Template.bind({});
 Default.args = {
   height: "500px",
   width: "500px",
-  centerPosition: [35.1537602, 136.9641892],
+  centerPosition: [35.1505536926114, 136.96585423505437],
+};
+
+export const MapWithMarkers = Template.bind({});
+MapWithMarkers.args = {
+  height: "500px",
+  width: "500px",
+  centerPosition: [35.1505536926114, 136.96585423505437],
   markers: [
     {
-      longitude: 136.9641892,
-      latitude: 35.1537602,
+      longitude: 136.964871,
+      latitude: 35.144697,
+      popupText: "Yagoto Nisseki Station",
+    },
+    {
+      longitude: 136.966588,
+      latitude: 35.15447,
       popupText: "Nagoya University",
     },
   ],
