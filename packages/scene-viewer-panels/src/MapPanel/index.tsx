@@ -1,7 +1,13 @@
 import { css } from "@emotion/css";
 import Leaflet from "leaflet";
 import React from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Polyline,
+  Popup,
+} from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
 Leaflet.Icon.Default.imagePath =
@@ -13,16 +19,22 @@ type MarkerType = {
   popupText?: string;
 };
 
+type PolylineType = {
+  positions: Leaflet.LatLngExpression[];
+};
+
 export type MapPanelPresentationProps = MapPanelProps;
 
 export type MapPanelProps = {
   centerPosition: Leaflet.LatLngExpression;
   markers?: MarkerType[];
+  polylines?: PolylineType[];
 };
 
 export const MapPanelPresentation = ({
   centerPosition,
   markers,
+  polylines,
 }: MapPanelPresentationProps) => {
   return (
     <MapContainer
@@ -47,6 +59,11 @@ export const MapPanelPresentation = ({
             </Marker>
           );
         })}
+
+      {polylines &&
+        polylines.map((polyline: PolylineType, i: number) => {
+          return <Polyline positions={polyline.positions} key={i} />;
+        })}
     </MapContainer>
   );
 };
@@ -54,8 +71,13 @@ export const MapPanelPresentation = ({
 export const MapPanel = ({
   centerPosition,
   markers,
+  polylines,
 }: MapPanelProps): JSX.Element => {
   return (
-    <MapPanelPresentation centerPosition={centerPosition} markers={markers} />
+    <MapPanelPresentation
+      centerPosition={centerPosition}
+      markers={markers}
+      polylines={polylines}
+    />
   );
 };
