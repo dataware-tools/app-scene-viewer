@@ -54,6 +54,7 @@ MapWithAllAnnotations.args = {
   height: "500px",
   width: "500px",
   centerPosition: [35.1505536926114, 136.96585423505437],
+  currentPosition: [35.14819909438752, 136.9651522986249],
   markers: [
     {
       longitude: 136.964871,

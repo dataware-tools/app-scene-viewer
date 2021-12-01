@@ -5,10 +5,12 @@ import {
   MapContainer,
   TileLayer,
   Marker,
+  Pane,
   Polyline,
   Popup,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import { CurrentLocationMarker } from "./CurrentLocationMarker";
 
 Leaflet.Icon.Default.imagePath =
   "//cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/";
@@ -27,12 +29,14 @@ export type MapPanelPresentationProps = MapPanelProps;
 
 export type MapPanelProps = {
   centerPosition: Leaflet.LatLngExpression;
+  currentPosition?: Leaflet.LatLngExpression;
   markers?: MarkerType[];
   polylines?: PolylineType[];
 };
 
 export const MapPanelPresentation = ({
   centerPosition,
+  currentPosition,
   markers,
   polylines,
 }: MapPanelPresentationProps) => {
@@ -51,31 +55,43 @@ export const MapPanelPresentation = ({
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-      {markers &&
-        markers.map((marker: MarkerType, i: number) => {
-          return (
-            <Marker position={[marker.latitude, marker.longitude]} key={i}>
-              {marker.popupText && <Popup>{marker.popupText}</Popup>}
-            </Marker>
-          );
-        })}
+      <Pane name="polylines" style={{ zIndex: 800 }}>
+        {polylines &&
+          polylines.map((polyline: PolylineType, i: number) => {
+            return <Polyline positions={polyline.positions} key={i} />;
+          })}
+      </Pane>
 
-      {polylines &&
-        polylines.map((polyline: PolylineType, i: number) => {
-          return <Polyline positions={polyline.positions} key={i} />;
-        })}
+      <Pane name="markers" style={{ zIndex: 900 }}>
+        {markers &&
+          markers.map((marker: MarkerType, i: number) => {
+            return (
+              <Marker position={[marker.latitude, marker.longitude]} key={i}>
+                {marker.popupText && <Popup>{marker.popupText}</Popup>}
+              </Marker>
+            );
+          })}
+      </Pane>
+
+      <Pane name="current-position" style={{ zIndex: 1000 }}>
+        {currentPosition && (
+          <CurrentLocationMarker position={currentPosition} />
+        )}
+      </Pane>
     </MapContainer>
   );
 };
 
 export const MapPanel = ({
   centerPosition,
+  currentPosition,
   markers,
   polylines,
 }: MapPanelProps): JSX.Element => {
   return (
     <MapPanelPresentation
       centerPosition={centerPosition}
+      currentPosition={currentPosition}
       markers={markers}
       polylines={polylines}
     />
