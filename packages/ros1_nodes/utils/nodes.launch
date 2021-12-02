@@ -1,0 +1,26 @@
+<!-- -->
+<launch>
+    <!-- Configurations -->
+    <arg name="path_to_rosbag" default="$(find scene_viewer)/sample/sample.bag" />
+    <arg name="path_to_config_file" default="$(find scene_viewer)/conf/default.yaml" />
+
+    <!-- Rosbridge-server -->
+    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch"/>
+
+    <!-- Template Publisher -->
+    <node pkg="scene_viewer" type="template_publisher.py"
+          name="template_publisher" required="true" output="screen" clear_params="true">
+        <param name="path_to_config_file" value="$(arg path_to_config_file)"/>
+    </node>
+
+    <!-- Controllable Rosbag player -->
+    <node pkg="controllable_rosbag_player"
+          type="player.py"
+          name="rosbag_player_controller"
+          required="true"
+          output="screen"
+          clear_params="true">
+        <param name="path_to_rosbag" value="$(arg path_to_rosbag)"/>
+    </node>
+
+</launch>

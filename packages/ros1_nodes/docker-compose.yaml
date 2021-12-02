@@ -1,0 +1,20 @@
+version: "3"
+services:
+  dev:
+    build: .
+    image: registry.gitlab.com/dataware-tools/app-scene-viewer:ros1-nodes-latest
+    container_name: app-scene-viewer-ros1-nodes-dev
+    ports:
+      - 9090:9090
+    volumes:
+      - ./launch:/opt/ros1_nodes/launch:rw
+      - ./src:/opt/ros1_nodes/src:rw
+      - ./test:/opt/ros1_nodes/test:rw
+      - ./utils:/opt/ros1_nodes/utils:rw
+    environment:
+      ROS1_LAUNCH_FILE: /opt/ros1_nodes/launch/ros1.launch
+    entrypoint:
+      - /opt/ros1_nodes/utils/entrypoint.sh
+    command:
+      - /opt/ros1_nodes/utils/run.sh
+    tty: true
