@@ -4,9 +4,8 @@
 #
 # Copyright 2021 Human Dataware Lab. Co. Ltd.
 #
+
 import argparse
-
-
 
 import rosbag
 import roslib
@@ -18,7 +17,6 @@ from std_msgs.msg import String
 import rospy
 
 from template_publisher import TemplatePublisher
-
 
 
 class TrajectoryPublisher(TemplatePublisher):
