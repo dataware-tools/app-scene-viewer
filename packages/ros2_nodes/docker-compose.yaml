@@ -1,0 +1,47 @@
+version: "3"
+services:
+  dev:
+    build: .
+    image: registry.gitlab.com/dataware-tools/app-scene-viewer:ros2-nodes-latest
+    container_name: app-scene-viewer-ros2-nodes-dev
+    volumes:
+      - ./launch:/opt/ros2_nodes/launch:rw
+      - ./sample_data:/opt/ros2_nodes/sample_data:rw
+      - ./src:/opt/ros2_nodes/src:rw
+      - ./utils:/opt/ros2_nodes/utils:rw
+    environment:
+      ROS1_LAUNCH_FILE: /opt/ros2_nodes/launch/ros1.launch
+      ROS2_LAUNCH_FILE: /opt/ros2_nodes/launch/ros2.dev.launch.xml
+    entrypoint: /opt/ros2_nodes/utils/entrypoint.sh
+    command:
+      - /opt/ros2_nodes/utils/run.sh
+    ports:
+      - 9090:9090
+    tty: true
+
+  sample:
+    extends:
+      file: docker-compose.yaml
+      service: dev
+    profiles:
+      - donotstart
+    container_name: app-scene-viewer-ros2-nodes-prod
+    volumes: []
+    environment:
+      ROS1_LAUNCH_FILE: /opt/ros2_nodes/launch/ros1.launch
+      ROS2_LAUNCH_FILE: /opt/ros2_nodes/launch/ros2.launch.xml
+      PATH_TO_ROSBAG: /opt/ros2_nodes/sample_data/sample.bag
+
+  get-rosbag:
+    extends:
+      file: docker-compose.yaml
+      service: dev
+    profiles:
+      - donotstart
+    container_name: app-scene-viewer-ros2-nodes-get-rosbag
+    environment:
+      DISABLE_ROS1: "true"
+      DISABLE_ROS2: "true"
+      DISABLE_ROSBRIDGE: "true"
+    command:
+      - /opt/ros2_nodes/utils/get_sample_rosbag.sh
