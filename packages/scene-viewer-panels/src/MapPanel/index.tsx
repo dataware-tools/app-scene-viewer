@@ -4,7 +4,7 @@ import React from "react";
 import { MapContainer, TileLayer, Pane, Polyline } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { CurrentLocationMarker } from "./CurrentLocationMarker";
-import { MarkerWithText, MarkerType } from "./MarkerWithText";
+import { MarkerWithText, MarkerWithTextProps } from "./MarkerWithText";
 
 Leaflet.Icon.Default.imagePath =
   "//cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/";
@@ -18,7 +18,7 @@ export type MapPanelPresentationProps = MapPanelProps;
 export type MapPanelProps = {
   centerPosition: Leaflet.LatLngExpression;
   currentPosition?: Leaflet.LatLngExpression;
-  markers?: MarkerType[];
+  markers?: MarkerWithTextProps[];
   polylines?: PolylineType[];
 };
 
@@ -52,15 +52,13 @@ export const MapPanelPresentation = ({
 
       <Pane name="markers" style={{ zIndex: 900 }}>
         {markers &&
-          markers.map((marker: MarkerType, i: number) => {
+          markers.map((marker: MarkerWithTextProps, i: number) => {
             return (
               <MarkerWithText
                 key={i}
                 longitude={marker.longitude}
                 latitude={marker.latitude}
                 popupText={marker.popupText}
-                color={marker.color}
-                size={marker.size}
                 text={i.toString()}
               />
             );

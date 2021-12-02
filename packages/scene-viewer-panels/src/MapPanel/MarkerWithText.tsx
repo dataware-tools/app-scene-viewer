@@ -1,44 +1,32 @@
 import { divIcon } from "leaflet";
 import React from "react";
+import ReactDOMServer from "react-dom/server";
 import { Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
-export type MarkerType = {
+import { MarkerIcon, MarkerIconProps } from "../components/MarkerIcon";
+
+export type MarkerWithTextProps = {
   longitude: number;
   latitude: number;
   popupText?: string;
-  color?: string;
-  fontColor?: string;
-  size?: number;
-};
-
-export type MarkerWithTextProps = {
-  text?: string;
-} & MarkerType;
+} & MarkerIconProps;
 
 export const MarkerWithText = ({
   longitude,
   latitude,
   popupText,
-  color,
-  fontColor,
-  size,
   text,
 }: MarkerWithTextProps) => {
   const icon = divIcon({
     html: `
       <div style="
-        width: ${size}px;
-        height: ${size}px;
         position: relative;
         top: calc(-50% - 3px);
         left: calc(-50% - 3px);
-        color: ${fontColor};
-        background-color: ${color};
-        line-height: ${size}px;
-        text-align: center;
-        border-radius: 50%;
-      ">${text}</div>
+      ">
+        ${ReactDOMServer.renderToString(<MarkerIcon text={text} />)}
+      </div>
     `,
   });
 
@@ -47,10 +35,4 @@ export const MarkerWithText = ({
       {popupText && <Popup>{popupText}</Popup>}
     </Marker>
   );
-};
-
-MarkerWithText.defaultProps = {
-  color: "#3388FE",
-  fontColor: "#FFFFFF",
-  size: 30,
 };

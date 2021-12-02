@@ -5,7 +5,7 @@ import { MapPanel, MapPanelProps } from "./index";
 
 export default {
   component: MapPanel,
-  title: "MapPanel",
+  title: "Panels/MapPanel",
 };
 
 const Template: Story<MapPanelProps & { height: string; width: string }> = ({
