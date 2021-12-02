@@ -28,8 +28,9 @@ $ source utils/entrypoint.sh
 
 ### ROS1ノードを作るには？
 `scene_viewer/scripts` ディレクトリ内に任意の python スクリプトを作成します
+作成したスクリプトが実行可能になっているかパーミッションを確認する
 ```bash
-$ cd /opt/ros2_nodes/src/scene_viewer/scripts
+$ cd /opt/ros1_nodes/src/scene_viewer/scripts
 $ cp template_node.py my_node.py
 $ vim my_node.py
 <いじる>
