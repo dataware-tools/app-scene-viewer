@@ -8,6 +8,7 @@ export type MarkerType = {
   latitude: number;
   popupText?: string;
   color?: string;
+  fontColor?: string;
   size?: number;
 };
 
@@ -20,6 +21,7 @@ export const MarkerWithText = ({
   latitude,
   popupText,
   color,
+  fontColor,
   size,
   text,
 }: MarkerWithTextProps) => {
@@ -31,6 +33,7 @@ export const MarkerWithText = ({
         position: relative;
         top: calc(-50% - 3px);
         left: calc(-50% - 3px);
+        color: ${fontColor};
         background-color: ${color};
         line-height: ${size}px;
         text-align: center;
@@ -48,5 +51,6 @@ export const MarkerWithText = ({
 
 MarkerWithText.defaultProps = {
   color: "#3388FE",
+  fontColor: "#FFFFFF",
   size: 30,
 };
