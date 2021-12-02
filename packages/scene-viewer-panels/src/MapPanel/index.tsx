@@ -1,25 +1,13 @@
 import { css } from "@emotion/css";
 import Leaflet from "leaflet";
 import React from "react";
-import {
-  MapContainer,
-  TileLayer,
-  Marker,
-  Pane,
-  Polyline,
-  Popup,
-} from "react-leaflet";
+import { MapContainer, TileLayer, Pane, Polyline } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { CurrentLocationMarker } from "./CurrentLocationMarker";
+import { MarkerWithText, MarkerType } from "./MarkerWithText";
 
 Leaflet.Icon.Default.imagePath =
   "//cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/";
-
-type MarkerType = {
-  longitude: number;
-  latitude: number;
-  popupText?: string;
-};
 
 type PolylineType = {
   positions: Leaflet.LatLngExpression[];
@@ -66,9 +54,15 @@ export const MapPanelPresentation = ({
         {markers &&
           markers.map((marker: MarkerType, i: number) => {
             return (
-              <Marker position={[marker.latitude, marker.longitude]} key={i}>
-                {marker.popupText && <Popup>{marker.popupText}</Popup>}
-              </Marker>
+              <MarkerWithText
+                key={i}
+                longitude={marker.longitude}
+                latitude={marker.latitude}
+                popupText={marker.popupText}
+                color={marker.color}
+                size={marker.size}
+                text={i.toString()}
+              />
             );
           })}
       </Pane>
