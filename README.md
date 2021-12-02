@@ -26,3 +26,11 @@ npm run dev
 npm run build-static-webviz
 npm run serve-static-webviz
 ```
+
+## Start backend server (rosbridge) for development
+
+```bash
+cd packages/ros1_nodes
+docker-compose up
+
+```

@@ -1,2 +1,10 @@
 # Spin rate (refresh rate)
 spin_rate: 2  # Hz
+
+# File reader
+file_reader:
+  mapping:  # from: to
+    start_timestamp: timestamp
+  filtering:
+    - timestamp
+    - caption

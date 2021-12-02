@@ -5,33 +5,31 @@
 
     <!-- Configurations -->
     <arg name="path_to_rosbag" default="$(optenv PATH_TO_ROSBAG /opt/rosbridge-rosbag-player/samples/sample.bag)" />
+    <arg name="path_to_caption_file"
+         default="$(optenv PATH_TO_CAPTION_FILE /opt/ros1_nodes/src/scene_viewer/sample/scene_caption.csv)" />
     <arg name="graceful_time" default="99999999" />  <!-- FIXME: Change to 5 in production -->
     <arg name="timeout" default="999999999" />    <!-- FIXME: Change to 60 in production -->
     <arg name="websocket_external_port" default="$(optenv WEBSOCKET_EXTERNAL_PORT None)" />
 
-    <!-- Rosbridge-server -->
-    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch">
-        <arg name="websocket_external_port" value="$(arg websocket_external_port)" />
+    <!-- Rosbridge and related nodes -->
+    <include file="$(find scene_viewer)/launch/rosbridge.launch">
+      <arg name="path_to_rosbag" value="$(arg path_to_rosbag)" />
+      <arg name="graceful_time" value="$(arg graceful_time)" />
+      <arg name="timeout" value="$(arg timeout)" />
+      <arg name="websocket_external_port" value="$(arg websocket_external_port)" />
     </include>
-
-    <!-- Controllable Rosbag player -->
-    <node pkg="controllable_rosbag_player" type="player.py"
-          name="rosbag_player_controller" required="true" output="screen" clear_params="true">
-        <param name="path_to_rosbag" value="$(arg path_to_rosbag)"/>
-    </node>
-
-    <!-- ROSBridge observer -->
-    <node pkg="rosbridge_observer" type="observer.py"
-          name="rosbridge_observer" required="true" output="screen" clear_params="true">
-        <param name="topic_connected_clients" value="/connected_clients"/>
-        <param name="graceful_time" value="$(arg graceful_time)"/>
-        <param name="timeout" value="$(arg timeout)"/>
-    </node>
 
     <!-- Template node -->
     <node pkg="scene_viewer" type="template_publisher.py" name="template_publisher"
           required="true" output="screen" clear_params="true">
-          <param name="path_to_config_file" value="$(find scene_viewer)/conf/default.yaml"/>
+          <param name="path_to_config_file" value="$(find scene_viewer)/conf/default.yaml" />
+    </node>
+
+    <!-- File reader -->
+    <node pkg="scene_viewer" type="file_reader.py" name="caption_reader"
+          required="true" output="screen" clear_params="true">
+          <param name="path_to_config_file" value="$(find scene_viewer)/conf/default.yaml" />
+          <param name="path_to_file" value="$(arg path_to_caption_file)" />
     </node>
 
 </launch>
