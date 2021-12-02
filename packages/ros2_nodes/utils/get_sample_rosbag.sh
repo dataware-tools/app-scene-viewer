@@ -9,7 +9,7 @@
 set -x
 
 download_url="https://autoware-ai.s3.us-east-2.amazonaws.com/sample_moriyama_150324.tar.gz"
-rosbag_path=/opt/ros_nodes/sample_data/sample.bag
+rosbag_path=/opt/ros2_nodes/sample_data/sample.bag
 done_file=${rosbag_path}.done
 
 [[ -f ${done_file} ]] && echo "Already done" && exit 0

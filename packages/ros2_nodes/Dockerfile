@@ -69,20 +69,20 @@ RUN source /opt/ros/${ROS1_DISTRO}/setup.bash \
   && apt -y clean \
   && rm -rf /var/lib/apt/lists/*
 
-# Install ros-nodes
-RUN mkdir -p /opt/ros_nodes/src
-COPY ./src /opt/ros_nodes/src
+# Install ros2-nodes
+RUN mkdir -p /opt/ros2_nodes/src
+COPY ./src /opt/ros2_nodes/src
 RUN source /opt/ros/${ROS2_DISTRO}/setup.bash \
-  && cd /opt/ros_nodes \
+  && cd /opt/ros2_nodes \
   && for dir in src/*; do [[ -f ${dir}/setup.py ]] && pip3 install --no-cache-dir -e ${dir} || :; done \
   && rosdep install --from-paths src --ignore-src -r -y \
   && colcon build --cmake-args -DPYTHON_EXECUTABLE=/usr/bin/python3 \
   && rm -rf /var/lib/apt/lists/*
 
 # Copy files
-RUN mkdir -p /opt/ros_nodes/utils || :
-COPY ./utils/* /opt/ros_nodes/utils
+RUN mkdir -p /opt/ros2_nodes/utils || :
+COPY ./utils/* /opt/ros2_nodes/utils
 
 # Set default command
-ENTRYPOINT ["/opt/ros_nodes/utils/entrypoint.sh"]
-CMD ["/opt/ros_nodes/utils/run.sh"]
+ENTRYPOINT ["/opt/ros2_nodes/utils/entrypoint.sh"]
+CMD ["/opt/ros2_nodes/utils/run.sh"]

@@ -9,7 +9,7 @@
 # Source setup.bash if necessary
 require_setup=false
 [[ $1 =~ run.sh ]] \
-  || [[ $1 =~ /opt/ros_nodes/utils/run.sh ]] \
+  || [[ $1 =~ /opt/ros2_nodes/utils/run.sh ]] \
   || require_setup=true
 
 if ${require_setup}; then
@@ -28,14 +28,14 @@ if ${require_setup}; then
     unset ROS_DISTRO
     # setup ros2 environment
     source "/opt/ros/${ROS2_DISTRO}/setup.bash"
-    source "/opt/ros_nodes/install/setup.bash"
+    source "/opt/ros2_nodes/install/setup.bash"
   fi
 fi
 
 # Start rosbridge for debugging
 if [[ $1 =~ python3 ]]; then
   if ! ${DISABLE_ROSBRIDGE:-false}; then
-    bash -c "ROS2_LAUNCH_FILE=/opt/ros_nodes/launch/ros2.dev.launch.xml /opt/ros_nodes/utils/run.sh" &
+    bash -c "ROS2_LAUNCH_FILE=/opt/ros2_nodes/launch/ros2.dev.launch.xml /opt/ros2_nodes/utils/run.sh" &
   fi
 fi
 
