@@ -8,6 +8,7 @@ services:
       - 9090:9090
     volumes:
       - ./launch:/opt/ros1_nodes/launch:rw
+      - ./sample_data:/opt/ros1_nodes/sample_data:rw
       - ./src:/opt/ros1_nodes/src:rw
       - ./test:/opt/ros1_nodes/test:rw
       - ./utils:/opt/ros1_nodes/utils:rw
@@ -18,3 +19,13 @@ services:
     command:
       - /opt/ros1_nodes/utils/run.sh
     tty: true
+
+  generate-rosbag:
+    extends:
+      file: docker-compose.yaml
+      service: dev
+    profiles:
+      - donotstart
+    container_name: app-scene-viewer-ros1-nodes-generate-rosbag
+    command:
+      - /opt/ros1_nodes/utils/generate_rosbag.py
