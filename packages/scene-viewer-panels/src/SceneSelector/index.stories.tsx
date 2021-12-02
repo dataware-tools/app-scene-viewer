@@ -11,8 +11,8 @@ export default {
 const Template: Story<SceneSelectorProps> = (args) => (
   <div
     className={css`
-      height: 150px;
-      width: 500px;
+      height: 300px;
+      width: 800px;
     `}
   >
     <SceneSelector {...args} />
@@ -72,5 +72,8 @@ Default.args = {
   setPinLocations: (pinLocations) => {
     console.log("setPinLocations!!");
     console.log(pinLocations);
+  },
+  onSelectScene: (timestamp) => {
+    window.confirm(`Seek to ${timestamp}`);
   },
 };

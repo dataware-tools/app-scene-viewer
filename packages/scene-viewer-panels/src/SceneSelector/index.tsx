@@ -1,4 +1,5 @@
 import { css } from "@emotion/css";
+import SearchIcon from "@material-ui/icons/Search";
 import { Index } from "flexsearch";
 import React, { useEffect, useRef, useState } from "react";
 import Highlighter from "react-highlight-words";
@@ -26,6 +27,7 @@ export type SceneSelectorPresentationProps = {
   captionWithLabels: CaptionWithLabel[];
 } & Omit<SceneSelectorProps, "setPinLocations" | "captions">;
 export type SceneSelectorProps = {
+  onSelectScene: (timestamp: number) => Promise<void> | void;
   captions: Caption[];
   setPinLocations: (pinLocation: PinLocations) => void | Promise<void>;
 };
@@ -34,12 +36,20 @@ export const SceneSelectorPresentation = ({
   captionWithLabels,
   onSearch,
   highlightedTexts,
+  onSelectScene,
 }: SceneSelectorPresentationProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
+  const white = "hsl(0, 0%, 94%)";
+  const gray = "hsl(240, 2%, 53%)";
+  const lightgray = "hsl(240, 2%, 70%)";
+  const red = "hsl(3, 82%, 54%)";
   return (
     <div
       className={css`
         align-items: center;
+        background-color: hsl(240deg 1% 41%);
+        border-radius: 5px;
+        color: white;
         display: flex;
         flex-direction: column;
         height: 100%;
@@ -47,23 +57,62 @@ export const SceneSelectorPresentation = ({
         width: 100%;
       `}
     >
-      <div
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          onSearch(inputRef.current?.value || "");
+        }}
         className={css`
+          display: flex;
+          flex-direction: row;
           flex-shrink: 0;
+          position: relative;
         `}
       >
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            onSearch(inputRef.current?.value || "");
-          }}
+        <SearchIcon
+          fontSize="large"
+          className={css`
+            color: ${gray};
+            left: 12px;
+            position: absolute;
+            top: 4px;
+          `}
+        />
+        <input
+          ref={inputRef}
+          className={css`
+            background-color: ${white};
+            color: ${gray};
+            font-size: 1.25rem;
+            padding-left: 40px;
+            &:focus {
+              background-color: ${white};
+              color: ${gray};
+            }
+          `}
+        />
+        <span
+          className={css`
+            width: 10px;
+          `}
+        />
+        <button
+          onClick={() => onSearch(inputRef.current?.value || "")}
+          className={css`
+            background-color: ${white};
+            color: black;
+            font-size: 1.25rem;
+            font-weight: bold;
+            padding: 0 20px;
+            &:hover {
+              background-color: ${white} !important;
+              color: ${gray} !important;
+            }
+          `}
         >
-          <input ref={inputRef} placeholder="search..." />
-          <button onClick={() => onSearch(inputRef.current?.value || "")}>
-            Search
-          </button>
-        </form>
-      </div>
+          Search
+        </button>
+      </form>
       <span
         className={css`
           flex-shrink: 0;
@@ -72,8 +121,6 @@ export const SceneSelectorPresentation = ({
       />
       <div
         className={css`
-          border: 3px solid gray;
-          border-radius: 5px;
           flex-shrink: 1;
           height: 100%;
           overflow: auto;
@@ -81,24 +128,38 @@ export const SceneSelectorPresentation = ({
           width: 100%;
         `}
       >
-        <ul>
+        <ul
+          className={css`
+            display: inline-block;
+          `}
+        >
           {captionWithLabels.map(({ timestamp, caption, label }) => (
             <li
               key={timestamp}
               className={css`
                 align-items: center;
+                cursor: pointer;
                 display: flex;
                 flex-direction: row;
-                padding: 5px 0;
+                padding: 5px;
+                &:hover {
+                  background-color: ${lightgray};
+                }
               `}
+              onClick={() => onSelectScene(timestamp)}
             >
               <span
                 className={css`
-                  background-color: ${label ? "red" : undefined};
+                  align-items: center;
+                  background-color: ${label ? red : undefined};
+                  border: ${label ? `1px solid ${white}` : undefined};
                   border-radius: 100%;
-                  color: ${label ? "black" : undefined};
+                  color: ${label ? white : undefined};
+                  display: flex;
                   flex-shrink: 0;
-                  text-align: center;
+                  font-weight: bold;
+                  height: 20px;
+                  justify-content: center;
                   width: 20px;
                 `}
               >
@@ -110,7 +171,13 @@ export const SceneSelectorPresentation = ({
                   width: 10px;
                 `}
               />
-              <span>{timestamp}</span>
+              <span
+                className={css`
+                  font-weight: bold;
+                `}
+              >
+                {timestamp}
+              </span>
               <span
                 className={css`
                   flex-shrink: 0;
@@ -119,12 +186,18 @@ export const SceneSelectorPresentation = ({
               />
               <span
                 className={css`
+                  flex-grow: 1;
                   white-space: nowrap;
                 `}
               >
                 <Highlighter
                   textToHighlight={caption}
                   searchWords={highlightedTexts}
+                  highlightStyle={{
+                    backgroundColor: "hsl(197, 39%, 58%)",
+                    fontWeight: "bold",
+                    color: "white",
+                  }}
                 />
               </span>
             </li>
@@ -138,6 +211,7 @@ export const SceneSelectorPresentation = ({
 export const SceneSelector = ({
   captions,
   setPinLocations,
+  ...delegated
 }: SceneSelectorProps): JSX.Element => {
   const [highlightedTexts, setHighlightedTexts] = useState([""]);
   const [captionWithLabels, setCaptionWithLabels] = useState<
@@ -214,6 +288,7 @@ export const SceneSelector = ({
       captionWithLabels={captionWithLabels}
       highlightedTexts={highlightedTexts}
       onSearch={onSearch}
+      {...delegated}
     />
   );
 };
