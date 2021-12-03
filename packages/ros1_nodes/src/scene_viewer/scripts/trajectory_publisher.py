@@ -5,8 +5,6 @@
 # Copyright 2021 Human Dataware Lab. Co. Ltd.
 #
 
-import argparse
-
 import rosbag
 import roslib
 import rospkg
