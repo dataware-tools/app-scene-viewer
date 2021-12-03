@@ -159,7 +159,7 @@ export const CurrentCaptionPresentation = ({
           </button>
           <span
             className={css`
-              height: 10px;
+              height: 40px;
             `}
           />
           <button
