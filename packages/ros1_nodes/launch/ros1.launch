@@ -4,9 +4,10 @@
     <param name="use_sim_time" value="true"/>
 
     <!-- Configurations -->
-    <arg name="path_to_rosbag" default="$(optenv PATH_TO_ROSBAG /opt/rosbridge-rosbag-player/samples/sample.bag)" />
+    <arg name="path_to_rosbag" default="$(optenv PATH_TO_ROSBAG /opt/ros1_nodes/src/scene_viewer/sample/sample.bag)" />
     <arg name="path_to_caption_file"
          default="$(optenv PATH_TO_CAPTION_FILE /opt/ros1_nodes/src/scene_viewer/sample/scene_caption.csv)" />
+    <arg name="gnss_topic" default="/sensing/gnss/ublox/nav_sat_fix" />
     <arg name="graceful_time" default="99999999" />  <!-- FIXME: Change to 5 in production -->
     <arg name="timeout" default="999999999" />    <!-- FIXME: Change to 60 in production -->
     <arg name="websocket_external_port" default="$(optenv WEBSOCKET_EXTERNAL_PORT None)" />
@@ -30,6 +31,14 @@
           required="true" output="screen" clear_params="true">
           <param name="path_to_config_file" value="$(find scene_viewer)/conf/default.yaml" />
           <param name="path_to_file" value="$(arg path_to_caption_file)" />
+    </node>
+
+    <!-- Trajectory Publisher -->
+    <node pkg="scene_viewer" type="trajectory_publisher.py" name="trajectory_publisher"
+          required="true" output="screen" clear_params="true">
+          <param name="path_to_config_file" value="$(find scene_viewer)/conf/default.yaml" />
+          <param name="path_to_rosbag" value="$(arg path_to_rosbag)" />
+          <param name="gnss_topic" value="$(arg gnss_topic)" />
     </node>
 
 </launch>
