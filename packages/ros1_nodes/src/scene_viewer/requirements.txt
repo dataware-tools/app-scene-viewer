@@ -2,3 +2,4 @@ rospkg
 pyyaml
 pycryptodomex
 gnupg
+pydtk>=0.2.1,<0.3.0
