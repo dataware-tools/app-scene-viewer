@@ -4,6 +4,7 @@
 #
 # Copyright 2021 Human Dataware Lab. Co. Ltd.
 #
+import json
 
 import rosbag
 import roslib
@@ -87,16 +88,8 @@ def get_trajectory_info(bag: str, topic: str):
         for _, msg, t in b.read_messages(topics=topic):
             posts += [[t.to_sec(), msg.longitude, msg.latitude, msg.altitude]]
         # posts = resample_trajectory(trjs)
-    traj_str = trajectory_formatter(posts)
+    traj_str = json.dumps(posts)
     return traj_str
-
-
-def trajectory_formatter(positions: list):
-    """Convert position list to str for casting as a trajectory."""
-    traj_str = ""
-    for position in positions:
-        traj_str += "  [" + ", ".join([str(i) for i in position]) + "],\n"
-    return "[\n" + traj_str + "]"
 
 
 if __name__ == '__main__':
