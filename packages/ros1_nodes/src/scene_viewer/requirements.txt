@@ -1,4 +1,5 @@
 rospkg
+pandas
 pyyaml
 pycryptodomex
 gnupg
