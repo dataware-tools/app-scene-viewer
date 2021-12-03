@@ -1,5 +1,5 @@
 import { divIcon } from "leaflet";
-import React from "react";
+import React, { useMemo } from "react";
 import ReactDOMServer from "react-dom/server";
 import { Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
@@ -16,18 +16,24 @@ export const MarkerWithText = ({
   longitude,
   latitude,
   popupText,
+  size,
   text,
 }: MarkerWithTextProps) => {
+  const positionShift = useMemo(() => {
+    return size ? size / 2 - 3 : 0;
+  }, [size]);
+
   const icon = divIcon({
     html: `
       <div style="
         position: relative;
-        top: calc(-50% - 3px);
-        left: calc(-50% - 3px);
+        top: -${positionShift}px;
+        left: -${positionShift}px;
       ">
-        ${ReactDOMServer.renderToString(<MarkerIcon text={text} />)}
+        ${ReactDOMServer.renderToString(<MarkerIcon text={text} size={size} />)}
       </div>
     `,
+    popupAnchor: [0, -positionShift - 5],
   });
 
   return (
@@ -35,4 +41,8 @@ export const MarkerWithText = ({
       {popupText && <Popup>{popupText}</Popup>}
     </Marker>
   );
+};
+
+MarkerWithText.defaultProps = {
+  size: 30,
 };
