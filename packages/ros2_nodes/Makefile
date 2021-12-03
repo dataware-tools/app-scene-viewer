@@ -31,4 +31,4 @@ run-image:    ## Run an image
 
 .PHONY: build
 build: build-image   ## build on image:warning
-	docker run -it --rm -v ${PWD}:/opt/ros_nodes:rw $(IMAGE_PREFIX)/$(IMAGE_NAME):$(IMAGE_TAG) bash -c "cd /opt/ros_nodes && colcon build"
+	docker run -it --rm -v ${PWD}:/opt/ros2_nodes:rw $(IMAGE_PREFIX)/$(IMAGE_NAME):$(IMAGE_TAG) bash -c "cd /opt/ros2_nodes && colcon build"

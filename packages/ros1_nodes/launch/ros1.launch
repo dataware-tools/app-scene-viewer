@@ -1,0 +1,37 @@
+<!-- -->
+<launch>
+    <!-- Use simulation time -->
+    <param name="use_sim_time" value="true"/>
+
+    <!-- Configurations -->
+    <arg name="path_to_rosbag" default="$(optenv PATH_TO_ROSBAG /opt/rosbridge-rosbag-player/samples/sample.bag)" />
+    <arg name="graceful_time" default="99999999" />  <!-- FIXME: Change to 5 in production -->
+    <arg name="timeout" default="999999999" />    <!-- FIXME: Change to 60 in production -->
+    <arg name="websocket_external_port" default="$(optenv WEBSOCKET_EXTERNAL_PORT None)" />
+
+    <!-- Rosbridge-server -->
+    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch">
+        <arg name="websocket_external_port" value="$(arg websocket_external_port)" />
+    </include>
+
+    <!-- Controllable Rosbag player -->
+    <node pkg="controllable_rosbag_player" type="player.py"
+          name="rosbag_player_controller" required="true" output="screen" clear_params="true">
+        <param name="path_to_rosbag" value="$(arg path_to_rosbag)"/>
+    </node>
+
+    <!-- ROSBridge observer -->
+    <node pkg="rosbridge_observer" type="observer.py"
+          name="rosbridge_observer" required="true" output="screen" clear_params="true">
+        <param name="topic_connected_clients" value="/connected_clients"/>
+        <param name="graceful_time" value="$(arg graceful_time)"/>
+        <param name="timeout" value="$(arg timeout)"/>
+    </node>
+
+    <!-- Template node -->
+    <node pkg="scene_viewer" type="template_publisher.py" name="template_publisher"
+          required="true" output="screen" clear_params="true">
+          <param name="path_to_config_file" value="$(find scene_viewer)/conf/default.yaml"/>
+    </node>
+
+</launch>

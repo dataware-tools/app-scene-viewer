@@ -17,6 +17,8 @@
     "@mapbox/rehype-prism": "^0.3.0",
     "@mdx-js/loader": "^0.16.6",
     "@rollup/plugin-wasm": "^5.1.2",
+    "@types/flexsearch": "^0.7.2",
+    "@types/react-highlight-words": "^0.16.3",
     "autoprefixer": "^9.4.2",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
@@ -119,5 +121,9 @@
   },
   "volta": {
     "node": "12.22.7"
+  },
+  "dependencies": {
+    "flexsearch": "^0.7.21",
+    "react-highlight-words": "^0.17.0"
   }
 }

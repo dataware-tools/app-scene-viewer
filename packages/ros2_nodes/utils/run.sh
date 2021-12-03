@@ -17,7 +17,7 @@ bash <<"EOF" &
   [[ ! -L /tmp/python3/python ]] && ln -s /usr/bin/python3 /tmp/python3/python
   export PATH=/tmp/python3:${PATH}
 
-  roslaunch ${ROS1_LAUNCH_FILE:-/opt/ros_nodes/launch/ros1.launch}
+  roslaunch ${ROS1_LAUNCH_FILE:-/opt/ros2_nodes/launch/ros1.launch}
 
 EOF
 pids+=($!)
@@ -40,9 +40,9 @@ bash <<"EOF" &
   # Setup ros2 environment
   unset ROS_DISTRO
   source "/opt/ros/${ROS2_DISTRO}/setup.bash"
-  source "/opt/ros_nodes/install/setup.bash"
+  source "/opt/ros2_nodes/install/setup.bash"
 
-  ros2 launch ${ROS2_LAUNCH_FILE:-/opt/ros_nodes/launch/ros2.launch.xml}
+  ros2 launch ${ROS2_LAUNCH_FILE:-/opt/ros2_nodes/launch/ros2.launch.xml}
 
 EOF
 pids+=($!)
