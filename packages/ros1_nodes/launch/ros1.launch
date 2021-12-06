@@ -37,4 +37,11 @@
           <remap from="~info" to="/scene_viewer/vehicle_trajectory" />
     </node>
 
+    <!-- Topic aggregator -->
+    <node pkg="scene_viewer" type="topic_aggregator.py" name="topic_aggregator"
+          required="true" output="screen" clear_params="true">
+          <param name="path_to_config_file" value="$(find scene_viewer)/conf/default.yaml" />
+          <remap from="~content" to="/scene_viewer/scene_captions_with_locations" />
+    </node>
+
 </launch>

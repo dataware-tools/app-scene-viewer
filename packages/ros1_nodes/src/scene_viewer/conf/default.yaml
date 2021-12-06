@@ -8,3 +8,26 @@ file_reader:
   filtering:
     - timestamp
     - caption
+
+# Topic aggregator
+topic_aggregator:
+  input:
+    base_topic: "/scene_viewer/scene_captions"
+    topics:
+      /scene_viewer/scene_captions:
+        dtype: dict
+      /scene_viewer/vehicle_trajectory:
+        dtype: list
+        columns:
+          - timestamp
+          - latitude
+          - longitude
+          - altitude
+  output:
+    dtype: dict
+    columns:
+      - timestamp
+      - caption
+      - latitude
+      - longitude
+      - altitude
