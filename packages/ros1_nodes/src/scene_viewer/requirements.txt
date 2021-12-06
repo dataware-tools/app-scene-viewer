@@ -1,6 +1,7 @@
-rospkg
-pandas
-pyyaml
-pycryptodomex
-gnupg
+rospkg==1.3.0
+pandas==1.3.4
+pyyaml==5.3.1
+pycryptodomex==3.6.1
+gnupg==2.3.1
 pydtk>=0.2.1,<0.3.0
+scipy==1.7.3
