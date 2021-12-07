@@ -20,6 +20,9 @@
         <param name="path_to_rosbag" value="$(arg path_to_rosbag)"/>
     </node>
 
+    <!-- Remap /clock -->
+    <node pkg="topic_tools" type="relay" name="relay_clock" required="true" args="/clock /rosbag_player_controller/clock" />
+
     <!-- ROSBridge observer -->
     <node pkg="rosbridge_observer" type="observer.py"
           name="rosbridge_observer" required="true" output="screen" clear_params="true">

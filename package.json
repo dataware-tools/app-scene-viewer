@@ -103,7 +103,7 @@
     "worker-loader": "^2.0.0"
   },
   "scripts": {
-    "bootstrap": "npm install && lerna bootstrap --hoist \"{react,react-dom}\" --ci && ln -s ../../webviz/packages/webviz-core/src/styles packages/scene-viewer-panels/.storybook",
+    "bootstrap": "npm install && lerna bootstrap --hoist \"{react,react-dom}\" --ci && ln -sf ../../webviz/packages/webviz-core/src/styles packages/scene-viewer-panels/.storybook",
     "bootstrap-ci": "npm ci && lerna bootstrap --hoist \"{react,react-dom}\" --ci",
     "test": "lerna run test --stream",
     "test:scene-viewer-panels": "lerna run test --scope scene-viewer-panels --stream",
