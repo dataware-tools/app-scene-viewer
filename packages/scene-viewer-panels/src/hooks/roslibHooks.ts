@@ -3,6 +3,14 @@ import { useEffect, useState } from "react";
 import ROSLIB from "roslib";
 import { TimestampCaption } from "../CurrentCaption";
 
+type SceneCaptionWithLocation = {
+  latitude: number;
+  longitude: number;
+  altitude: number;
+  timestamp: number;
+  caption: string;
+};
+
 export const useRosLib = (websocketUrl = "ws://localhost:9090") => {
   const [Ros, setRos] = useState<ROSLIB.Ros | undefined>(undefined);
   // TODO: Allow empty array for captions in CurrentCaption component and remove initial value below
@@ -10,6 +18,9 @@ export const useRosLib = (websocketUrl = "ws://localhost:9090") => {
     { timestamp: 0, caption: "remove this later" },
   ]);
   const [trajectory, setTrajectory] = useState<Leaflet.LatLngExpression[]>([]);
+  const [captionsWithLocation, setCaptionsWithLocation] = useState<
+    SceneCaptionWithLocation[]
+  >([]);
 
   useEffect(() => {
     const ros = new ROSLIB.Ros({
@@ -58,10 +69,29 @@ export const useRosLib = (websocketUrl = "ws://localhost:9090") => {
           vehicleTrajectoryObject.map((item) => [item[1], item[2]])
         );
       } catch {
-        console.error("Failed to parse captions message.");
+        console.error("Failed to parse vehicle trajectory message.");
         setTrajectory([]);
       }
       vehicleTrajectoryListener.unsubscribe();
+    });
+
+    // Listen captions
+    const captionsWithLocationListener = new ROSLIB.Topic({
+      ros: ros,
+      name: "/scene_viewer/scene_captions_with_locations",
+      messageType: "std_msgs/String",
+    });
+    captionsWithLocationListener.subscribe((message: ROSLIB.Message) => {
+      try {
+        setCaptionsWithLocation(
+          // @ts-expect-error: Message is any but has data attribute.
+          JSON.parse(message.data) as SceneCaptionWithLocation[]
+        );
+      } catch {
+        console.error("Failed to parse captions with location message.");
+        setCaptionsWithLocation([]);
+      }
+      captionsWithLocationListener.unsubscribe();
     });
 
     // Specify how to clean up after this effect:
@@ -74,5 +104,5 @@ export const useRosLib = (websocketUrl = "ws://localhost:9090") => {
     };
   }, [websocketUrl]);
 
-  return { Ros, captions, trajectory };
+  return { Ros, captions, trajectory, captionsWithLocation };
 };

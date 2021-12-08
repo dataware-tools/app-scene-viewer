@@ -82,7 +82,8 @@ MapWithAllAnnotations.args = {
 };
 
 export const WithRos = () => {
-  const { trajectory } = useRosLib();
+  const { trajectory, captionsWithLocation } = useRosLib();
+  console.log(captionsWithLocation);
   return (
     <div
       className={css`
@@ -92,6 +93,13 @@ export const WithRos = () => {
     >
       <MapPanel
         centerPosition={[35.1505536926114, 136.96585423505437]}
+        markers={captionsWithLocation.map((item) => {
+          return {
+            longitude: item.longitude,
+            latitude: item.latitude,
+            popupText: item.caption,
+          };
+        })}
         polylines={[
           {
             positions: trajectory,
