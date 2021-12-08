@@ -80,7 +80,7 @@ Default.args = {
 };
 
 export const WithRos = () => {
-  const { captionsWithLocation } = useRosLib();
+  const { captionsWithLocation, seekToTimestamp } = useRosLib();
   console.log(captionsWithLocation);
   return (
     <div
@@ -106,7 +106,7 @@ export const WithRos = () => {
           console.log(pinLocations);
         }}
         onSelectScene={(timestamp) => {
-          window.confirm(`Seek to ${timestamp}`);
+          seekToTimestamp(timestamp);
         }}
       />
     </div>

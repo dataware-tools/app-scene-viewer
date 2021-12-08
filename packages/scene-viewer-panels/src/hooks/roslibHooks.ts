@@ -114,5 +114,22 @@ export const useRosLib = (websocketUrl = "ws://localhost:9090") => {
     };
   }, [websocketUrl]);
 
-  return { Ros, captions, trajectory, captionsWithLocation };
+  const seekToTimestamp = (timestamp: number) => {
+    if (!Ros) return;
+
+    // Seek
+    const seekService = new ROSLIB.Service({
+      ros: Ros,
+      name: "/rosbag_player_controller/seek_and_play",
+      serviceType: "controllable_rosbag_player/Seek",
+    });
+    const request = new ROSLIB.ServiceRequest({
+      time: timestamp,
+    });
+    seekService.callService(request, (reponse: ROSLIB.ServiceResponse) => {
+      console.log(reponse);
+    });
+  };
+
+  return { Ros, captions, trajectory, captionsWithLocation, seekToTimestamp };
 };
