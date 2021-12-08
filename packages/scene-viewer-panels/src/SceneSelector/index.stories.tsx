@@ -1,6 +1,7 @@
 import { css } from "@emotion/css";
 import { Story } from "@storybook/react";
 import React from "react";
+import { useRosLib } from "../hooks/roslibHooks";
 import { SceneSelector, SceneSelectorProps } from "./index";
 
 export default {
@@ -76,4 +77,38 @@ Default.args = {
   onSelectScene: (timestamp) => {
     window.confirm(`Seek to ${timestamp}`);
   },
+};
+
+export const WithRos = () => {
+  const { captionsWithLocation } = useRosLib();
+  console.log(captionsWithLocation);
+  return (
+    <div
+      className={css`
+        height: 300px;
+        width: 800px;
+      `}
+    >
+      <SceneSelector
+        captions={captionsWithLocation.map((item) => {
+          return {
+            timestamp: item.timestamp,
+            caption: item.caption,
+            location: {
+              altitude: item.altitude,
+              latitude: item.latitude,
+              longitude: item.longitude,
+            },
+          };
+        })}
+        setPinLocations={(pinLocations) => {
+          console.log("setPinLocations!!");
+          console.log(pinLocations);
+        }}
+        onSelectScene={(timestamp) => {
+          window.confirm(`Seek to ${timestamp}`);
+        }}
+      />
+    </div>
+  );
 };
