@@ -83,7 +83,6 @@ MapWithAllAnnotations.args = {
 
 export const WithRos = () => {
   const { trajectory, captionsWithLocation } = useRosLib();
-  console.log(captionsWithLocation);
   return (
     <div
       className={css`
@@ -102,7 +101,9 @@ export const WithRos = () => {
         })}
         polylines={[
           {
-            positions: trajectory,
+            positions: trajectory.map((item) => {
+              return [item.latitude, item.longitude];
+            }),
           },
         ]}
       />

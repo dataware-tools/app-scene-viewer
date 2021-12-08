@@ -2,7 +2,7 @@ import { css } from "@emotion/css";
 import type { Story } from "@storybook/react";
 import React, { useState } from "react";
 import { useRosLib } from "../hooks/roslibHooks";
-import { CurrentCaption, CurrentCaptionProps } from "./index";
+import { CurrentCaption, CurrentCaptionProps, TimestampCaption } from "./index";
 
 export default {
   component: CurrentCaption,
@@ -74,7 +74,7 @@ export const WithRos = () => {
       <CurrentCaption
         onChangeScene={({ timestamp }) => setCurrentTimestamp(timestamp)}
         currentTimestamp={currentTimestamp}
-        captions={captions}
+        captions={captions as TimestampCaption[]}
       />
     </div>
   );

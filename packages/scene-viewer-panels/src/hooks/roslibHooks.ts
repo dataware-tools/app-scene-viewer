@@ -1,12 +1,16 @@
-import Leaflet from "leaflet";
 import { useEffect, useState } from "react";
 import ROSLIB from "roslib";
-import { TimestampCaption } from "../CurrentCaption";
 
-type SceneCaptionWithLocation = {
+type SceneCaptionWithLocation = TrajectoryPoint & Caption;
+
+type TrajectoryPoint = {
+  timestamp: number;
   latitude: number;
   longitude: number;
   altitude: number;
+};
+
+type Caption = {
   timestamp: number;
   caption: string;
 };
@@ -14,10 +18,10 @@ type SceneCaptionWithLocation = {
 export const useRosLib = (websocketUrl = "ws://localhost:9090") => {
   const [Ros, setRos] = useState<ROSLIB.Ros | undefined>(undefined);
   // TODO: Allow empty array for captions in CurrentCaption component and remove initial value below
-  const [captions, setCaptions] = useState<TimestampCaption[]>([
+  const [captions, setCaptions] = useState<Caption[]>([
     { timestamp: 0, caption: "remove this later" },
   ]);
-  const [trajectory, setTrajectory] = useState<Leaflet.LatLngExpression[]>([]);
+  const [trajectory, setTrajectory] = useState<TrajectoryPoint[]>([]);
   const [captionsWithLocation, setCaptionsWithLocation] = useState<
     SceneCaptionWithLocation[]
   >([]);
@@ -40,7 +44,7 @@ export const useRosLib = (websocketUrl = "ws://localhost:9090") => {
     captionsListener.subscribe((message: ROSLIB.Message) => {
       try {
         // @ts-expect-error: Message is any but has data attribute.
-        const captionsObject = JSON.parse(message.data) as TimestampCaption[];
+        const captionsObject = JSON.parse(message.data) as Caption[];
         setCaptions(captionsObject);
       } catch {
         console.error("Failed to parse captions message.");
@@ -64,9 +68,15 @@ export const useRosLib = (websocketUrl = "ws://localhost:9090") => {
           number,
           number
         ][];
-        // TODO (@yusukefs): Add timestamp to trajectory
         setTrajectory(
-          vehicleTrajectoryObject.map((item) => [item[1], item[2]])
+          vehicleTrajectoryObject.map((item) => {
+            return {
+              timestamp: item[0],
+              latitude: item[1],
+              longitude: item[2],
+              altitude: item[3],
+            };
+          })
         );
       } catch {
         console.error("Failed to parse vehicle trajectory message.");
