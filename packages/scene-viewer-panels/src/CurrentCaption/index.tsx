@@ -3,7 +3,7 @@ import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import React from "react";
 
-type TimestampCaption = { timestamp: number; caption: string };
+export type TimestampCaption = { timestamp: number; caption: string };
 export type CurrentCaptionPresentationProps = {
   currentSceneIndex: number;
 } & CurrentCaptionProps;
