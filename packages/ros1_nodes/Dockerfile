@@ -21,13 +21,29 @@ RUN apt update \
 # Install ROS1-related packages
 RUN apt update \
     && apt install -y --no-install-recommends \
-      ros-${ROS1_DISTRO}-rosbridge-suite \
       ros-${ROS1_DISTRO}-*-msgs \
     && apt clean -y \
     && rm -rf /var/lib/apt/lists/*
 
+# Install rosbridge
+ARG ROSBRIDGE_VERSION=0.11.13
+RUN source /opt/ros/${ROS1_DISTRO}/setup.bash \
+  && mkdir -p /opt/catkin_workspace \
+  && cd /opt/catkin_workspace \
+  && git clone --depth=1 -b ${ROSBRIDGE_VERSION} https://github.com/RobotWebTools/rosbridge_suite.git src \
+  && cd src \
+  && catkin_init_workspace \
+  && cd .. \
+  && apt update \
+  && rosdep update \
+  && rosdep install --from-paths src --ignore-src -r -y \
+  && catkin_make \
+  && apt -y clean \
+  && rm -rf /var/lib/apt/lists/*
+
 # Install rosbridge-rosbag-player
 RUN source /opt/ros/${ROS1_DISTRO}/setup.bash \
+  && source /opt/catkin_workspace/devel/setup.bash \
   && git clone https://github.com/TakedaLab/rosbridge-rosbag-player.git /opt/rosbridge-rosbag-player \
   && cd /opt/rosbridge-rosbag-player/src \
   && git checkout v1.0.1 \
@@ -44,8 +60,8 @@ RUN source /opt/ros/${ROS1_DISTRO}/setup.bash \
 RUN mkdir -p /opt/ros1_nodes/src
 COPY ./src /opt/ros1_nodes/src
 COPY ./test /opt/ros1_nodes/test
-RUN bash -c '\
-  source /opt/ros/${ROS1_DISTRO}/setup.bash \
+RUN source /opt/ros/${ROS1_DISTRO}/setup.bash \
+  && source /opt/catkin_workspace/devel/setup.bash \
   && source /opt/rosbridge-rosbag-player/devel/setup.bash \
   && cd /opt/ros1_nodes/src \
   && catkin_init_workspace \
@@ -55,7 +71,8 @@ RUN bash -c '\
   && rosdep install --from-paths src --ignore-src -r -y \
   && for file in src/*/requirements.txt; do pip3 install -r ${file}; done \
   && catkin_make \
-'
+  && apt -y clean \
+  && rm -rf /var/lib/apt/lists/*
 
 # Copy files
 RUN mkdir -p /opt/ros1_nodes/utils || :
