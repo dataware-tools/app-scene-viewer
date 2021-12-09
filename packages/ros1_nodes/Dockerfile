@@ -12,6 +12,7 @@ RUN apt update \
       wget \
       vim \
       git \
+      jq \
       python3-pip \
     && apt upgrade -y \
     && rosdep update \
