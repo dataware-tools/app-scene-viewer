@@ -1,7 +1,11 @@
 version: "3"
 services:
   dev:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - ROSBRIDGE_VERSION=0.11.13
     image: registry.gitlab.com/dataware-tools/app-scene-viewer:ros1-nodes-latest
     container_name: app-scene-viewer-ros1-nodes-dev
     ports:
