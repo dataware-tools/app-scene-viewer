@@ -61,8 +61,9 @@ export const Controlled = () => {
 };
 
 export const WithRos = () => {
-  const [currentTimestamp, setCurrentTimestamp] = useState(0);
-  const { captions } = useRosLib();
+  const { captions, currentTime, seekToTimestamp } = useRosLib({
+    topicNames: ["/scene_viewer/scene_captions", "/clock"],
+  });
   return (
     <div
       className={css`
@@ -72,8 +73,8 @@ export const WithRos = () => {
       `}
     >
       <CurrentCaption
-        onChangeScene={({ timestamp }) => setCurrentTimestamp(timestamp)}
-        currentTimestamp={currentTimestamp}
+        onChangeScene={({ timestamp }) => seekToTimestamp(timestamp)}
+        currentTimestamp={currentTime}
         captions={captions as TimestampCaption[]}
       />
     </div>

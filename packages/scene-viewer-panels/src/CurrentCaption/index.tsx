@@ -200,6 +200,9 @@ export const CurrentCaption = ({
   currentTimestamp,
   onChangeScene,
 }: CurrentCaptionProps): JSX.Element => {
+  if (captions.length <= 0) {
+    return <div>No captions available</div>;
+  }
   const currentSceneIndex =
     captions[captions.length - 1].timestamp <= currentTimestamp
       ? captions.length - 1

@@ -82,7 +82,12 @@ MapWithAllAnnotations.args = {
 };
 
 export const WithRos = () => {
-  const { trajectory, captionsWithLocation } = useRosLib();
+  const { trajectory, captionsWithLocation } = useRosLib({
+    topicNames: [
+      "/scene_viewer/vehicle_trajectory",
+      "/scene_viewer/scene_captions_with_locations",
+    ],
+  });
   return (
     <div
       className={css`
