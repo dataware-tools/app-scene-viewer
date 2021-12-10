@@ -17,6 +17,7 @@ type Caption = {
 
 export const useRosLib = (websocketUrl = "ws://localhost:9090") => {
   const [Ros, setRos] = useState<ROSLIB.Ros | undefined>(undefined);
+  const [currentTime, setCurrentTime] = useState<number>(0);
   // TODO: Allow empty array for captions in CurrentCaption component and remove initial value below
   const [captions, setCaptions] = useState<Caption[]>([
     { timestamp: 0, caption: "remove this later" },
@@ -33,6 +34,23 @@ export const useRosLib = (websocketUrl = "ws://localhost:9090") => {
     ros.on("connection", () => {
       console.log("Connected to websocket server");
       setRos(ros);
+    });
+
+    // Listen clock
+    const clockListener = new ROSLIB.Topic({
+      ros: ros,
+      name: "/clock",
+      messageType: "rosgraph_msgs/Clock",
+    });
+    clockListener.subscribe((message: ROSLIB.Message) => {
+      try {
+        // @ts-expect-error: Message is any but has clock.secs and clock.nsecs attribute.
+        const timestamp = message.clock.secs + message.clock.nsecs * 1e-9;
+        setCurrentTime(timestamp);
+      } catch {
+        console.error("Failed to parse clock message.");
+        setCurrentTime(0);
+      }
     });
 
     // Listen captions
@@ -107,6 +125,7 @@ export const useRosLib = (websocketUrl = "ws://localhost:9090") => {
     // Specify how to clean up after this effect:
     return function cleanup() {
       setRos(undefined);
+      clockListener.unsubscribe();
       captionsListener.unsubscribe();
       vehicleTrajectoryListener.unsubscribe();
       ros.close();
@@ -131,5 +150,12 @@ export const useRosLib = (websocketUrl = "ws://localhost:9090") => {
     });
   };
 
-  return { Ros, captions, trajectory, captionsWithLocation, seekToTimestamp };
+  return {
+    Ros,
+    currentTime,
+    captions,
+    trajectory,
+    captionsWithLocation,
+    seekToTimestamp,
+  };
 };
