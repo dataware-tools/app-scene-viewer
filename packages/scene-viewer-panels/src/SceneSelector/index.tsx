@@ -3,6 +3,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import { Index } from "flexsearch";
 import React, { useEffect, useRef, useState } from "react";
 import Highlighter from "react-highlight-words";
+import { MarkerIcon } from "../components/MarkerIcon";
 
 type Caption = {
   timestamp: number;
@@ -42,7 +43,6 @@ export const SceneSelectorPresentation = ({
   const white = "hsl(0, 0%, 94%)";
   const gray = "hsl(240, 2%, 53%)";
   const lightgray = "hsl(240, 2%, 70%)";
-  const red = "hsl(3, 82%, 54%)";
   return (
     <div
       className={css`
@@ -151,19 +151,12 @@ export const SceneSelectorPresentation = ({
               <span
                 className={css`
                   align-items: center;
-                  background-color: ${label ? red : undefined};
-                  border: ${label ? `1px solid ${white}` : undefined};
-                  border-radius: 100%;
-                  color: ${label ? white : undefined};
-                  display: flex;
-                  flex-shrink: 0;
-                  font-weight: bold;
                   height: 20px;
                   justify-content: center;
                   width: 20px;
                 `}
               >
-                {label || ""}
+                {label && <MarkerIcon size={20} text={label} />}
               </span>
               <span
                 className={css`
