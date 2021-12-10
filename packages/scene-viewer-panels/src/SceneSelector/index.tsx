@@ -265,7 +265,8 @@ export const SceneSelector = ({
     );
 
     setCaptions(captions);
-  }, []);
+  }, [captions]);
+  // TODO: Need to include setCaption to deps↑ but that will lead to an infinite loop of calling setCaptions
 
   const onSearch: SceneSelectorPresentationProps["onSearch"] = (searchText) => {
     const fixedSearchText = searchText.replace("　", " ");

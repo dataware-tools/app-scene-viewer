@@ -1,7 +1,8 @@
 import { css } from "@emotion/css";
 import type { Story } from "@storybook/react";
 import React, { useState } from "react";
-import { CurrentCaption, CurrentCaptionProps } from "./index";
+import { useRosLib } from "../hooks/roslibHooks";
+import { CurrentCaption, CurrentCaptionProps, TimestampCaption } from "./index";
 
 export default {
   component: CurrentCaption,
@@ -58,6 +59,27 @@ export const Controlled = () => {
     </div>
   );
 };
+
+export const WithRos = () => {
+  const [currentTimestamp, setCurrentTimestamp] = useState(0);
+  const { captions } = useRosLib();
+  return (
+    <div
+      className={css`
+        height: 150px;
+        overflow: auto;
+        width: 500px;
+      `}
+    >
+      <CurrentCaption
+        onChangeScene={({ timestamp }) => setCurrentTimestamp(timestamp)}
+        currentTimestamp={currentTimestamp}
+        captions={captions as TimestampCaption[]}
+      />
+    </div>
+  );
+};
+
 export const Default = Template.bind({});
 Default.args = {
   height: "150px",

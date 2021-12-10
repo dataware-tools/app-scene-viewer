@@ -1,6 +1,7 @@
 import { css } from "@emotion/css";
 import type { Story } from "@storybook/react";
 import React from "react";
+import { useRosLib } from "../hooks/roslibHooks";
 import { MapPanel, MapPanelProps } from "./index";
 
 export default {
@@ -78,4 +79,34 @@ MapWithAllAnnotations.args = {
       ],
     },
   ],
+};
+
+export const WithRos = () => {
+  const { trajectory, captionsWithLocation } = useRosLib();
+  return (
+    <div
+      className={css`
+        height: 500px;
+        width: 500px;
+      `}
+    >
+      <MapPanel
+        centerPosition={[35.1505536926114, 136.96585423505437]}
+        markers={captionsWithLocation.map((item) => {
+          return {
+            longitude: item.longitude,
+            latitude: item.latitude,
+            popupText: item.caption,
+          };
+        })}
+        polylines={[
+          {
+            positions: trajectory.map((item) => {
+              return [item.latitude, item.longitude];
+            }),
+          },
+        ]}
+      />
+    </div>
+  );
 };
