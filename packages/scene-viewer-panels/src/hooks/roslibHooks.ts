@@ -68,7 +68,6 @@ export const useRosLib = (websocketUrl = "ws://localhost:9090") => {
         console.error("Failed to parse captions message.");
         setCaptions([]);
       }
-      captionsListener.unsubscribe();
     });
 
     // Listen vehicle_trajectory
@@ -100,7 +99,6 @@ export const useRosLib = (websocketUrl = "ws://localhost:9090") => {
         console.error("Failed to parse vehicle trajectory message.");
         setTrajectory([]);
       }
-      vehicleTrajectoryListener.unsubscribe();
     });
 
     // Listen captions
@@ -119,7 +117,6 @@ export const useRosLib = (websocketUrl = "ws://localhost:9090") => {
         console.error("Failed to parse captions with location message.");
         setCaptionsWithLocation([]);
       }
-      captionsWithLocationListener.unsubscribe();
     });
 
     // Specify how to clean up after this effect:
