@@ -80,7 +80,9 @@ Default.args = {
 };
 
 export const WithRos = () => {
-  const { captionsWithLocation, seekToTimestamp } = useRosLib();
+  const { captionsWithLocation, seekToTimestamp } = useRosLib({
+    topicNames: ["/scene_viewer/scene_captions_with_locations"],
+  });
   console.log(captionsWithLocation);
   return (
     <div
