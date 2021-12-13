@@ -2,6 +2,7 @@
 
 """ros1bag generator."""
 
+import numpy as np
 import rosbag
 import rospy
 from sensor_msgs.msg._NavSatFix import NavSatFix
@@ -22,10 +23,12 @@ def generate_ros1bag(ros1bag: str):
         [35.15319804374357, 136.96580931601613],
         [35.15447, 136.966588],
     ]
+    end_time = time + float(len(locs))
 
     with rosbag.Bag(ros1bag, "w") as out_bag:
-        for loc in locs:
-            longitude, latitude = loc
+        while time < end_time:
+            longitude = np.interp(time, list(range(len(locs))), [loc[0] for loc in locs])
+            latitude = np.interp(time, list(range(len(locs))), [loc[1] for loc in locs])
             msg = NavSatFix(
                 longitude=longitude,
                 latitude=latitude,
@@ -33,7 +36,7 @@ def generate_ros1bag(ros1bag: str):
             )
             ros_time = rospy.Time.from_sec(time)
             out_bag.write(topic, msg, ros_time)
-            time += 1
+            time += 0.1
 
 
 if __name__ == "__main__":
