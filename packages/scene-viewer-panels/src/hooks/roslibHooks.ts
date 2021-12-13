@@ -155,7 +155,7 @@ export const useRosLib = ({
     // Seek
     const seekService = new ROSLIB.Service({
       ros: Ros,
-      name: "/rosbag_player_controller/seek_and_play",
+      name: "/rosbag_player_controller/seek",
       serviceType: "controllable_rosbag_player/Seek",
     });
     const request = new ROSLIB.ServiceRequest({
