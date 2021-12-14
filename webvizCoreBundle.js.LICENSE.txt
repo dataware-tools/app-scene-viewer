@@ -2164,7 +2164,7 @@ and limitations under the License.
 
 /*! ModuleConcatenation bailout: Cannot concat with ./packages/webviz-core/node_modules/@sentry/types/esm/status.js because of ./packages/webviz-core/node_modules/@sentry/types/esm/index.js */
 
-/*! ModuleConcatenation bailout: Cannot concat with ./packages/webviz-core/node_modules/@sentry/utils/esm/is.js because of ./packages/webviz-core/node_modules/@sentry/utils/esm/object.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./packages/webviz-core/node_modules/@sentry/utils/esm/is.js because of ./packages/webviz-core/node_modules/@sentry/utils/esm/misc.js */
 
 /*! ModuleConcatenation bailout: Cannot concat with ./packages/webviz-core/node_modules/@sentry/utils/esm/logger.js because of ./packages/webviz-core/node_modules/@sentry/hub/esm/hub.js */
 
@@ -2220,9 +2220,9 @@ and limitations under the License.
 
 /*! ModuleConcatenation bailout: Cannot concat with ./packages/webviz-core/node_modules/redux/es/redux.js (<- Module is referenced from these modules with unsupported syntax: ./packages/webviz-core/src/components/Panel.js (referenced with cjs require), ./packages/webviz-core/src/components/PanelLayout.js (referenced with cjs require), ./packages/webviz-core/src/components/PanelToolbar/MosaicDragHandle.js (referenced with cjs require), ./packages/webviz-core/src/components/PanelToolbar/index.js (referenced with cjs require), ./packages/webviz-core/src/hooks/useGlobalVariables.js (referenced with cjs require), ./packages/webviz-core/src/panels/ThreeDimensionalViz/Interactions/useLinkedGlobalVariables.js (referenced with cjs require), ./packages/webviz-core/src/store/configureStore.js (referenced with cjs require)) */
 
-/*! ModuleConcatenation bailout: Cannot concat with ./packages/webviz-core/node_modules/tiny-invariant/dist/tiny-invariant.esm.js because of ./packages/webviz-core/node_modules/react-router-dom/esm/react-router-dom.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./packages/webviz-core/node_modules/tiny-invariant/dist/tiny-invariant.esm.js because of ./packages/webviz-core/node_modules/history/esm/history.js */
 
-/*! ModuleConcatenation bailout: Cannot concat with ./packages/webviz-core/node_modules/tiny-invariant/dist/tiny-invariant.esm.js because of ./packages/webviz-core/node_modules/react-router/esm/react-router.js */
+/*! ModuleConcatenation bailout: Cannot concat with ./packages/webviz-core/node_modules/tiny-invariant/dist/tiny-invariant.esm.js because of ./packages/webviz-core/node_modules/react-router-dom/esm/react-router-dom.js */
 
 /*! ModuleConcatenation bailout: Cannot concat with ./packages/webviz-core/node_modules/tslib/tslib.es6.js because of ./packages/webviz-core/node_modules/@sentry/hub/esm/hub.js */
 
