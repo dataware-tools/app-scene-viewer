@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import ROSLIB from "roslib";
 
 type SceneCaptionWithLocation = TrajectoryPoint & Caption;
@@ -22,14 +22,17 @@ type TopicNames = (
   | "/scene_viewer/scene_captions_with_locations"
 )[];
 
-export type UseRosLibArgs = { websocketUrl?: string; topicNames: TopicNames };
+export type UseRosLibArgs = {
+  websocketUrl?: string;
+  topicNames: TopicNames;
+  maxFreq?: number;
+};
 export const useRosLib = ({
-  websocketUrl: initialWebsocketUrl = "ws://localhost:9090",
+  websocketUrl = "ws://localhost:9090",
   topicNames: initialTopicNames,
+  maxFreq = 100,
 }: UseRosLibArgs) => {
   const [Ros, setRos] = useState<ROSLIB.Ros | undefined>(undefined);
-
-  const [websocketUrl, setWebsocketUrl] = useState(initialWebsocketUrl);
   const [topicNames, setTopicNames] = useState(initialTopicNames);
 
   // topic state
@@ -40,16 +43,18 @@ export const useRosLib = ({
     SceneCaptionWithLocation[]
   >([]);
 
-  const subscriptions: [
-    TopicNames[number],
-    string,
-    (message: ROSLIB.Message) => void
-  ][] = useMemo(
+  const latestUpdateTimes = useRef<{ [topicName: string]: number }>({});
+  const subscriptions: {
+    name: TopicNames[number];
+    type: string;
+    callback: (message: ROSLIB.Message) => void;
+    isFrequent?: boolean;
+  }[] = useMemo(
     () => [
-      [
-        "/clock",
-        "rosgraph_msgs/Clock",
-        (message) => {
+      {
+        name: "/clock",
+        type: "rosgraph_msgs/Clock",
+        callback: (message) => {
           try {
             // @ts-expect-error: Message is any but has clock.secs and clock.nsecs attribute.
             const timestamp = message.clock.secs + message.clock.nsecs * 1e-9;
@@ -59,11 +64,12 @@ export const useRosLib = ({
             setCurrentTime(0);
           }
         },
-      ],
-      [
-        "/scene_viewer/scene_captions",
-        "std_msgs/String",
-        (message) => {
+        isFrequent: true,
+      },
+      {
+        name: "/scene_viewer/scene_captions",
+        type: "std_msgs/String",
+        callback: (message) => {
           try {
             // @ts-expect-error: Message is any but has data attribute.
             const captionsObject = JSON.parse(message.data).map((caption) => ({
@@ -76,11 +82,11 @@ export const useRosLib = ({
             setCaptions([]);
           }
         },
-      ],
-      [
-        "/scene_viewer/vehicle_trajectory",
-        "std_msgs/String",
-        (message) => {
+      },
+      {
+        name: "/scene_viewer/vehicle_trajectory",
+        type: "std_msgs/String",
+        callback: (message) => {
           try {
             // @ts-expect-error: Message is any but has data attribute.
             const vehicleTrajectoryObject = JSON.parse(message.data) as [
@@ -104,11 +110,11 @@ export const useRosLib = ({
             setTrajectory([]);
           }
         },
-      ],
-      [
-        "/scene_viewer/scene_captions_with_locations",
-        "std_msgs/String",
-        (message) => {
+      },
+      {
+        name: "/scene_viewer/scene_captions_with_locations",
+        type: "std_msgs/String",
+        callback: (message) => {
           try {
             setCaptionsWithLocation(
               // @ts-expect-error: Message is any but has data attribute.
@@ -119,7 +125,7 @@ export const useRosLib = ({
             setCaptionsWithLocation([]);
           }
         },
-      ],
+      },
     ],
     []
   );
@@ -133,10 +139,19 @@ export const useRosLib = ({
     });
 
     const topicListeners: ROSLIB.Topic<ROSLIB.Message>[] = [];
-    subscriptions.forEach(([name, messageType, callback]) => {
+    subscriptions.forEach(({ name, type, callback, isFrequent }) => {
       if (topicNames.includes(name)) {
-        const listener = new ROSLIB.Topic({ ros, name, messageType });
-        listener.subscribe(callback);
+        const infrequentCallback = (message: ROSLIB.Message) => {
+          const latestTime = latestUpdateTimes.current[name];
+          if (latestTime != null && Date.now() - latestTime < maxFreq) {
+            return;
+          }
+          latestUpdateTimes.current[name] = Date.now();
+          callback(message);
+        };
+
+        const listener = new ROSLIB.Topic({ ros, name, messageType: type });
+        listener.subscribe(isFrequent ? infrequentCallback : callback);
         topicListeners.push(listener);
       }
     });
@@ -147,7 +162,7 @@ export const useRosLib = ({
       topicListeners.forEach((topicListener) => topicListener.unsubscribe());
       ros.close();
     };
-  }, [websocketUrl, topicNames, subscriptions]);
+  }, [websocketUrl, topicNames, subscriptions, maxFreq]);
 
   const seekToTimestamp = (timestamp: number) => {
     if (!Ros) return;
@@ -172,7 +187,6 @@ export const useRosLib = ({
     trajectory,
     captionsWithLocation,
     seekToTimestamp,
-    setWebsocketUrl,
     setTopicNames,
   };
 };
