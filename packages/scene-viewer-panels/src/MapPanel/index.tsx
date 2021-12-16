@@ -60,7 +60,7 @@ export const MapPanelPresentation = ({
                 latitude={marker.latitude}
                 popupText={marker.popupText}
                 size={30}
-                text={i.toString()}
+                text={marker.text}
               />
             );
           })}

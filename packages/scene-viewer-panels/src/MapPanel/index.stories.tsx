@@ -41,11 +41,13 @@ MapWithMarkers.args = {
       longitude: 136.964871,
       latitude: 35.144697,
       popupText: "Yagoto Nisseki Station",
+      text: "1",
     },
     {
       longitude: 136.966588,
       latitude: 35.15447,
       popupText: "Nagoya University",
+      text: "2",
     },
   ],
 };
@@ -61,11 +63,13 @@ MapWithAllAnnotations.args = {
       longitude: 136.964871,
       latitude: 35.144697,
       popupText: "Yagoto Nisseki Station",
+      text: "1",
     },
     {
       longitude: 136.966588,
       latitude: 35.15447,
       popupText: "Nagoya University",
+      text: "2",
     },
   ],
   polylines: [
