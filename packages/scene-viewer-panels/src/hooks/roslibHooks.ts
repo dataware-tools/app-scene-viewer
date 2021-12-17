@@ -3,8 +3,11 @@ import ROSLIB from "roslib";
 
 type SceneCaptionWithLocation = TrajectoryPoint & Caption;
 
-type TrajectoryPoint = {
+type TrajectoryPoint = Position & {
   timestamp: number;
+};
+
+type Position = {
   latitude: number;
   longitude: number;
   altitude: number;
@@ -17,6 +20,7 @@ type Caption = {
 
 type TopicNames = (
   | "/clock"
+  | "/sensing/gnss/ublox/nav_sat_fix"
   | "/scene_viewer/scene_captions"
   | "/scene_viewer/vehicle_trajectory"
   | "/scene_viewer/scene_captions_with_locations"
@@ -37,6 +41,11 @@ export const useRosLib = ({
 
   // topic state
   const [currentTime, setCurrentTime] = useState<number>(0);
+  const [currentPosition, setCurrentPosition] = useState<Position>({
+    altitude: 0,
+    latitude: 0,
+    longitude: 0,
+  });
   const [captions, setCaptions] = useState<Caption[]>([]);
   const [trajectory, setTrajectory] = useState<TrajectoryPoint[]>([]);
   const [captionsWithLocation, setCaptionsWithLocation] = useState<
@@ -62,6 +71,31 @@ export const useRosLib = ({
           } catch {
             console.error("Failed to parse clock message.");
             setCurrentTime(0);
+          }
+        },
+        isFrequent: true,
+      },
+      {
+        name: "/sensing/gnss/ublox/nav_sat_fix",
+        type: "sensor_msgs/NavSatFix",
+        callback: (message) => {
+          try {
+            const currentPosition = {
+              // @ts-expect-error: Message is any but has altitude attribute.
+              altitude: message.altitude,
+              // @ts-expect-error: Message is any but has latitude attribute.
+              latitude: message.latitude,
+              // @ts-expect-error: Message is any but has longitude attribute.
+              longitude: message.longitude,
+            };
+            setCurrentPosition(currentPosition);
+          } catch {
+            console.error("Failed to parse nav_sat_fix message.");
+            setCurrentPosition({
+              altitude: 0,
+              latitude: 0,
+              longitude: 0,
+            });
           }
         },
         isFrequent: true,
@@ -170,7 +204,7 @@ export const useRosLib = ({
     // Seek
     const seekService = new ROSLIB.Service({
       ros: Ros,
-      name: "/rosbag_player_controller/seek",
+      name: "/rosbag_player_controller/seek_and_play",
       serviceType: "controllable_rosbag_player/Seek",
     });
     const request = new ROSLIB.ServiceRequest({
@@ -183,6 +217,7 @@ export const useRosLib = ({
   return {
     Ros,
     currentTime,
+    currentPosition,
     captions,
     trajectory,
     captionsWithLocation,
