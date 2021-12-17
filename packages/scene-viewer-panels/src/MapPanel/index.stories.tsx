@@ -86,8 +86,9 @@ MapWithAllAnnotations.args = {
 };
 
 export const WithRos = () => {
-  const { trajectory, captionsWithLocation } = useRosLib({
+  const { currentPosition, trajectory, captionsWithLocation } = useRosLib({
     topicNames: [
+      "/sensing/gnss/ublox/nav_sat_fix",
       "/scene_viewer/vehicle_trajectory",
       "/scene_viewer/scene_captions_with_locations",
     ],
@@ -101,6 +102,7 @@ export const WithRos = () => {
     >
       <MapPanel
         centerPosition={[35.1505536926114, 136.96585423505437]}
+        currentPosition={[currentPosition.latitude, currentPosition.longitude]}
         markers={captionsWithLocation.map((item) => {
           return {
             longitude: item.longitude,
