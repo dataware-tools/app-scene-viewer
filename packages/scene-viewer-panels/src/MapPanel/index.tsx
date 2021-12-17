@@ -121,8 +121,8 @@ export const MapPanel = ({
             <a
               role="button"
               className={css`
-                font-size: 22px;
                 cursor: pointer;
+                font-size: 22px;
               `}
             >
               <GpsFixedIcon />
