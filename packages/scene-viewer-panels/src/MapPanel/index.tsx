@@ -113,30 +113,33 @@ export const MapPanel = ({
   // Add button element to enable tracking position on map
   useEffect(() => {
     if (!map) return;
-    const MapHelp = Leaflet.Control.extend({
-      onAdd: () => {
-        const helpDiv = Leaflet.DomUtil.create("div", "leaflet-bar");
-        helpDiv.innerHTML = `
-          ${ReactDOMServer.renderToString(
-            <a
-              role="button"
-              className={css`
-                cursor: pointer;
-                font-size: 22px;
-              `}
-            >
-              <GpsFixedIcon />
-            </a>
-          )}
-        `;
-        helpDiv.addEventListener("click", () => {
-          setTrackCurrentPosition(true);
-        });
-        return helpDiv;
-      },
+
+    const trackCurrentPositionButton = Leaflet.DomUtil.create(
+      "div",
+      "leaflet-bar"
+    );
+    trackCurrentPositionButton.innerHTML = `
+      ${ReactDOMServer.renderToString(
+        <a
+          role="button"
+          className={css`
+            cursor: pointer;
+            font-size: 22px;
+          `}
+        >
+          <GpsFixedIcon />
+        </a>
+      )}
+    `;
+    trackCurrentPositionButton.addEventListener("click", () => {
+      setTrackCurrentPosition(true);
     });
-    const trackCurrentPositionButton = new MapHelp({ position: "bottomleft" });
-    trackCurrentPositionButton.addTo(map);
+
+    // Extend leaflet control class (see https://leafletjs.com/examples/extending/extending-1-classes.html)
+    const trackCurrentPositionButtonControl = new (Leaflet.Control.extend({
+      onAdd: () => trackCurrentPositionButton,
+    }))({ position: "bottomleft" });
+    trackCurrentPositionButtonControl.addTo(map);
   }, [map, setTrackCurrentPosition]);
 
   return (
