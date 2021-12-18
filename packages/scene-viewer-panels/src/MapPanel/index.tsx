@@ -98,17 +98,17 @@ export const MapPanel = ({
     }
   }, [map, currentPosition, trackCurrentPosition]);
 
-  // Add onDrag callback to map component
-  const onDrag = useCallback(() => {
+  // Add onDragStart callback to map component
+  const onDragStart = useCallback(() => {
     setTrackCurrentPosition(false);
   }, []);
   useEffect(() => {
     if (!map) return;
-    map.on("drag", onDrag);
+    map.on("dragstart", onDragStart);
     return () => {
-      map.off("drag", onDrag);
+      map.off("dragstart", onDragStart);
     };
-  }, [map, onDrag]);
+  }, [map, onDragStart]);
 
   // Add button element to enable tracking position on map
   useEffect(() => {
