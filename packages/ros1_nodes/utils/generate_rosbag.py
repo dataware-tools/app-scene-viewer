@@ -28,11 +28,11 @@ def generate_ros1bag(ros1bag: str):
     time = start_time
     with rosbag.Bag(ros1bag, "w") as out_bag:
         while time < end_time:
-            longitude = np.interp(time, [idx + start_time for idx in range(len(locs))], [loc[0] for loc in locs])
-            latitude = np.interp(time, [idx + start_time for idx in range(len(locs))], [loc[1] for loc in locs])
+            latitude = np.interp(time, [idx + start_time for idx in range(len(locs))], [loc[0] for loc in locs])
+            longitude = np.interp(time, [idx + start_time for idx in range(len(locs))], [loc[1] for loc in locs])
             msg = NavSatFix(
-                longitude=longitude,
                 latitude=latitude,
+                longitude=longitude,
                 altitude=0.
             )
             ros_time = rospy.Time.from_sec(time)
