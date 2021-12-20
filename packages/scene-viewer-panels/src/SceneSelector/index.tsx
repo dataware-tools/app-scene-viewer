@@ -42,7 +42,6 @@ export const SceneSelectorPresentation = ({
   const inputRef = useRef<HTMLInputElement>(null);
   const white = "hsl(0, 0%, 94%)";
   const gray = "hsl(240, 2%, 53%)";
-  const lightgray = "hsl(240, 2%, 70%)";
   return (
     <div
       className={css`
@@ -145,7 +144,7 @@ export const SceneSelectorPresentation = ({
                 flex-direction: row;
                 padding: 5px;
                 &:hover {
-                  /* background-color: ${lightgray}; */
+                  background-color: ${gray};
                 }
               `}
               onClick={() => onSelectScene(timestamp)}
