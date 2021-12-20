@@ -86,7 +86,7 @@ def get_trajectory_info(bag: str, topic: str):
         if topics[topic][0] not in support_types:
             rospy.logerr(f"error: tpic_type '{topics[topic][0]}' is not supported.")
         for _, msg, t in b.read_messages(topics=topic):
-            posts += [[t.to_sec(), msg.longitude, msg.latitude, msg.altitude]]
+            posts += [[t.to_sec(), msg.latitude, msg.longitude, msg.altitude]]
         # posts = resample_trajectory(trjs)
     traj_str = json.dumps(posts)
     return traj_str
