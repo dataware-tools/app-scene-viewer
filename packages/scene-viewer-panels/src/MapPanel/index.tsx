@@ -1,6 +1,8 @@
 import { css } from "@emotion/css";
+import GpsFixedIcon from "@material-ui/icons/GpsFixed";
 import Leaflet from "leaflet";
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import ReactDOMServer from "react-dom/server";
 import { MapContainer, TileLayer, Pane, Polyline } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { CurrentLocationMarker } from "./CurrentLocationMarker";
@@ -8,12 +10,15 @@ import { MarkerWithText, MarkerWithTextProps } from "./MarkerWithText";
 
 Leaflet.Icon.Default.imagePath =
   "//cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/";
+const mapInitialZoom = 15;
 
 type PolylineType = {
   positions: Leaflet.LatLngExpression[];
 };
 
-export type MapPanelPresentationProps = MapPanelProps;
+export type MapPanelPresentationProps = MapPanelProps & {
+  setMap: (map: Leaflet.Map) => void;
+};
 
 export type MapPanelProps = {
   centerPosition: Leaflet.LatLngExpression;
@@ -27,12 +32,14 @@ export const MapPanelPresentation = ({
   currentPosition,
   markers,
   polylines,
+  setMap,
 }: MapPanelPresentationProps) => {
   return (
     <MapContainer
       center={centerPosition}
-      zoom={15}
+      zoom={mapInitialZoom}
       scrollWheelZoom={false}
+      whenCreated={setMap}
       className={css`
         height: 100%;
         width: 100%;
@@ -81,12 +88,67 @@ export const MapPanel = ({
   markers,
   polylines,
 }: MapPanelProps): JSX.Element => {
+  const [map, setMap] = useState<Leaflet.Map | undefined>(undefined);
+  const [trackCurrentPosition, setTrackCurrentPosition] = useState(false);
+
+  // Move center position of map
+  useEffect(() => {
+    if (map && currentPosition && trackCurrentPosition) {
+      map.setView(currentPosition, mapInitialZoom);
+    }
+  }, [map, currentPosition, trackCurrentPosition]);
+
+  // Add onDragStart callback to map component
+  const onDragStart = useCallback(() => {
+    setTrackCurrentPosition(false);
+  }, []);
+  useEffect(() => {
+    if (!map) return;
+    map.on("dragstart", onDragStart);
+    return () => {
+      map.off("dragstart", onDragStart);
+    };
+  }, [map, onDragStart]);
+
+  // Add button element to enable tracking position on map
+  useEffect(() => {
+    if (!map) return;
+
+    const trackCurrentPositionButton = Leaflet.DomUtil.create(
+      "div",
+      "leaflet-bar"
+    );
+    trackCurrentPositionButton.innerHTML = `
+      ${ReactDOMServer.renderToString(
+        <a
+          role="button"
+          className={css`
+            cursor: pointer;
+            font-size: 22px;
+          `}
+        >
+          <GpsFixedIcon />
+        </a>
+      )}
+    `;
+    trackCurrentPositionButton.addEventListener("click", () => {
+      setTrackCurrentPosition(true);
+    });
+
+    // Extend leaflet control class (see https://leafletjs.com/examples/extending/extending-1-classes.html)
+    const trackCurrentPositionButtonControl = new (Leaflet.Control.extend({
+      onAdd: () => trackCurrentPositionButton,
+    }))({ position: "bottomleft" });
+    trackCurrentPositionButtonControl.addTo(map);
+  }, [map, setTrackCurrentPosition]);
+
   return (
     <MapPanelPresentation
       centerPosition={centerPosition}
       currentPosition={currentPosition}
       markers={markers}
       polylines={polylines}
+      setMap={setMap}
     />
   );
 };
