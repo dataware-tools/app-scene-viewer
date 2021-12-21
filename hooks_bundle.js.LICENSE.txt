@@ -966,6 +966,8 @@
 
 /*! ./panels/Internals */
 
+/*! ./panels/Map */
+
 /*! ./panels/NodePlayground */
 
 /*! ./panels/Note */
@@ -1460,6 +1462,8 @@
 
 /*! scene-viewer-panels */
 
+/*! scene-viewer-panels/index.css */
+
 /*! shallowequal */
 
 /*! string-hash */
@@ -1532,6 +1536,10 @@
 
 /*!******************************************************!*\
   !*** ./packages/webviz-core/src/panels/Internals.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
+  !*** ./packages/webviz-core/src/panels/Map/index.js ***!
   \******************************************************/
 
 /*!******************************************************!*\
