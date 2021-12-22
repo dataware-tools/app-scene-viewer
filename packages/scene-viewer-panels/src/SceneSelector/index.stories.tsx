@@ -12,7 +12,7 @@ export default {
 const Template: Story<SceneSelectorProps> = (args) => (
   <div
     className={css`
-      height: 300px;
+      height: 500px;
       width: 800px;
     `}
   >

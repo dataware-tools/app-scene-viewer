@@ -3,7 +3,9 @@ import SearchIcon from "@material-ui/icons/Search";
 import { Index } from "flexsearch";
 import React, { useEffect, useRef, useState } from "react";
 import Highlighter from "react-highlight-words";
+import { color } from "../color";
 import { MarkerIcon } from "../components/MarkerIcon";
+import { Spacer } from "../components/Spacer";
 
 type Caption = {
   timestamp: number;
@@ -40,17 +42,11 @@ export const SceneSelectorPresentation = ({
   onSelectScene,
 }: SceneSelectorPresentationProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
-  const white = "hsl(0, 0%, 94%)";
-  const gray = "hsl(240, 2%, 53%)";
   return (
     <div
       className={css`
         align-items: center;
-
-        /* background-color: hsl(240deg 1% 41%); */
-        border-radius: 5px;
-
-        /* color: white; */
+        background-color: ${color.gray(1)};
         display: flex;
         flex-direction: column;
         height: 100%;
@@ -73,7 +69,6 @@ export const SceneSelectorPresentation = ({
         <SearchIcon
           fontSize="large"
           className={css`
-            /* color: ${gray}; */
             left: 12px;
             position: absolute;
             top: 4px;
@@ -82,42 +77,35 @@ export const SceneSelectorPresentation = ({
         <input
           ref={inputRef}
           className={css`
-            /* background-color: ${white};
-            color: ${gray}; */
+            background-color: ${color.gray(1)};
             font-size: 1.25rem;
             padding-left: 40px;
             &:focus {
-              /* background-color: ${white};
-              color: ${gray}; */
+              background-color: ${color.gray(2)};
             }
           `}
         />
-        <span
-          className={css`
-            width: 10px;
-          `}
-        />
+        <Spacer size={2} horizontal />
         <button
           onClick={() => onSearch(inputRef.current?.value || "")}
           className={css`
-            /* background-color: ${white};
-            color: black; */
+            background-color: ${color.gray(2)};
             font-size: 1.25rem;
             font-weight: bold;
             padding: 0 20px;
             &:hover {
-              /* background-color: ${white} !important;
-              color: ${gray} !important; */
+              background-color: ${color.gray(3)};
             }
           `}
         >
           Search
         </button>
       </form>
-      <span
+      <Spacer
+        size={2}
+        vertical
         className={css`
           flex-shrink: 0;
-          height: 10px;
         `}
       />
       <div
@@ -144,7 +132,7 @@ export const SceneSelectorPresentation = ({
                 flex-direction: row;
                 padding: 5px;
                 &:hover {
-                  background-color: ${gray};
+                  background-color: ${color.gray(1)};
                 }
               `}
               onClick={() => onSelectScene(timestamp)}
@@ -159,10 +147,11 @@ export const SceneSelectorPresentation = ({
               >
                 {label && <MarkerIcon size={20} text={label} />}
               </span>
-              <span
+              <Spacer
+                size={2}
+                horizontal
                 className={css`
                   flex-shrink: 0;
-                  width: 10px;
                 `}
               />
               <span
@@ -172,10 +161,11 @@ export const SceneSelectorPresentation = ({
               >
                 {timestamp}
               </span>
-              <span
+              <Spacer
+                size={2}
+                horizontal
                 className={css`
                   flex-shrink: 0;
-                  width: 10px;
                 `}
               />
               <span

@@ -2,6 +2,8 @@ import { css } from "@emotion/css";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import React from "react";
+import { color } from "../color";
+import { Spacer } from "../components/Spacer";
 
 export type TimestampCaption = { timestamp: number; caption: string };
 export type CurrentCaptionPresentationProps = {
@@ -46,14 +48,41 @@ export const CurrentCaptionPresentation = ({
     return null;
   };
 
+  const CircleIconButton = ({
+    children,
+    size,
+    ...delegated
+  }: { size: string } & React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  >) => (
+    <button
+      className={css`
+        align-items: center;
+        background-color: ${color.gray(1)};
+        border-radius: 100%;
+        display: flex;
+        height: ${size};
+        justify-content: center;
+        width: ${size};
+      `}
+      {...delegated}
+    >
+      {children}
+    </button>
+  );
+
   return (
     <>
       <div
         className={css`
           align-items: center;
+          background-color: ${color.gray(1)};
           display: flex;
           flex-direction: row;
+          height: 100%;
           overflow: auto;
+          width: 100%;
         `}
       >
         <div
@@ -78,7 +107,9 @@ export const CurrentCaptionPresentation = ({
                 className={css`
                   align-items: center;
                   bottom: 0;
-                  color: ${index === currentSceneIndex ? "white" : "gray"};
+                  color: ${index === currentSceneIndex
+                    ? "white"
+                    : color.gray(1)};
                   display: flex;
                   display: ${isDisplayed ? null : "none"};
                   flex-direction: row;
@@ -118,10 +149,11 @@ export const CurrentCaptionPresentation = ({
             );
           })}
         </div>
-        <span
+        <Spacer
+          size={2}
+          horizontal
           className={css`
             flex-shrink: 0;
-            width: 10px;
           `}
         />
         <div
@@ -136,60 +168,30 @@ export const CurrentCaptionPresentation = ({
           `}
         >
           <span>前のシーン</span>
-          <span
-            className={css`
-              height: 5px;
-            `}
-          />
-          <button
+          <Spacer size={1} vertical />
+          <CircleIconButton
             onClick={async () =>
               await onChangeScene(captions[currentSceneIndex - 1])
             }
             disabled={currentSceneIndex < 1}
-            className={css`
-              align-items: center;
-              border-radius: 100%;
-              display: flex;
-              height: 30px;
-              justify-content: center;
-              width: 30px;
-            `}
+            size="30px"
           >
             <KeyboardArrowUpIcon fontSize="large" />
-          </button>
-          <span
-            className={css`
-              height: 40px;
-            `}
-          />
-          <button
+          </CircleIconButton>
+          <Spacer vertical size={8} />
+          <CircleIconButton
             onClick={async () =>
               await onChangeScene(captions[currentSceneIndex + 1])
             }
             disabled={currentSceneIndex >= captions.length - 1}
-            className={css`
-              align-items: center;
-              border-radius: 100%;
-              display: flex;
-              height: 30px;
-              justify-content: center;
-              width: 30px;
-            `}
+            size="30px"
           >
             <KeyboardArrowDownIcon fontSize="large" />
-          </button>
-          <span
-            className={css`
-              height: 5px;
-            `}
-          />
+          </CircleIconButton>
+          <Spacer vertical size={1} />
           <span>次のシーン</span>
         </div>
-        <span
-          className={css`
-            width: 10px;
-          `}
-        />
+        <Spacer horizontal size={2} />
       </div>
     </>
   );
