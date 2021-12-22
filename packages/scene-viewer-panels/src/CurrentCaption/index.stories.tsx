@@ -28,7 +28,7 @@ export const Controlled = () => {
   return (
     <div
       className={css`
-        height: 150px;
+        height: 300px;
         overflow: auto;
         width: 500px;
       `}
