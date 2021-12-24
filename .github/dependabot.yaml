@@ -1,0 +1,13 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/packages/scene-viewer-panels"
+    schedule:
+      interval: "daily"
+    ignore:
+      # peer deps version should same with webviz
+      - dependency-name: "react"
+      - dependency-name: "roslib"
+      # sass-loader >= 11 does not work with webpack
+      - dependency-name: "sass-loader"
+        versions: [">=11"]
