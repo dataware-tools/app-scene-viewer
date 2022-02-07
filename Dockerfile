@@ -30,17 +30,12 @@ WORKDIR /app
 COPY --from=deps /app .
 RUN npm run build && npm run build-static-webviz
 
-# Production image, copy all the files and run next
-FROM node:12.22.7-alpine AS production
-WORKDIR /app
+# Start again with a clean nginx container
+FROM nginx:1-alpine
 
-ENV NODE_ENV production
-
-RUN npm install -g http-server
-COPY --from=builder /app/packages/webviz/__static_webviz__ /app/__static__webviz__
-
+# For backwards compatibility, patch the server config to change the port
+RUN sed -i 's/listen  *80;/listen 8080;/g' /etc/nginx/conf.d/default.conf
 EXPOSE 8080
 
-COPY docker-entrypoint.sh /app/docker-entrypoint.sh
-ENTRYPOINT ["/app/docker-entrypoint.sh"]
-CMD ["http-server", "/app/__static_webviz__"]
+# Copy the build products to the web root
+COPY --from=builder /app/packages/webviz/__static_webviz__ /usr/share/nginx/html
