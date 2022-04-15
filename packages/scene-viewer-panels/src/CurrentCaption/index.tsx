@@ -77,9 +77,10 @@ export const CurrentCaptionPresentation = ({
       <div
         className={css`
           align-items: center;
-          background-color: ${color.gray(1)};
+          background-color: ${color.gray(0)};
           display: flex;
           flex-direction: row;
+          font-size: 1.2rem;
           height: 100%;
           overflow: auto;
           width: 100%;
