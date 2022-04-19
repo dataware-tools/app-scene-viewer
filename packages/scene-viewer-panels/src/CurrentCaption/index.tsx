@@ -80,7 +80,7 @@ export const CurrentCaptionPresentation = ({
           background-color: ${color.gray(0)};
           display: flex;
           flex-direction: row;
-          font-size: 1.2rem;
+          font-size: 1.4rem;
           height: 100%;
           overflow: auto;
           width: 100%;
@@ -123,22 +123,11 @@ export const CurrentCaptionPresentation = ({
                   width: 100%;
                 `}
               >
-                <span
-                  className={css`
-                    flex-shrink: 0;
-                  `}
-                >
-                  {timestamp}
-                </span>
-                <span
-                  className={css`
-                    flex-shrink: 0;
-                    width: 10px;
-                  `}
-                />
                 <div
                   className={css`
                     overflow: hidden;
+                    padding-left: 10px;
+                    padding-right: 10px;
                     text-overflow: ${index !== currentSceneIndex && "ellipsis"};
                     white-space: ${index !== currentSceneIndex && "nowrap"};
                     word-break: ${index === currentSceneIndex && "break-all"};
