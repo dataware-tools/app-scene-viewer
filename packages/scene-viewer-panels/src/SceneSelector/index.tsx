@@ -46,9 +46,10 @@ export const SceneSelectorPresentation = ({
     <div
       className={css`
         align-items: center;
-        background-color: ${color.gray(1)};
+        background-color: ${color.gray(0)};
         display: flex;
         flex-direction: column;
+        font-size: 1.2rem;
         height: 100%;
         padding: 10px;
         width: 100%;
@@ -78,7 +79,7 @@ export const SceneSelectorPresentation = ({
           ref={inputRef}
           className={css`
             background-color: ${color.gray(1)};
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             padding-left: 40px;
             &:focus {
               background-color: ${color.gray(2)};
@@ -90,7 +91,7 @@ export const SceneSelectorPresentation = ({
           onClick={() => onSearch(inputRef.current?.value || "")}
           className={css`
             background-color: ${color.gray(2)};
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             font-weight: bold;
             padding: 0 20px;
             &:hover {
@@ -178,9 +179,9 @@ export const SceneSelectorPresentation = ({
                   textToHighlight={caption}
                   searchWords={highlightedTexts}
                   highlightStyle={{
-                    backgroundColor: "hsl(197, 39%, 58%)",
+                    backgroundColor: "white",
                     fontWeight: "bold",
-                    color: "white",
+                    color: "black",
                   }}
                 />
               </span>
