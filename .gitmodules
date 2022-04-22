@@ -1,3 +1,0 @@
-[submodule "packages/webviz"]
-	path = packages/webviz
-	url = https://github.com/dataware-tools/webviz.git
