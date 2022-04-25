@@ -1,5 +1,5 @@
 import { divIcon } from "leaflet";
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import ReactDOMServer from "react-dom/server";
 import { Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";

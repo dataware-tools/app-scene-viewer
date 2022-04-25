@@ -1,7 +1,7 @@
 import { css } from "@emotion/css";
-import SearchIcon from "@material-ui/icons/Search";
+import SearchIcon from "@mui/icons-material/Search";
 import { Index } from "flexsearch";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Highlighter from "react-highlight-words";
 import { color } from "../color";
 import { MarkerIcon } from "../components/MarkerIcon";

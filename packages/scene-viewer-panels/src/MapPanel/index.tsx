@@ -1,7 +1,7 @@
 import { css } from "@emotion/css";
-import GpsFixedIcon from "@material-ui/icons/GpsFixed";
+import GpsFixedIcon from "@mui/icons-material/GpsFixed";
 import Leaflet from "leaflet";
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import ReactDOMServer from "react-dom/server";
 import { MapContainer, TileLayer, Pane, Polyline } from "react-leaflet";
 import "leaflet/dist/leaflet.css";

@@ -1,6 +1,6 @@
 import { css } from "@emotion/css";
 import type { Story } from "@storybook/react";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useRosLib } from "../hooks/roslibHooks";
 import { CurrentCaption, CurrentCaptionProps, TimestampCaption } from "./index";
 
@@ -9,18 +9,19 @@ export default {
   title: "CurrentCaption",
 };
 
-const Template: Story<CurrentCaptionProps & { height: string; width: string }> =
-  ({ height, width, ...args }) => (
-    <div
-      className={css`
-        height: ${height};
-        overflow: auto;
-        width: ${width};
-      `}
-    >
-      <CurrentCaption {...args} />
-    </div>
-  );
+const Template: Story<
+  CurrentCaptionProps & { height: string; width: string }
+> = ({ height, width, ...args }) => (
+  <div
+    className={css`
+      height: ${height};
+      overflow: auto;
+      width: ${width};
+    `}
+  >
+    <CurrentCaption {...args} />
+  </div>
+);
 
 export const Controlled = () => {
   const [currentTimestamp, setCurrentTimestamp] = useState(0);

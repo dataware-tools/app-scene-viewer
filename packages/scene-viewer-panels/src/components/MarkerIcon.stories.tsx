@@ -1,5 +1,4 @@
 import type { Story } from "@storybook/react";
-import React from "react";
 import { MarkerIcon, MarkerIconProps } from "./MarkerIcon";
 
 export default {

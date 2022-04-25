@@ -1,5 +1,4 @@
 import { css } from "@emotion/css";
-import React from "react";
 
 export const SamplePresentation = () => {
   const color = "white";
