@@ -1,0 +1,3 @@
+[submodule "packages/foxglove-studio"]
+	path = packages/foxglove-studio
+	url = https://github.com/dataware-tools/foxglove-studio
