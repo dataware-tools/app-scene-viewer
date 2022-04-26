@@ -2804,15 +2804,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@foxglove/ros1@npm:1.4.1":
-  version: 1.4.1
-  resolution: "@foxglove/ros1@npm:1.4.1"
+"@foxglove/ros1@npm:1.4.2":
+  version: 1.4.2
+  resolution: "@foxglove/ros1@npm:1.4.2"
   dependencies:
     "@foxglove/rosmsg": ^2.0.0 || ^3.0.0
     "@foxglove/rosmsg-serialization": ^1.2.3
-    "@foxglove/xmlrpc": ^1.1.9
+    "@foxglove/xmlrpc": ^1.2.0
     eventemitter3: ^4.0.7
-  checksum: 4f563e44430d864aea680d413f5e2002cc6b374fe71faf2779360b4ccb9d4511adbeefeae22841b82dc4cccf69957b4580ae2441492178e47db80feac37e9fa3
+  checksum: 86843acae3413b3ab35e3f22844af05abb4e48a6a545e60dfb80727b95acbf3fdf8c7800c2588357e80aeaf0fe4eca072f6198a5293b7143dbcf121dd2fa2ca0
   languageName: node
   linkType: hard
 
@@ -2953,7 +2953,7 @@ __metadata:
     "@foxglove/mcap": "github:foxglove/mcap#workspace=@foxglove/mcap&commit=e79355a9e99efd5094b15f21bb361a85d9e748bc"
     "@foxglove/mcap-support": "workspace:*"
     "@foxglove/regl-worldview": 2.4.0
-    "@foxglove/ros1": 1.4.1
+    "@foxglove/ros1": 1.4.2
     "@foxglove/ros2": 3.2.1
     "@foxglove/rosbag": 0.2.1
     "@foxglove/rosbag2-web": 4.0.3
@@ -3049,6 +3049,7 @@ __metadata:
     gl-matrix: 3.4.3
     hammerjs: 2.0.8
     history: 5.2.0
+    idb: 7.0.1
     idb-keyval: 6.1.0
     immer: 9.0.12
     intervals-fn: 3.0.3
@@ -3168,15 +3169,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@foxglove/xmlrpc@npm:^1.1.9":
-  version: 1.1.9
-  resolution: "@foxglove/xmlrpc@npm:1.1.9"
+"@foxglove/xmlrpc@npm:^1.2.0":
+  version: 1.2.1
+  resolution: "@foxglove/xmlrpc@npm:1.2.1"
   dependencies:
     "@foxglove/just-fetch": ^1.2.4
     byte-base64: ^1.1.0
     sax: ^1.2.4
     xmlbuilder2: ^3.0.2
-  checksum: e42c377dfd15bc54176da0f7d2efbbe9bef7e2be5e25c35d415582792e5b8c39592e67245a6bd880ab91e8ca8dcddfe4b457e5769fd086fb0a22c0ede0929ea2
+  checksum: f7fb2f0217af2802a699465a581a453ffb36c4150dda50de4948bdd6ec98af8647ef6b2c69e93966e4ea6c2d574ccd75e00416e38ffc56274cb5adc6aa14bdc2
   languageName: node
   linkType: hard
 
@@ -4542,6 +4543,19 @@ __metadata:
     lru_map: ^0.3.3
     tslib: ^1.9.3
   checksum: 6c38c8cea0611c9c2dd267c5d43f806c7c06bbfa4506930b0027277dfae71b7b754f18b1141d75d102e366369068941e6f9c2f889cca0c571e0304b559c7aa80
+  languageName: node
+  linkType: hard
+
+"@sentry/tracing@npm:6.19.6":
+  version: 6.19.6
+  resolution: "@sentry/tracing@npm:6.19.6"
+  dependencies:
+    "@sentry/hub": 6.19.6
+    "@sentry/minimal": 6.19.6
+    "@sentry/types": 6.19.6
+    "@sentry/utils": 6.19.6
+    tslib: ^1.9.3
+  checksum: ba41cd4079266c7bfebb327654579ce7f52fcc0ec67581b28c330e3b26dfb79c47d2a944ff86a91c2a150ec41f378047ec188727c4fa4ab8762a44d46c47af5f
   languageName: node
   linkType: hard
 
@@ -16064,6 +16078,7 @@ __metadata:
     "@octokit/rest": 18.12.0
     "@pmmmwh/react-refresh-webpack-plugin": 0.5.4
     "@sentry/electron": 3.0.7
+    "@sentry/tracing": 6.19.6
     "@sentry/webpack-plugin": 1.18.8
     "@storybook/addon-actions": 6.4.18
     "@storybook/addon-essentials": 6.4.18
@@ -17641,6 +17656,13 @@ __metadata:
   dependencies:
     safari-14-idb-fix: ^3.0.0
   checksum: 431a7467739f0279e6af5f36c408f4c83e71ad0a892296d11360e5f2eaac8948da274783946b51c46847d8286570cc9d95d2e54b3cde351749d47bba419c25fc
+  languageName: node
+  linkType: hard
+
+"idb@npm:7.0.1":
+  version: 7.0.1
+  resolution: "idb@npm:7.0.1"
+  checksum: 61526789562cc3518a1a030c7a06cc98edfcd62795700ff28c701d6f84c178aee4e98bedfc79e6c394ba26084aa4667d6594b1728e5868f305f9b34148662679
   languageName: node
   linkType: hard
 
@@ -25846,8 +25868,10 @@ __metadata:
     "@mui/icons-material": 5.4.1
     "@mui/material": 5.4.1
     "@mui/styles": 5.4.1
+    leaflet: ^1.7.1
     react: 17.0.2
     react-dom: 17.0.2
+    react-highlight-words: 0.18.0
     roslib: 1.1.1
   languageName: unknown
   linkType: soft
