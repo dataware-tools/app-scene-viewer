@@ -8,17 +8,15 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      target: builder
+      target: serve-prod-in-local
     image: registry.gitlab.com/dataware-tools/app-scene-viewer:latest
     ports:
       - 8080:8080
     volumes:
       - .:/app
-#      - static_webviz:/app/__static_webviz__
-    entrypoint: "/app/docker-entrypoint.sh"
-#    command: ["/app/node_modules/http-server/bin/http-server", "__static_webviz__"]
-    command:
-      - npm
-      - run
-      - serve-static-webviz
     tty: true
+    command:
+     - "caddy"
+     - "file-server"
+     - "--listen"
+     - ":8080"
