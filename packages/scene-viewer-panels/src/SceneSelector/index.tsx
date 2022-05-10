@@ -15,7 +15,7 @@ type Caption = {
 type CaptionWithLabel = {
   label?: string;
 } & Caption;
-type PinLocations = {
+export type PinLocations = {
   longitude: number;
   latitude: number;
   altitude: number;
