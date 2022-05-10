@@ -5,11 +5,12 @@ module.exports = {
   },
   extends: [
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
     "standard",
     "standard-jsx",
     "standard-react",
+    "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
     "plugin:react-hooks/recommended",
     "plugin:eslint-comments/recommended",
     "plugin:import/errors",
@@ -51,6 +52,7 @@ module.exports = {
     "eslint-comments/no-unused-disable": "error",
     // This rule make mean only when using "prop-type" library(https://ja.reactjs.org/docs/typechecking-with-proptypes.html)
     "react/prop-types": "off",
+    "react/no-unused-prop-types": "off",
     // https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/FAQ.md#eslint-plugin-import
     "import/named": "off",
     "import/namespace": "off",
