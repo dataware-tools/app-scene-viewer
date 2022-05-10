@@ -9,6 +9,7 @@ const CommonConfig = {
   target: ["es6"],
   external: Object.keys(packageInfo.peerDependencies),
   loader: { ".png": "file" },
+  logLevel: "info",
 };
 
 esbuild
