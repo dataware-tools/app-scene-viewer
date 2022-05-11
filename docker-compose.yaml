@@ -8,15 +8,5 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      target: serve-prod-in-local
-    image: registry.gitlab.com/dataware-tools/app-scene-viewer:latest
     ports:
       - 8080:8080
-    volumes:
-      - .:/app
-    tty: true
-    command:
-     - "caddy"
-     - "file-server"
-     - "--listen"
-     - ":8080"

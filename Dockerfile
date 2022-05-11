@@ -31,19 +31,9 @@ COPY --from=deps /app .
 RUN yarn run build
 
 # Release stage
-FROM caddy:2 AS serve-prod-in-local
+FROM caddy:2
 WORKDIR /src
 COPY --from=builder /app/packages/foxglove-studio/web/.webpack ./
 
 EXPOSE 8080
 CMD ["caddy", "file-server", "--listen", ":8080"]
-
-# Start again with a clean nginx container
-FROM nginx:1-alpine
-
-# For backwards compatibility, patch the server config to change the port
-RUN sed -i 's/listen  *80;/listen 8080;/g' /etc/nginx/conf.d/default.conf
-EXPOSE 8080
-
-# Copy the build products to the web root
-COPY --from=builder /app/packages/foxglove-studio/web/.webpack /usr/share/nginx/html
