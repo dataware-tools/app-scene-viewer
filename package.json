@@ -7,9 +7,12 @@
     "packages/scene-viewer-panels"
   ],
   "scripts": {
+    "bootstrap": "cp -r packages/foxglove-studio/.storybook packages/scene-viewer-panels && run-s -n build",
     "test": "run-s -n 'test:*'",
     "test:scene-viewer-panels": "yarn workspace scene-viewer-panels run test",
     "test:fox-glove-studio": "yarn workspace foxglove-studio run test",
+    "storybook:scene-viewer-panels": "yarn workspace scene-viewer-panels run storybook",
+    "storybook:foxglove-studio": "yarn workspace scene-viewer-panels run storybook",
     "build": "run-s -n 'build:*'",
     "build:scene-viewer-panels": "yarn workspace scene-viewer-panels run build",
     "build:fox-glove-studio": "yarn workspace foxglove-studio run web:build:prod",
@@ -30,7 +33,9 @@
     "@mui/icons-material": "5",
     "@mui/material": "5",
     "@testing-library/react-hooks": "7.0.2",
+    "@types/styled-components": "^5",
     "npm-run-all": "4.1.5",
-    "serve": "13.0.2"
+    "serve": "13.0.2",
+    "styled-components": "5.3.5"
   }
 }

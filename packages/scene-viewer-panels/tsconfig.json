@@ -11,7 +11,7 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "module": "ESNext",
+    "module": "commonjs",
     "moduleResolution": "node",
     "noImplicitAny": true,
     "noImplicitReturns": true,
@@ -27,7 +27,12 @@
     "suppressImplicitAnyIndexErrors": true,
     "target": "es6",
     "downlevelIteration": true,
-    "strictBindCallApply": true
+    "strictBindCallApply": true,
+    "paths": {
+      "@foxglove/studio-base/*": [
+        "../foxglove-studio/packages/studio-base/src/*"
+      ]
+    }
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist", "example"]
