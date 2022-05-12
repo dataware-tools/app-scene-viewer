@@ -15,3 +15,5 @@ const CommonConfig = {
 esbuild
   .build({ ...CommonConfig, format: "cjs", outfile: "dist/index.js" })
   .catch(() => process.exit(1));
+
+module.exports = { CommonConfig };

@@ -9,6 +9,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "cross-env NODE_OPTIONS=\"--max-old-space-size=4096\" rimraf dist && node bin/esbuild.js && run-s -n emit-types",
+    "dev": "concurrently --names \"esbuild,tsc\" \"node bin/esbuild.watch.js\" \"tsc --emitDeclarationOnly --project tsconfig.json --outDir dist --watch\"",
     "emit-types": " tsc --emitDeclarationOnly --project tsconfig.json --outDir dist",
     "test": "cross-env NODE_OPTIONS=\"--max-old-space-size=4096\" run-s -n lint test:build",
     "lint": "cross-env NODE_OPTIONS=\"--max-old-space-size=4096\" run-s -n eslint tsc",
@@ -48,6 +49,7 @@
     "@typescript-eslint/utils": "5.23.0",
     "babel-loader": "^8.2.3",
     "babel-plugin-transform-import-meta": "2.1.1",
+    "concurrently": "7.1.0",
     "cross-env": "^7.0.3",
     "esbuild": "^0.13.14",
     "eslint": "8.15.0",
