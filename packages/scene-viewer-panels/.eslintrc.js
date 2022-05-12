@@ -1,3 +1,4 @@
+/** @type {import('@typescript-eslint/utils').TSESLint.Linter.Config} */
 module.exports = {
   env: {
     browser: true,
@@ -16,7 +17,6 @@ module.exports = {
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:import/typescript",
-    "plugin:compat/recommended",
     "prettier",
   ],
   parser: "@typescript-eslint/parser",
