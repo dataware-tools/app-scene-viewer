@@ -33,7 +33,7 @@ RUN yarn run build
 # Release stage
 FROM caddy:2
 WORKDIR /src
-COPY --from=builder /app/packages/foxglove-studio/web/.webpack ./
+COPY --from=builder /app/packages/foxglove-studio/web/.webpack ./scene-viewer
 
 EXPOSE 8080
 CMD ["caddy", "file-server", "--listen", ":8080"]

@@ -16,6 +16,7 @@
     "build": "run-s -n 'build:*'",
     "build:scene-viewer-panels": "yarn workspace scene-viewer-panels run build",
     "build:fox-glove-studio": "yarn workspace foxglove-studio run web:build:prod",
+    "start": "cp -r ./packages/foxglove-studio/web/.webpack ./local-server/scene-viewer && serve -p 8080 ./local-server",
     "dev": "concurrently --raw --names \"scene-viewer-panels,foxglove-studio\" \"yarn workspace scene-viewer-panels run dev\" \"yarn workspace foxglove-studio run web:serve\"",
     "prepare": "husky install"
   },
