@@ -26364,6 +26364,7 @@ __metadata:
   peerDependencies:
     "@emotion/react": 11.7.1
     "@emotion/styled": 11.6.0
+    "@foxglove/studio-base": 1.11.0
     "@mui/icons-material": 5.4.1
     "@mui/material": 5.4.1
     "@mui/styles": 5.4.1
