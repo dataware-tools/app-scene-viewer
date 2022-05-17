@@ -22,6 +22,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-# storybook config should be copied from foxglove-studio
-.storybook
