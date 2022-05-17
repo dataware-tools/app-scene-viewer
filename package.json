@@ -7,12 +7,12 @@
     "packages/scene-viewer-panels"
   ],
   "scripts": {
-    "bootstrap": "cp -r packages/foxglove-studio/.storybook packages/scene-viewer-panels && run-s -n build",
+    "bootstrap": "run-s -n build",
     "test": "run-s -n 'test:*'",
     "test:scene-viewer-panels": "yarn workspace scene-viewer-panels run test",
     "test:fox-glove-studio": "yarn workspace foxglove-studio run test",
     "storybook:scene-viewer-panels": "yarn workspace scene-viewer-panels run storybook",
-    "storybook:foxglove-studio": "yarn workspace scene-viewer-panels run storybook",
+    "storybook:foxglove-studio": "yarn workspace foxglove-studio run storybook",
     "build": "run-s -n 'build:*'",
     "build:scene-viewer-panels": "yarn workspace scene-viewer-panels run build",
     "build:fox-glove-studio": "yarn workspace foxglove-studio run web:build:prod",
