@@ -2,7 +2,11 @@ import { css } from "@emotion/css";
 import type { Story } from "@storybook/react";
 import { useState } from "react";
 import { useRosLib } from "../hooks/roslibHooks";
-import { CurrentCaption, CurrentCaptionProps, TimestampCaption } from "./index";
+import {
+  CurrentCaption,
+  CurrentCaptionProps,
+  TimestampCaption,
+} from "./content";
 
 export default {
   component: CurrentCaption,

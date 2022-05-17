@@ -1,7 +1,7 @@
 import { css } from "@emotion/css";
 import { Story } from "@storybook/react";
 import { useRosLib } from "../hooks/roslibHooks";
-import { SceneSelector, SceneSelectorProps } from "./index";
+import { SceneSelector, SceneSelectorProps } from "./content";
 
 export default {
   component: SceneSelector,
