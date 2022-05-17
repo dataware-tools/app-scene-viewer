@@ -3241,6 +3241,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@foxglove/studio-base@npm:1.11.0":
+  version: 1.11.0
+  resolution: "@foxglove/studio-base@npm:1.11.0"
+  checksum: 1caf62bfbae6463888fed7b3bb9a36778162f234fac285eeca354858d76a2f4a4d55d91b54a6737306155f17652742d3b772cc51d74c4751ec1326fe0f765cd5
+  languageName: node
+  linkType: hard
+
 "@foxglove/studio-base@workspace:*, @foxglove/studio-base@workspace:packages/foxglove-studio/packages/studio-base":
   version: 0.0.0-use.local
   resolution: "@foxglove/studio-base@workspace:packages/foxglove-studio/packages/studio-base"
@@ -26290,6 +26297,7 @@ __metadata:
     "@emotion/css": ^11.5.0
     "@emotion/react": 11.7.1
     "@emotion/styled": 11.6.0
+    "@foxglove/studio-base": 1.11.0
     "@mui/icons-material": 5.4.1
     "@mui/material": 5.4.1
     "@mui/styles": 5.4.1
