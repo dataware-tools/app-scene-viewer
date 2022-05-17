@@ -3252,7 +3252,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@foxglove/studio-base@1.11.0, @foxglove/studio-base@workspace:*, @foxglove/studio-base@workspace:packages/foxglove-studio/packages/studio-base":
+"@foxglove/studio-base@npm:1.10.1":
+  version: 1.10.1
+  resolution: "@foxglove/studio-base@npm:1.10.1"
+  checksum: e507c4f78c640d45f2ec05c8675a4d94659bb20019b3497a39a6f49e4d1c215d0763f6a8769feff86100f6dc3cd8f536f49eb0d74523e244c384323d3927fdb7
+  languageName: node
+  linkType: hard
+
+"@foxglove/studio-base@workspace:*, @foxglove/studio-base@workspace:packages/foxglove-studio/packages/studio-base":
   version: 0.0.0-use.local
   resolution: "@foxglove/studio-base@workspace:packages/foxglove-studio/packages/studio-base"
   dependencies:
@@ -26302,7 +26309,7 @@ __metadata:
     "@emotion/css": ^11.5.0
     "@emotion/react": 11.7.1
     "@emotion/styled": 11.6.0
-    "@foxglove/studio-base": 1.11.0
+    "@foxglove/studio-base": 1.10.1
     "@mui/icons-material": 5.4.1
     "@mui/material": 5.4.1
     "@mui/styles": 5.4.1
@@ -26369,7 +26376,7 @@ __metadata:
   peerDependencies:
     "@emotion/react": 11.7.1
     "@emotion/styled": 11.6.0
-    "@foxglove/studio-base": 1.11.0
+    "@foxglove/studio-base": 1.10.1
     "@mui/icons-material": 5.4.1
     "@mui/material": 5.4.1
     "@mui/styles": 5.4.1
