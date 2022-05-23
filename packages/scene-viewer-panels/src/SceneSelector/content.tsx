@@ -6,6 +6,15 @@ import { color } from "../color";
 import { MarkerIcon } from "../components/MarkerIcon";
 import { Spacer } from "../components/Spacer";
 import Box from "@mui/material/Box";
+import {
+  Button,
+  InputAdornment,
+  List,
+  ListItem,
+  TextField,
+} from "@mui/material";
+import Paper from "@mui/material/Paper";
+import { useTheme } from "@mui/material";
 
 type Caption = {
   timestamp: number;
@@ -42,6 +51,7 @@ export const SceneSelectorPresentation = ({
   onSelectScene,
 }: SceneSelectorPresentationProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
+  const { palette } = useTheme();
   return (
     <Box
       sx={{
@@ -67,40 +77,38 @@ export const SceneSelectorPresentation = ({
           position: "relative",
         }}
       >
-        <SearchIcon
-          fontSize="large"
-          sx={{ left: "12px", position: "absolute", top: "4px" }}
-        />
-        <Box
-          component="input"
-          ref={inputRef}
-          sx={{
-            backgroundColor: color.gray(1),
-            fontSize: "1.3rem",
-            paddingLeft: "40px",
-            "&:focus": {
-              backgroundColor: color.gray(2),
-            },
-          }}
-        />
+        <Paper elevation={0} square={false}>
+          <TextField
+            inputRef={inputRef}
+            sx={{
+              fontSize: "1.3rem",
+            }}
+            size="small"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+            }}
+          />
+        </Paper>
         <Spacer size={2} horizontal />
-        <Box
-          component="button"
+        <Button
           onClick={() => onSearch(inputRef.current?.value || "")}
+          color="inherit"
+          variant="contained"
           sx={{
-            backgroundColor: color.gray(2),
-            fontSize: "1.3rem",
+            color: (theme) => theme.palette.text.primary,
+            fontSize: "1.2rem",
             fontWeight: "bold",
             padding: "0 20px",
-            "&:hover": {
-              backgroundColor: color.gray(3),
-            },
           }}
         >
           Search
-        </Box>
+        </Button>
       </Box>
-      <Spacer size={2} vertical />
+      <Spacer size={1} vertical />
       <Box
         sx={{
           flexShrink: "1",
@@ -110,10 +118,9 @@ export const SceneSelectorPresentation = ({
           width: "100%",
         }}
       >
-        <Box component="ul" sx={{ display: "inline-block" }}>
+        <List sx={{ display: "inline-block" }}>
           {captionWithLabels.map(({ timestamp, caption, label }) => (
-            <Box
-              component="li"
+            <ListItem
               key={timestamp}
               sx={{
                 alignItems: "center",
@@ -127,17 +134,7 @@ export const SceneSelectorPresentation = ({
               }}
               onClick={() => onSelectScene(timestamp)}
             >
-              <Box
-                component="span"
-                sx={{
-                  alignItems: "center",
-                  height: "20px",
-                  justifyContent: "center",
-                  width: "20px",
-                }}
-              >
-                {label && <MarkerIcon size={20} text={label} />}
-              </Box>
+              {label && <MarkerIcon text={label} />}
               <Spacer size={2} horizontal />
               <Box component="span" sx={{ fontWeight: "bold" }}>
                 {timestamp}
@@ -148,15 +145,15 @@ export const SceneSelectorPresentation = ({
                   textToHighlight={caption}
                   searchWords={highlightedTexts}
                   highlightStyle={{
-                    backgroundColor: "white",
+                    backgroundColor: palette.text.primary,
                     fontWeight: "bold",
-                    color: "black",
+                    color: palette.background.default,
                   }}
                 />
               </Box>
-            </Box>
+            </ListItem>
           ))}
-        </Box>
+        </List>
       </Box>
     </Box>
   );
