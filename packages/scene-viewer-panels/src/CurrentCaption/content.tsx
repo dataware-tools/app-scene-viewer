@@ -17,6 +17,19 @@ export type CurrentCaptionProps = {
   onChangeScene: (newValue: TimestampCaption) => void | Promise<void>;
 };
 
+const IconButton = ({ children, ...delegated }: MuiIconButtonProps) => (
+  <Paper
+    elevation={4}
+    sx={{
+      borderRadius: "100%",
+    }}
+  >
+    <MuiIconButton color="inherit" size="small" {...delegated}>
+      {children}
+    </MuiIconButton>
+  </Paper>
+);
+
 export const CurrentCaptionPresentation = ({
   captions: propsCaptions,
   currentSceneIndex,
@@ -49,19 +62,6 @@ export const CurrentCaptionPresentation = ({
     }
     return null;
   };
-
-  const IconButton = ({ children, ...delegated }: MuiIconButtonProps) => (
-    <Paper
-      elevation={4}
-      sx={{
-        borderRadius: "100%",
-      }}
-    >
-      <MuiIconButton color="inherit" size="small" {...delegated}>
-        {children}
-      </MuiIconButton>
-    </Paper>
-  );
 
   return (
     <>
@@ -174,7 +174,7 @@ export const CurrentCaptionPresentation = ({
 export const CurrentCaption = ({
   captions,
   currentTimestamp,
-  onChangeScene,
+  ...delegated
 }: CurrentCaptionProps): JSX.Element => {
   if (captions.length <= 0) {
     return <div>No captions available</div>;
@@ -192,8 +192,8 @@ export const CurrentCaption = ({
     <CurrentCaptionPresentation
       captions={captions}
       currentSceneIndex={currentSceneIndex}
-      onChangeScene={onChangeScene}
       currentTimestamp={currentTimestamp}
+      {...delegated}
     />
   );
 };
