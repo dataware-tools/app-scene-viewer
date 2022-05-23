@@ -25,7 +25,6 @@ function MapPanel() {
 
   const { globalVariables } = useGlobalVariables();
   const pinLocations = (globalVariables.pinLocations ?? []) as PinLocations;
-  console.log(pinLocations);
 
   return (
     <Container>
