@@ -1,4 +1,4 @@
-import { css } from "@emotion/css";
+import { Box } from "@mui/system";
 
 export type MarkerIconProps = {
   color?: string;
@@ -14,19 +14,19 @@ export const MarkerIcon = ({
   text,
 }: MarkerIconProps) => {
   return (
-    <div
-      className={css`
-        background-color: ${color};
-        border-radius: 50%;
-        color: ${fontColor};
-        height: ${size}px;
-        line-height: ${size}px;
-        text-align: center;
-        width: ${size}px;
-      `}
+    <Box
+      sx={{
+        backgroundColor: color,
+        borderRadius: "50%",
+        color: fontColor,
+        height: `${size}px`,
+        lineHeight: `${size}px`,
+        textAlign: "center",
+        width: `${size}px`,
+      }}
     >
       {text}
-    </div>
+    </Box>
   );
 };
 

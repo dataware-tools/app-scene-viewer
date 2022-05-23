@@ -1,9 +1,11 @@
-import { css } from "@emotion/css";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import React from "react";
-import { color } from "../color";
+import MuiIconButton, {
+  IconButtonProps as MuiIconButtonProps,
+} from "@mui/material/IconButton";
+import Box from "@mui/material/Box";
 import { Spacer } from "../components/Spacer";
+import Paper from "@mui/material/Paper";
 
 export type TimestampCaption = { timestamp: number; caption: string };
 export type CurrentCaptionPresentationProps = {
@@ -24,7 +26,7 @@ export const CurrentCaptionPresentation = ({
 
   const determinePlacement = (itemIndex: number) => {
     const halfwayIndex = Math.ceil(captions.length / 2);
-    const itemHeight = 50;
+    const itemHeight = 70;
 
     if (currentSceneIndex === itemIndex) return 0;
     if (itemIndex >= halfwayIndex) {
@@ -48,53 +50,41 @@ export const CurrentCaptionPresentation = ({
     return null;
   };
 
-  const CircleIconButton = ({
-    children,
-    size,
-    ...delegated
-  }: { size: string } & React.DetailedHTMLProps<
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement
-  >) => (
-    <button
-      className={css`
-        align-items: center;
-        background-color: ${color.gray(1)};
-        border-radius: 100%;
-        display: flex;
-        height: ${size};
-        justify-content: center;
-        width: ${size};
-      `}
-      {...delegated}
+  const IconButton = ({ children, ...delegated }: MuiIconButtonProps) => (
+    <Paper
+      elevation={4}
+      sx={{
+        borderRadius: "100%",
+      }}
     >
-      {children}
-    </button>
+      <MuiIconButton color="inherit" size="small" {...delegated}>
+        {children}
+      </MuiIconButton>
+    </Paper>
   );
 
   return (
     <>
-      <div
-        className={css`
-          align-items: center;
-          background-color: ${color.gray(0)};
-          display: flex;
-          flex-direction: row;
-          font-size: 1.4rem;
-          height: 100%;
-          overflow: auto;
-          width: 100%;
-        `}
+      <Box
+        sx={{
+          alignItems: "center",
+          display: "flex",
+          flexDirection: "row",
+          height: "100%",
+          overflow: "auto",
+          fontSize: "1.1rem",
+          width: "100%",
+        }}
       >
-        <div
-          className={css`
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-            height: 150px;
-            overflow-y: hidden;
-            position: relative;
-          `}
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            flexGrow: 1,
+            height: "200px",
+            overflowY: "hidden",
+            position: "relative",
+          }}
         >
           {captions.map(({ timestamp, caption }, index) => {
             const isVisible =
@@ -103,86 +93,80 @@ export const CurrentCaptionPresentation = ({
               currentSceneIndex - 2 <= index && index <= currentSceneIndex + 2;
 
             return (
-              <div
+              <Box
                 key={timestamp}
-                className={css`
-                  align-items: center;
-                  bottom: 0;
-                  color: ${index === currentSceneIndex
-                    ? "white"
-                    : color.gray(1)};
-                  display: flex;
-                  display: ${isDisplayed ? null : "none"};
-                  flex-direction: row;
-                  justify-content: center;
-                  position: absolute;
-                  top: 0;
-                  transform: translateY(${determinePlacement(index)}px);
-                  transition: transform 0.4s ease, opacity 0.4s ease;
-                  visibility: ${isVisible ? "visible" : "hidden"};
-                  width: 100%;
-                `}
+                sx={{
+                  alignItems: "center",
+                  bottom: 0,
+                  color: (theme) =>
+                    index === currentSceneIndex
+                      ? theme.palette.text.primary
+                      : theme.palette.grey[500],
+                  display: isDisplayed ? "flex" : "none",
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  position: "absolute",
+                  top: 0,
+                  fontSize: currentSceneIndex === index ? "1.3rem" : null,
+                  transform: `translateY(${determinePlacement(index)}px)`,
+                  transition: "transform 0.4s ease, opacity 0.4s ease",
+                  visibility: isVisible ? "visible" : "hidden",
+                  width: "100%",
+                }}
               >
-                <div
-                  className={css`
-                    overflow: hidden;
-                    padding-left: 10px;
-                    padding-right: 10px;
-                    text-overflow: ${index !== currentSceneIndex && "ellipsis"};
-                    white-space: ${index !== currentSceneIndex && "nowrap"};
-                    word-break: ${index === currentSceneIndex && "break-all"};
-                  `}
+                <Box
+                  sx={{
+                    overflow: "hidden",
+                    paddingLeft: "10px",
+                    paddingRight: "10px",
+                    textOverflow:
+                      index !== currentSceneIndex ? "ellipsis" : null,
+                    whiteSpace: index !== currentSceneIndex ? "nowrap" : null,
+                    wordBreak: index === currentSceneIndex ? "break-all" : null,
+                  }}
                 >
                   {caption}
-                </div>
-              </div>
+                </Box>
+              </Box>
             );
           })}
-        </div>
-        <Spacer
-          size={2}
-          horizontal
-          className={css`
-            flex-shrink: 0;
-          `}
-        />
-        <div
-          className={css`
-            align-items: center;
-            display: flex;
-            flex-direction: column;
-            flex-shrink: 0;
-            justify-content: center;
-            overflow: hidden;
-            padding: 5px 0;
-          `}
+        </Box>
+        <Spacer size={2} horizontal />
+        <Box
+          sx={{
+            alignItems: "center",
+            display: "flex",
+            flexDirection: "column",
+            flexShrink: "0",
+            justifyContent: "center",
+            overflow: "hidden",
+            padding: "5px 0",
+          }}
         >
           <span>前のシーン</span>
           <Spacer size={1} vertical />
-          <CircleIconButton
+          <IconButton
             onClick={async () =>
               await onChangeScene(captions[currentSceneIndex - 1])
             }
             disabled={currentSceneIndex < 1}
-            size="30px"
           >
-            <KeyboardArrowUpIcon fontSize="large" />
-          </CircleIconButton>
+            <KeyboardArrowUpIcon />
+          </IconButton>
           <Spacer vertical size={8} />
-          <CircleIconButton
+          <IconButton
             onClick={async () =>
               await onChangeScene(captions[currentSceneIndex + 1])
             }
             disabled={currentSceneIndex >= captions.length - 1}
-            size="30px"
           >
-            <KeyboardArrowDownIcon fontSize="large" />
-          </CircleIconButton>
+            <KeyboardArrowDownIcon />
+          </IconButton>
           <Spacer vertical size={1} />
           <span>次のシーン</span>
-        </div>
+        </Box>
         <Spacer horizontal size={2} />
-      </div>
+      </Box>
     </>
   );
 };
