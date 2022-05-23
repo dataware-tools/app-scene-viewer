@@ -94,7 +94,7 @@ export const MapPanel = ({
   // Move center position of map
   useEffect(() => {
     if (map && currentPosition && trackCurrentPosition) {
-      map.setView(currentPosition, mapInitialZoom);
+      map.setView(currentPosition);
     }
   }, [map, currentPosition, trackCurrentPosition]);
 
@@ -123,6 +123,7 @@ export const MapPanel = ({
         <a
           role="button"
           className={css`
+            padding-top: 2px;
             cursor: pointer;
             font-size: 22px;
           `}
