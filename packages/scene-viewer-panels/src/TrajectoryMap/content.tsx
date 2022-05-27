@@ -1,7 +1,7 @@
 import { css } from "@emotion/css";
-import GpsFixedIcon from "@material-ui/icons/GpsFixed";
+import GpsFixedIcon from "@mui/icons-material/GpsFixed";
 import Leaflet from "leaflet";
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import ReactDOMServer from "react-dom/server";
 import { MapContainer, TileLayer, Pane, Polyline } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
@@ -94,7 +94,7 @@ export const MapPanel = ({
   // Move center position of map
   useEffect(() => {
     if (map && currentPosition && trackCurrentPosition) {
-      map.setView(currentPosition, mapInitialZoom);
+      map.setView(currentPosition);
     }
   }, [map, currentPosition, trackCurrentPosition]);
 
@@ -123,6 +123,7 @@ export const MapPanel = ({
         <a
           role="button"
           className={css`
+            padding-top: 2px;
             cursor: pointer;
             font-size: 22px;
           `}

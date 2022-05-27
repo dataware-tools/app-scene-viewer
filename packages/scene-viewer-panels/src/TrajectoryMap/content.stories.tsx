@@ -1,12 +1,11 @@
 import { css } from "@emotion/css";
 import type { Story } from "@storybook/react";
-import React from "react";
 import { useRosLib } from "../hooks/roslibHooks";
-import { MapPanel, MapPanelProps } from "./index";
+import { MapPanel, MapPanelProps } from "./content";
 
 export default {
   component: MapPanel,
-  title: "Panels/MapPanel",
+  title: "MapPanel",
 };
 
 const Template: Story<MapPanelProps & { height: string; width: string }> = ({

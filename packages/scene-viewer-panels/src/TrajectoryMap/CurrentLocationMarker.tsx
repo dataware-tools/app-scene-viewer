@@ -1,5 +1,4 @@
 import Leaflet from "leaflet";
-import React from "react";
 import { CircleMarker } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 

@@ -9,11 +9,9 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-    "jsx": "react",
-    "jsxFactory": "React.createElement",
-    "jsxFragmentFactory": "React.Fragment",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "module": "ESNext",
+    "jsx": "react-jsx",
+    "lib": ["DOM", "DOM.Iterable", "ESNext", "WebWorker"],
+    "module": "commonjs",
     "moduleResolution": "node",
     "noImplicitAny": true,
     "noImplicitReturns": true,
@@ -27,9 +25,13 @@
     "strict": true,
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
-    "target": "es6",
+    "target": "ES2020",
     "downlevelIteration": true,
-    "strictBindCallApply": true
+    "strictBindCallApply": true,
+    "paths": {
+      "@foxglove/studio-base/*": ["./node_modules/@foxglove/studio-base/src/*"]
+    },
+    "baseUrl": "."
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist", "example"]

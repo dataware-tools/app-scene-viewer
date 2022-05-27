@@ -1,6 +1,0 @@
-dist/
-node_modules/
-src/openapi
-
-*.json
-*.yaml

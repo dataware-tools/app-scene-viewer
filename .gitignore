@@ -12,6 +12,13 @@ node_modules
 build
 dist
 
+# Yarn
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+.pnp.*
+
 # misc
 .DS_Store
 .env.local
@@ -22,3 +29,7 @@ dist
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# local-server using serve
+local-server/*
+!local-server/serve.json

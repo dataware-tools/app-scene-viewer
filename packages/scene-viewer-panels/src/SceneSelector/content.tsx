@@ -1,11 +1,20 @@
-import { css } from "@emotion/css";
-import SearchIcon from "@material-ui/icons/Search";
+import SearchIcon from "@mui/icons-material/Search";
 import { Index } from "flexsearch";
-import React, { useEffect, useRef, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import Highlighter from "react-highlight-words";
 import { color } from "../color";
 import { MarkerIcon } from "../components/MarkerIcon";
 import { Spacer } from "../components/Spacer";
+import Box from "@mui/material/Box";
+import {
+  Button,
+  InputAdornment,
+  List,
+  ListItem,
+  TextField,
+} from "@mui/material";
+import Paper from "@mui/material/Paper";
+import { useTheme } from "@mui/material";
 
 type Caption = {
   timestamp: number;
@@ -15,7 +24,7 @@ type Caption = {
 type CaptionWithLabel = {
   label?: string;
 } & Caption;
-type PinLocations = {
+export type PinLocations = {
   longitude: number;
   latitude: number;
   altitude: number;
@@ -42,154 +51,111 @@ export const SceneSelectorPresentation = ({
   onSelectScene,
 }: SceneSelectorPresentationProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
+  const { palette } = useTheme();
   return (
-    <div
-      className={css`
-        align-items: center;
-        background-color: ${color.gray(0)};
-        display: flex;
-        flex-direction: column;
-        font-size: 1.2rem;
-        height: 100%;
-        padding: 10px;
-        width: 100%;
-      `}
+    <Box
+      sx={{
+        alignItems: "center",
+        display: "flex",
+        flexDirection: "column",
+        fontSize: "1.2rem",
+        height: "100%",
+        padding: "10px",
+        width: "100%",
+      }}
     >
-      <form
-        onSubmit={(e) => {
+      <Box
+        component="form"
+        onSubmit={(e: FormEvent) => {
           e.preventDefault();
           onSearch(inputRef.current?.value || "");
         }}
-        className={css`
-          display: flex;
-          flex-direction: row;
-          flex-shrink: 0;
-          position: relative;
-        `}
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          flexShrink: "0",
+          position: "relative",
+        }}
       >
-        <SearchIcon
-          fontSize="large"
-          className={css`
-            left: 12px;
-            position: absolute;
-            top: 4px;
-          `}
-        />
-        <input
-          ref={inputRef}
-          className={css`
-            background-color: ${color.gray(1)};
-            font-size: 1.3rem;
-            padding-left: 40px;
-            &:focus {
-              background-color: ${color.gray(2)};
-            }
-          `}
-        />
+        <Paper elevation={0} square={false}>
+          <TextField
+            inputRef={inputRef}
+            sx={{
+              fontSize: "1.3rem",
+            }}
+            size="small"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+            }}
+          />
+        </Paper>
         <Spacer size={2} horizontal />
-        <button
+        <Button
           onClick={() => onSearch(inputRef.current?.value || "")}
-          className={css`
-            background-color: ${color.gray(2)};
-            font-size: 1.3rem;
-            font-weight: bold;
-            padding: 0 20px;
-            &:hover {
-              background-color: ${color.gray(3)};
-            }
-          `}
+          color="inherit"
+          variant="contained"
+          sx={{
+            color: (theme) => theme.palette.text.primary,
+            fontSize: "1.2rem",
+            fontWeight: "bold",
+            padding: "0 20px",
+          }}
         >
           Search
-        </button>
-      </form>
-      <Spacer
-        size={2}
-        vertical
-        className={css`
-          flex-shrink: 0;
-        `}
-      />
-      <div
-        className={css`
-          flex-shrink: 1;
-          height: 100%;
-          overflow: auto;
-          padding: 5px 10px;
-          width: 100%;
-        `}
+        </Button>
+      </Box>
+      <Spacer size={1} vertical />
+      <Box
+        sx={{
+          flexShrink: "1",
+          height: "100%",
+          overflow: "auto",
+          padding: "5px 10px",
+          width: "100%",
+        }}
       >
-        <ul
-          className={css`
-            display: inline-block;
-          `}
-        >
+        <List sx={{ display: "inline-block" }}>
           {captionWithLabels.map(({ timestamp, caption, label }) => (
-            <li
+            <ListItem
               key={timestamp}
-              className={css`
-                align-items: center;
-                cursor: pointer;
-                display: flex;
-                flex-direction: row;
-                padding: 5px;
-                &:hover {
-                  background-color: ${color.gray(1)};
-                }
-              `}
+              sx={{
+                alignItems: "center",
+                cursor: "pointer",
+                display: "flex",
+                flexDirection: "row",
+                padding: "5px",
+                "&:hover": {
+                  backgroundColor: color.gray(1),
+                },
+              }}
               onClick={() => onSelectScene(timestamp)}
             >
-              <span
-                className={css`
-                  align-items: center;
-                  height: 20px;
-                  justify-content: center;
-                  width: 20px;
-                `}
-              >
-                {label && <MarkerIcon size={20} text={label} />}
-              </span>
-              <Spacer
-                size={2}
-                horizontal
-                className={css`
-                  flex-shrink: 0;
-                `}
-              />
-              <span
-                className={css`
-                  font-weight: bold;
-                `}
-              >
+              {label && <MarkerIcon text={label} />}
+              <Spacer size={2} horizontal />
+              <Box component="span" sx={{ fontWeight: "bold" }}>
                 {timestamp}
-              </span>
-              <Spacer
-                size={2}
-                horizontal
-                className={css`
-                  flex-shrink: 0;
-                `}
-              />
-              <span
-                className={css`
-                  flex-grow: 1;
-                  white-space: nowrap;
-                `}
-              >
+              </Box>
+              <Spacer size={2} horizontal />
+              <Box component="span" sx={{ flexGrow: 1, whiteSpace: "nowrap" }}>
                 <Highlighter
                   textToHighlight={caption}
                   searchWords={highlightedTexts}
                   highlightStyle={{
-                    backgroundColor: "white",
+                    backgroundColor: palette.text.primary,
                     fontWeight: "bold",
-                    color: "black",
+                    color: palette.background.default,
                   }}
                 />
-              </span>
-            </li>
+              </Box>
+            </ListItem>
           ))}
-        </ul>
-      </div>
-    </div>
+        </List>
+      </Box>
+    </Box>
   );
 };
 

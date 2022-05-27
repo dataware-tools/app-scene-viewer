@@ -172,7 +172,7 @@ export const useRosLib = ({
       setRos(ros);
     });
 
-    const topicListeners: ROSLIB.Topic<ROSLIB.Message>[] = [];
+    const topicListeners: ROSLIB.Topic[] = [];
     subscriptions.forEach(({ name, type, callback, isFrequent }) => {
       if (topicNames.includes(name)) {
         const infrequentCallback = (message: ROSLIB.Message) => {
