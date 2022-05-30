@@ -9,68 +9,52 @@ export default {
 };
 
 const Template: Story<MapPanelProps & { height: string; width: string }> = ({
-  height,
-  width,
+  height = "500px",
+  width = "500px",
   ...args
 }) => (
-  <div
-    className={css`
-      height: ${height};
-      width: ${width};
-    `}
-  >
+  <div style={{ height, width }}>
     <MapPanel {...args} />
   </div>
 );
 
+const defaultCenterPosition: [number, number] = [
+  35.1505536926114, 136.96585423505437,
+];
+const defaultCurrentPosition: [number, number] = [
+  35.14819909438752, 136.9651522986249,
+];
+const defaultMarkers = [
+  {
+    longitude: 136.964871,
+    latitude: 35.144697,
+    popupText: "Yagoto Nisseki Station",
+    text: "1",
+  },
+  {
+    longitude: 136.966588,
+    latitude: 35.15447,
+    popupText: "Nagoya University",
+    text: "2",
+  },
+];
+
 export const Default = Template.bind({});
 Default.args = {
-  height: "500px",
-  width: "500px",
-  centerPosition: [35.1505536926114, 136.96585423505437],
+  centerPosition: defaultCenterPosition,
 };
 
 export const MapWithMarkers = Template.bind({});
 MapWithMarkers.args = {
-  height: "500px",
-  width: "500px",
-  centerPosition: [35.1505536926114, 136.96585423505437],
-  markers: [
-    {
-      longitude: 136.964871,
-      latitude: 35.144697,
-      popupText: "Yagoto Nisseki Station",
-      text: "1",
-    },
-    {
-      longitude: 136.966588,
-      latitude: 35.15447,
-      popupText: "Nagoya University",
-      text: "2",
-    },
-  ],
+  centerPosition: defaultCenterPosition,
+  markers: defaultMarkers,
 };
 
 export const MapWithAllAnnotations = Template.bind({});
 MapWithAllAnnotations.args = {
-  height: "500px",
-  width: "500px",
-  centerPosition: [35.1505536926114, 136.96585423505437],
-  currentPosition: [35.14819909438752, 136.9651522986249],
-  markers: [
-    {
-      longitude: 136.964871,
-      latitude: 35.144697,
-      popupText: "Yagoto Nisseki Station",
-      text: "1",
-    },
-    {
-      longitude: 136.966588,
-      latitude: 35.15447,
-      popupText: "Nagoya University",
-      text: "2",
-    },
-  ],
+  centerPosition: defaultCenterPosition,
+  currentPosition: defaultCurrentPosition,
+  markers: defaultMarkers,
   polylines: [
     {
       positions: [
@@ -93,12 +77,7 @@ export const WithRos = () => {
     ],
   });
   return (
-    <div
-      className={css`
-        height: 500px;
-        width: 500px;
-      `}
-    >
+    <div style={{ height: "500px", width: "500px" }}>
       <MapPanel
         centerPosition={[35.1505536926114, 136.96585423505437]}
         currentPosition={[currentPosition.latitude, currentPosition.longitude]}
@@ -120,3 +99,5 @@ export const WithRos = () => {
     </div>
   );
 };
+// Skip on VRT, because this story relies backends
+WithRos.story = { parameters: { loki: { skip: true } } };

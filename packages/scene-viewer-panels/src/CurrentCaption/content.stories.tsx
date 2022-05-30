@@ -13,16 +13,29 @@ export default {
   title: "CurrentCaption",
 };
 
+const defaultCaptions = [
+  { timestamp: 100000, caption: "1111111111111" },
+  { timestamp: 100100, caption: "2222222222222" },
+  { timestamp: 100200, caption: "3333333333333" },
+  {
+    timestamp: 100300,
+    caption:
+      "444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444",
+  },
+  {
+    timestamp: 100400,
+    caption: `55555555555555 55555555555 55555555555555 555555555555 555555555555 555555555555 555555555555 555555555555 555555555555 555555555555 555555555555`,
+  },
+  { timestamp: 100500, caption: "6666666666666" },
+  { timestamp: 100600, caption: "7777777777777" },
+  { timestamp: 100700, caption: "8888888888888" },
+  { timestamp: 100800, caption: "9999999999999" },
+  { timestamp: 100900, caption: "0000000000000" },
+];
 const Template: Story<
   CurrentCaptionProps & { height: string; width: string }
 > = ({ height, width, ...args }) => (
-  <div
-    className={css`
-      height: ${height};
-      overflow: auto;
-      width: ${width};
-    `}
-  >
+  <div style={{ height, overflow: "auto", width }}>
     <CurrentCaption {...args} />
   </div>
 );
@@ -31,37 +44,11 @@ export const Controlled = () => {
   const [currentTimestamp, setCurrentTimestamp] = useState(0);
   console.log(currentTimestamp);
   return (
-    <div
-      className={css`
-        height: 300px;
-        overflow: auto;
-        width: 500px;
-      `}
-    >
-      <CurrentCaption
-        onChangeScene={({ timestamp }) => setCurrentTimestamp(timestamp)}
-        currentTimestamp={currentTimestamp}
-        captions={[
-          { timestamp: 100000, caption: "1111111111111" },
-          { timestamp: 100100, caption: "2222222222222" },
-          { timestamp: 100200, caption: "3333333333333" },
-          {
-            timestamp: 100300,
-            caption:
-              "4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444",
-          },
-          {
-            timestamp: 100400,
-            caption: `55555555555555 55555555555 55555555555555 555555555555 555555555555 555555555555 555555555555 555555555555 555555555555 555555555555 555555555555`,
-          },
-          { timestamp: 100500, caption: "6666666666666" },
-          { timestamp: 100600, caption: "7777777777777" },
-          { timestamp: 100700, caption: "8888888888888" },
-          { timestamp: 100800, caption: "9999999999999" },
-          { timestamp: 100900, caption: "0000000000000" },
-        ]}
-      />
-    </div>
+    <CurrentCaption
+      onChangeScene={({ timestamp }) => setCurrentTimestamp(timestamp)}
+      currentTimestamp={currentTimestamp}
+      captions={defaultCaptions}
+    />
   );
 };
 
@@ -70,115 +57,33 @@ export const WithRos = () => {
     topicNames: ["/scene_viewer/scene_captions", "/clock"],
   });
   return (
-    <div
-      className={css`
-        height: 150px;
-        overflow: auto;
-        width: 500px;
-      `}
-    >
-      <CurrentCaption
-        onChangeScene={({ timestamp }) => seekToTimestamp(timestamp)}
-        currentTimestamp={currentTime}
-        captions={captions as TimestampCaption[]}
-      />
-    </div>
+    <CurrentCaption
+      onChangeScene={({ timestamp }) => seekToTimestamp(timestamp)}
+      currentTimestamp={currentTime}
+      captions={captions as TimestampCaption[]}
+    />
   );
 };
-
-export const Default = Template.bind({});
-Default.args = {
-  height: "150px",
-  width: "500px",
-  captions: [
-    { timestamp: 100000, caption: "1111111111111" },
-    { timestamp: 100100, caption: "2222222222222" },
-    { timestamp: 100200, caption: "3333333333333" },
-    {
-      timestamp: 100300,
-      caption:
-        "4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444",
-    },
-    {
-      timestamp: 100400,
-      caption: `55555555555555
-      55555555555
-      55555555555555
-      555555555555`,
-    },
-    { timestamp: 100500, caption: "6666666666666" },
-    { timestamp: 100600, caption: "7777777777777" },
-    { timestamp: 100700, caption: "8888888888888" },
-    { timestamp: 100800, caption: "9999999999999" },
-    { timestamp: 100900, caption: "0000000000000" },
-  ],
-  currentTimestamp: 100345,
-  onChangeScene: ({ timestamp, caption }) => {
-    window.confirm(`Seek to ${timestamp} (caption is "${caption}")`);
-  },
-};
+// Skip on VRT, because this story relies backends
+WithRos.story = { parameters: { loki: { skip: true } } };
 
 export const InLargeContainer = Template.bind({});
-
 InLargeContainer.args = {
   width: "100%",
   height: "100%",
-  captions: [
-    { timestamp: 100000, caption: "1111111111111" },
-    { timestamp: 100100, caption: "2222222222222" },
-    { timestamp: 100200, caption: "3333333333333" },
-    {
-      timestamp: 100300,
-      caption:
-        "4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444",
-    },
-    {
-      timestamp: 100400,
-      caption: `55555555555555
-      55555555555
-      55555555555555
-      555555555555`,
-    },
-    { timestamp: 100500, caption: "6666666666666" },
-    { timestamp: 100600, caption: "7777777777777" },
-    { timestamp: 100700, caption: "8888888888888" },
-    { timestamp: 100800, caption: "9999999999999" },
-    { timestamp: 100900, caption: "0000000000000" },
-  ],
-  currentTimestamp: 100050,
+  captions: defaultCaptions,
+  currentTimestamp: 100350,
   onChangeScene: ({ timestamp, caption }) => {
     window.confirm(`Seek to ${timestamp} (caption is "${caption}")`);
   },
 };
 
 export const InSmallContainer = Template.bind({});
-
 InSmallContainer.args = {
   width: "200px",
   height: "100px",
-  captions: [
-    { timestamp: 100000, caption: "1111111111111" },
-    { timestamp: 100100, caption: "2222222222222" },
-    { timestamp: 100200, caption: "3333333333333" },
-    {
-      timestamp: 100300,
-      caption:
-        "4444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444444",
-    },
-    {
-      timestamp: 100400,
-      caption: `55555555555555
-      55555555555
-      55555555555555
-      555555555555`,
-    },
-    { timestamp: 100500, caption: "6666666666666" },
-    { timestamp: 100600, caption: "7777777777777" },
-    { timestamp: 100700, caption: "8888888888888" },
-    { timestamp: 100800, caption: "9999999999999" },
-    { timestamp: 100900, caption: "0000000000000" },
-  ],
-  currentTimestamp: 111111,
+  captions: defaultCaptions,
+  currentTimestamp: 100350,
   onChangeScene: ({ timestamp, caption }) => {
     window.confirm(`Seek to ${timestamp} (caption is "${caption}")`);
   },

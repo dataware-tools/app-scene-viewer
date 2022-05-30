@@ -26,13 +26,16 @@ const fixture: { globalVariables: { pinLocations: PinLocations } } = {
     ],
   },
 };
-export function Example(): JSX.Element {
+
+export function Default(): JSX.Element {
   return (
     <PanelSetup fixture={fixture} style={{ width: "500px", height: "500px" }}>
       <TrajectoryMap />
     </PanelSetup>
   );
 }
+// Skip on VRT, because this story relies backends
+Default.story = { parameters: { loki: { skip: true } } };
 
 export function NarrowLayout(): JSX.Element {
   return (
@@ -41,3 +44,5 @@ export function NarrowLayout(): JSX.Element {
     </PanelSetup>
   );
 }
+// Skip on VRT, because this story relies backends
+NarrowLayout.story = { parameters: { loki: { skip: true } } };
