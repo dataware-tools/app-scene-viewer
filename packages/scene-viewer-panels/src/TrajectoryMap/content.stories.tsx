@@ -42,12 +42,16 @@ export const Default = Template.bind({});
 Default.args = {
   centerPosition: defaultCenterPosition,
 };
+// Skip on VRT, because this story is too flaky
+Default.story = { parameters: { loki: { skip: true } } };
 
 export const MapWithMarkers = Template.bind({});
 MapWithMarkers.args = {
   centerPosition: defaultCenterPosition,
   markers: defaultMarkers,
 };
+// Skip on VRT, because this story is too flaky
+MapWithMarkers.story = { parameters: { loki: { skip: true } } };
 
 export const MapWithAllAnnotations = Template.bind({});
 MapWithAllAnnotations.args = {
@@ -66,6 +70,8 @@ MapWithAllAnnotations.args = {
     },
   ],
 };
+// Skip on VRT, because this story is too flaky
+MapWithAllAnnotations.story = { parameters: { loki: { skip: true } } };
 
 export const WithRos = () => {
   const { currentPosition, trajectory, captionsWithLocation } = useRosLib({
