@@ -1,30 +1,39 @@
 # app-scene-viewer
-
 ## First things to do
+**Dependencies:**
+- [Node.js](https://nodejs.org/en/) v14+
+- [Yarn](https://yarnpkg.com/getting-started/install)
+- [Git LFS](https://git-lfs.github.com/)
 
-### Install deps & link packages
+**Bootstrap repository:**
 
+1. Clone repo
+1. Run `git submodule update -r -i`
+1. Run `yarn install`
+1. Run `yarn bootstrap`
+
+
+## Develop webapp
 ```sh
-npm run bootstrap
+# To launch app
+$ yarn start    # start in production mode
+$ yarn dev      # start in develop mode
+
+# To launch the storybook:
+$ yarn storybook:scene-viewer-panels    # launch for panels developed by HDL 
+$ yarn storybook:fox-glove-studio    # launch for components built in fox-glove-studio
+
+# To test app
+$ yarn test
+
+# To build app
+$ yarn build
+
 ```
 
-### Build packages
-
+## Launch app in docker container
 ```sh
-npm run build
-```
-
-## Serve dev server
-
-```sh
-npm run dev
-```
-
-## Serve static file
-
-```sh
-npm run build-static-webviz
-npm run serve-static-webviz
+docker compose up
 ```
 
 ## Start backend server (rosbridge) for development
