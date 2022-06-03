@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import ROSLIB from "roslib";
+import { sleep } from "src/utils";
 
 type SceneCaptionWithLocation = TrajectoryPoint & Caption;
 
@@ -38,6 +39,7 @@ export const useRosLib = ({
 }: UseRosLibArgs) => {
   const [Ros, setRos] = useState<ROSLIB.Ros | undefined>(undefined);
   const [topicNames, setTopicNames] = useState(initialTopicNames);
+  const [retrySwitch, setRetrySwitch] = useState(false);
 
   // topic state
   const [currentTime, setCurrentTime] = useState<number>(0);
@@ -168,26 +170,34 @@ export const useRosLib = ({
     const ros = new ROSLIB.Ros({
       url: websocketUrl,
     });
-    ros.on("connection", () => {
-      setRos(ros);
-    });
 
     const topicListeners: ROSLIB.Topic[] = [];
-    subscriptions.forEach(({ name, type, callback, isFrequent }) => {
-      if (topicNames.includes(name)) {
-        const infrequentCallback = (message: ROSLIB.Message) => {
-          const latestTime = latestUpdateTimes.current[name];
-          if (latestTime != null && Date.now() - latestTime < maxFreq) {
-            return;
-          }
-          latestUpdateTimes.current[name] = Date.now();
-          callback(message);
-        };
 
-        const listener = new ROSLIB.Topic({ ros, name, messageType: type });
-        listener.subscribe(isFrequent ? infrequentCallback : callback);
-        topicListeners.push(listener);
-      }
+    ros.on("error", async () => {
+      console.log(`wait for connect node on ${websocketUrl}...`);
+      await sleep(3000);
+      setRetrySwitch((prev) => !prev);
+    });
+
+    ros.on("connection", () => {
+      setRos(ros);
+      console.log(`connected to node on ${websocketUrl}`)
+      subscriptions.forEach(({ name, type, callback, isFrequent }) => {
+        if (topicNames.includes(name)) {
+          const infrequentCallback = (message: ROSLIB.Message) => {
+            const latestTime = latestUpdateTimes.current[name];
+            if (latestTime != null && Date.now() - latestTime < maxFreq) {
+              return;
+            }
+            latestUpdateTimes.current[name] = Date.now();
+            callback(message);
+          };
+
+          const listener = new ROSLIB.Topic({ ros, name, messageType: type });
+          listener.subscribe(isFrequent ? infrequentCallback : callback);
+          topicListeners.push(listener);
+        }
+      });
     });
 
     // Specify how to clean up after this effect:
@@ -196,10 +206,13 @@ export const useRosLib = ({
       topicListeners.forEach((topicListener) => topicListener.unsubscribe());
       ros.close();
     };
-  }, [websocketUrl, topicNames, subscriptions, maxFreq]);
+  }, [websocketUrl, topicNames, subscriptions, maxFreq, retrySwitch]);
 
   const seekToTimestamp = (timestamp: number) => {
-    if (!Ros) return;
+    if (!Ros) {
+      console.error(`node on ${websocketUrl} is not connected`);
+      return;
+    }
 
     // Seek
     const seekService = new ROSLIB.Service({

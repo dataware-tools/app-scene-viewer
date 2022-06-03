@@ -4,3 +4,6 @@ export const decodeUnicode = (unicodeStr: string) => {
     return String.fromCharCode(parseInt(p2, 16));
   });
 };
+
+export const sleep = (ms: number) =>
+  new Promise((resolve) => setTimeout(resolve, ms));
