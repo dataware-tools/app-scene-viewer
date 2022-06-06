@@ -12,18 +12,6 @@ COPY ./yarn.lock ./yarn.lock
 COPY ./packages ./packages
 RUN yarn install --immutable
 
-FROM docker:20.10.11-dind AS test
-RUN apk update && apk add \
-  bash \
-  git \
-  jq \
-  nodejs \
-  npm
-WORKDIR /app
-COPY --from=deps /app .
-COPY docker-entrypoint.sh /app/docker-entrypoint.sh
-ENTRYPOINT ["/app/docker-entrypoint.sh"]
-
 # Rebuild the source code only when needed
 FROM node:16 AS builder
 WORKDIR /app

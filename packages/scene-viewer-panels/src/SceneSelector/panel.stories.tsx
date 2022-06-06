@@ -6,20 +6,22 @@ export default {
   component: SceneSelector,
 };
 
-export function Example(): JSX.Element {
+export function Default(): JSX.Element {
   return (
     <PanelSetup>
       <SceneSelector />
     </PanelSetup>
   );
 }
+// Skip on VRT, because this story relies backends
+Default.story = { parameters: { loki: { skip: true } } };
 
 export function NarrowLayout(): JSX.Element {
   return (
-    <PanelSetup>
-      <div style={{ width: 400 }}>
-        <SceneSelector />
-      </div>
+    <PanelSetup style={{ width: 400 }}>
+      <SceneSelector />
     </PanelSetup>
   );
 }
+// Skip on VRT, because this story relies backends
+NarrowLayout.story = { parameters: { loki: { skip: true } } };
