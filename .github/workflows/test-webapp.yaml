@@ -15,14 +15,13 @@ jobs:
           lfs: true
 
       - name: Set up node 16
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 16
           cache: "yarn"
-          cache-dependency-path: "yarn.lock"
 
       - name: bootstrap repository
-        run: yarn install
+        run: yarn install --immutable
         env:
           NODE_AUTH_TOKEN: ${{secrets.REPO_ACCESS_TOKEN}}
 
