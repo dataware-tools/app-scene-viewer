@@ -1,3 +1,7 @@
+import {
+  MessagePipelineContext,
+  useMessagePipeline,
+} from "@foxglove/studio-base/components/MessagePipeline";
 import Panel from "@foxglove/studio-base/components/Panel";
 import PanelToolbar from "@foxglove/studio-base/components/PanelToolbar";
 import styled from "styled-components";
@@ -9,12 +13,12 @@ const Container = styled.div`
   height: 100%;
 `;
 
-const params = new URLSearchParams(window.location.search);
-const websocketUrl = params.get("ds.url") ?? "ws://localhost:9090";
-
+const selectUrlState = (ctx: MessagePipelineContext) =>
+  ctx.playerState.urlState;
 function CurrentCaptionPanel(): JSX.Element {
+  const playerUrlState = useMessagePipeline(selectUrlState);
   const { captions, seekToTimestamp, currentTime } = useRosLib({
-    websocketUrl,
+    websocketUrl: playerUrlState?.parameters?.url ?? "ws://localhost:9090",
     topicNames: ["/scene_viewer/scene_captions", "/clock"],
   });
   return (

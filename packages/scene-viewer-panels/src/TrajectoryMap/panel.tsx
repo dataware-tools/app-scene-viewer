@@ -1,3 +1,7 @@
+import {
+  MessagePipelineContext,
+  useMessagePipeline,
+} from "@foxglove/studio-base/components/MessagePipeline";
 import Panel from "@foxglove/studio-base/components/Panel";
 import PanelToolbar from "@foxglove/studio-base/components/PanelToolbar";
 import useGlobalVariables from "@foxglove/studio-base/hooks/useGlobalVariables";
@@ -11,12 +15,13 @@ const Container = styled.div`
   height: 100%;
 `;
 
-const params = new URLSearchParams(window.location.search);
-const websocketUrl = params.get("ds.url") ?? "ws://localhost:9090";
+const selectUrlState = (ctx: MessagePipelineContext) =>
+  ctx.playerState.urlState;
 
 function MapPanel() {
+  const playerUrlState = useMessagePipeline(selectUrlState);
   const { currentPosition, trajectory } = useRosLib({
-    websocketUrl,
+    websocketUrl: playerUrlState?.parameters?.url ?? "ws://localhost:9090",
     topicNames: [
       "/sensing/gnss/ublox/nav_sat_fix",
       "/scene_viewer/vehicle_trajectory",
