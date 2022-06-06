@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import ROSLIB from "roslib";
-import { sleep } from "src/utils";
+import { sleep } from "../utils";
 
 type SceneCaptionWithLocation = TrajectoryPoint & Caption;
 
