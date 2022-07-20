@@ -96,7 +96,7 @@ function ExperimentPanel(): JSX.Element {
             (comment.target.point.y - clickedPoint.point.y) ** 2 +
             (comment.target.point.z - clickedPoint.point.z) ** 2
         ) < 3
-      : true;
+      : false;
 
   useEffect(() => {
     setPublishers("comment-click", [
