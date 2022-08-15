@@ -7,10 +7,12 @@ import Panel from "@foxglove/studio-base/components/Panel";
 import PanelToolbar from "@foxglove/studio-base/components/PanelToolbar";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-import { useState, useEffect } from "react";
+import { Index } from "flexsearch";
+import { useState, useEffect, useRef, useMemo } from "react";
 import styled from "styled-components";
 import { Comment, CommentType } from "./Comment";
 import { CommentInput } from "./CommentInput";
+import { SearchBar } from "./SearchBar";
 import { ClickedPointType } from "./type";
 import { Spacer } from "src/components/Spacer";
 
@@ -58,8 +60,23 @@ function ExperimentPanel(): JSX.Element {
   const matchedMessages = useMessageDataItem("/clicked_point");
   const clickedPoint = matchedMessages[matchedMessages.length - 1]
     ?.queriedData[0].value as ClickedPointType | undefined;
+  const [highlightedTexts, setHighlightedTexts] = useState([""]);
+  const [searchText, setSearchText] = useState("");
+
+  // TODO: should be replaced by fetched data
   const [comments, setComments] = useState<CommentType[]>([]);
   const [newAnnotationId, setNewAnnotationId] = useState(1);
+
+  const flexSearchRef = useRef(
+    new Index({
+      tokenize: "full",
+    })
+  );
+  const searchResult = useMemo(() => {
+    return searchText
+      ? new Set(flexSearchRef.current.search(searchText))
+      : undefined;
+  }, [searchText]);
 
   const publishMessage = useMessagePipeline(publishSelector);
   const setPublishers = useMessagePipeline(setPublishersSelector);
@@ -158,6 +175,13 @@ function ExperimentPanel(): JSX.Element {
     }
   }, [comments.length, publishers, clickedPoint]);
 
+  useEffect(() => {
+    comments.forEach(({ text, annotationId }) =>
+      flexSearchRef.current.add(annotationId, text)
+    );
+  }, [comments]);
+
+  // TODO: should be replaced to fetch process
   const updateComment = (
     id: CommentType["annotationId"],
     text: CommentType["text"]
@@ -177,6 +201,7 @@ function ExperimentPanel(): JSX.Element {
     setEditedCommentId(undefined);
   };
 
+  // TODO: should be replaced to fetch process
   const deleteComment = (id: CommentType["annotationId"]) => {
     setComments((prev) => {
       return [...prev.filter((prevComment) => prevComment.annotationId !== id)];
@@ -202,6 +227,7 @@ function ExperimentPanel(): JSX.Element {
     }
   };
 
+  // TODO: should be replaced to fetch process
   const addComment = (comment: string) => {
     if (clickedPoint) {
       setComments((prev) => [
@@ -222,6 +248,12 @@ function ExperimentPanel(): JSX.Element {
     setNewAnnotationId((prev) => prev + 1);
   };
 
+  const searchComment = (searchText: string) => {
+    const fixedSearchText = searchText.replace("　", " ");
+    setHighlightedTexts(fixedSearchText.split(" "));
+    setSearchText(fixedSearchText);
+  };
+
   return (
     <Container>
       <PanelToolbar floating />
@@ -234,6 +266,34 @@ function ExperimentPanel(): JSX.Element {
           height: "100%",
         }}
       >
+        <SearchBar onSearch={searchComment} />
+        <Stack
+          spacing={1}
+          sx={{ overflow: "auto", padding: 1, height: "100%" }}
+        >
+          {comments
+            .filter(({ annotationId }) =>
+              searchResult ? searchResult.has(annotationId) : true
+            )
+            .map((comment) => (
+              <Comment
+                key={comment.annotationId}
+                comment={comment}
+                highlight={checkIfCommentHighlighted(comment)}
+                onStartEdit={() => setEditedCommentId(comment.annotationId)}
+                onSaveEdit={(nextCommentText) =>
+                  updateComment(comment.annotationId, nextCommentText)
+                }
+                onCancelEdit={() => setEditedCommentId(undefined)}
+                onDelete={() => deleteComment(comment.annotationId)}
+                onSelect={() =>
+                  publishClickedPoint(comment.frameId, comment.target.point)
+                }
+                editing={comment.annotationId === editedCommentId}
+                highlightedText={highlightedTexts}
+              />
+            ))}
+        </Stack>
         {clickedPoint ? (
           <>
             <Box
@@ -259,25 +319,6 @@ function ExperimentPanel(): JSX.Element {
             <Spacer size={3} vertical />
           </>
         ) : null}
-        <Stack spacing={1} sx={{ overflow: "auto", padding: 1 }}>
-          {comments.map((comment) => (
-            <Comment
-              key={comment.annotationId}
-              comment={comment}
-              highlight={checkIfCommentHighlighted(comment)}
-              onStartEdit={() => setEditedCommentId(comment.annotationId)}
-              onSaveEdit={(nextCommentText) =>
-                updateComment(comment.annotationId, nextCommentText)
-              }
-              onCancelEdit={() => setEditedCommentId(undefined)}
-              onDelete={() => deleteComment(comment.annotationId)}
-              onSelect={() =>
-                publishClickedPoint(comment.frameId, comment.target.point)
-              }
-              editing={comment.annotationId === editedCommentId}
-            />
-          ))}
-        </Stack>
       </Box>
     </Container>
   );

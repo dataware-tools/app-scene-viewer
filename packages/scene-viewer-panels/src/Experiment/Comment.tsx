@@ -1,10 +1,11 @@
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
-import { Typography } from "@mui/material";
+import { Typography, useTheme } from "@mui/material";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import { useEffect, useState } from "react";
+import Highlighter from "react-highlight-words";
 import { CommentInput } from "./CommentInput";
 import { PopoverIconButton } from "./PopoverIconButton";
 import { ClickedPointType } from "./type";
@@ -16,6 +17,17 @@ export type CommentType = {
   frameId: ClickedPointType["header"]["frame_id"];
 };
 
+type CommentProps = {
+  comment: CommentType;
+  highlight?: boolean;
+  onStartEdit: () => void;
+  onSaveEdit: (comment: string) => void;
+  onCancelEdit: () => void;
+  onDelete: () => void;
+  onSelect: () => void;
+  editing?: boolean;
+  highlightedText?: string[];
+};
 export const Comment = ({
   comment,
   highlight,
@@ -25,19 +37,13 @@ export const Comment = ({
   onDelete,
   onSelect,
   editing,
-}: {
-  comment: CommentType;
-  highlight?: boolean;
-  onStartEdit: () => void;
-  onSaveEdit: (comment: string) => void;
-  onCancelEdit: () => void;
-  onDelete: () => void;
-  onSelect: () => void;
-  editing?: boolean;
-}) => {
+  highlightedText,
+}: CommentProps) => {
   const [currentText, setCurrentText] = useState(comment.text || "");
   const [prevText, setPrevText] = useState(comment.text || "");
   const [open, setOpen] = useState(false);
+
+  const theme = useTheme();
 
   useEffect(() => {
     setCurrentText(comment.text || "");
@@ -45,10 +51,9 @@ export const Comment = ({
   }, [comment.text]);
 
   return (
-    <Box
+    <Stack
+      direction="row"
       sx={{
-        display: "flex",
-        flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
         width: "100%",
@@ -105,7 +110,15 @@ export const Comment = ({
                   }),
             }}
           >
-            {currentText}
+            <Highlighter
+              textToHighlight={currentText}
+              searchWords={highlightedText || []}
+              highlightStyle={{
+                backgroundColor: theme.palette.text.primary,
+                fontWeight: "bold",
+                color: theme.palette.background.default,
+              }}
+            />
           </Typography>
         )}
       </Stack>
@@ -135,6 +148,6 @@ export const Comment = ({
           />
         </Stack>
       )}
-    </Box>
+    </Stack>
   );
 };
