@@ -244,9 +244,13 @@ function ExperimentPanel(): JSX.Element {
               }}
             >
               <CommentInput
-                mode="alwaysEditable"
-                clearOnSave
-                onSave={addComment}
+                onSave={(comment, clearComment) => {
+                  addComment(comment);
+                  clearComment();
+                }}
+                onCancel={(_, clearComment) => {
+                  clearComment();
+                }}
               />
             </Box>
             <Box sx={{ fontSize: "0.8rem" }}>

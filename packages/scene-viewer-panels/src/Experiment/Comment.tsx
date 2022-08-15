@@ -1,8 +1,10 @@
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import RadioButtonCheckedIcon from "@mui/icons-material/RadioButtonChecked";
+import { Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
+import { useEffect, useState } from "react";
 import { CommentInput } from "./CommentInput";
 import { PopoverIconButton } from "./PopoverIconButton";
 import { ClickedPointType } from "./type";
@@ -33,6 +35,15 @@ export const Comment = ({
   onSelect: () => void;
   editing?: boolean;
 }) => {
+  const [currentText, setCurrentText] = useState(comment.text || "");
+  const [prevText, setPrevText] = useState(comment.text || "");
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    setCurrentText(comment.text || "");
+    setPrevText(comment.text || "");
+  }, [comment.text]);
+
   return (
     <Box
       sx={{
@@ -64,13 +75,39 @@ export const Comment = ({
         >
           {comment.annotationId}
         </Box>
-        <CommentInput
-          comment={comment.text}
-          onSave={onSaveEdit}
-          onCancel={onCancelEdit}
-          mode="toggleEditable"
-          editing={editing}
-        />
+        {editing ? (
+          <CommentInput
+            initComment={currentText}
+            onSave={(nextComment) => {
+              setPrevText(nextComment);
+              setCurrentText(nextComment);
+              onSaveEdit(nextComment);
+            }}
+            onCancel={() => {
+              setCurrentText(prevText);
+              onCancelEdit();
+            }}
+          />
+        ) : (
+          <Typography
+            onDoubleClick={() => setOpen((prev) => !prev)}
+            sx={{
+              whiteSpace: "pre-wrap",
+              wordBreak: "break-all",
+              width: "100%",
+              ...(open
+                ? {}
+                : {
+                    overflow: "hidden",
+                    display: "-webkit-box",
+                    "-webkit-box-orient": "vertical",
+                    "-webkit-line-clamp": "3",
+                  }),
+            }}
+          >
+            {currentText}
+          </Typography>
+        )}
       </Stack>
       {editing ? null : (
         <Stack spacing={1} direction="row">
