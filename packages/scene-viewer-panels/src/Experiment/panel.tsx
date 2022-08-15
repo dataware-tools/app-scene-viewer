@@ -231,6 +231,7 @@ function ExperimentPanel(): JSX.Element {
           flexDirection: "column",
           fontSize: "1.5rem",
           padding: 3,
+          height: "100%",
         }}
       >
         {clickedPoint ? (
@@ -254,7 +255,7 @@ function ExperimentPanel(): JSX.Element {
             <Spacer size={3} vertical />
           </>
         ) : null}
-        <Stack spacing={2}>
+        <Stack spacing={1} sx={{ overflow: "auto", padding: 1 }}>
           {comments.map((comment) => (
             <Comment
               key={comment.annotationId}
