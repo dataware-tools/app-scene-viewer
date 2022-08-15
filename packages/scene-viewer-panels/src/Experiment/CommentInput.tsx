@@ -29,6 +29,7 @@ export const CommentInput = ({ onSave, onCancel, initComment }: InputProps) => {
         onSave && onSave(comment, clearText);
       }}
       width="100%"
+      alignItems="center"
     >
       <TextField
         value={comment}
