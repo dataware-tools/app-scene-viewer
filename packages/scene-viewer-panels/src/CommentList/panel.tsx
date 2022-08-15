@@ -5,6 +5,7 @@ import {
 } from "@foxglove/studio-base/components/MessagePipeline";
 import Panel from "@foxglove/studio-base/components/Panel";
 import PanelToolbar from "@foxglove/studio-base/components/PanelToolbar";
+import { Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import { Index } from "flexsearch";
@@ -53,7 +54,7 @@ const markerBase = {
   ...initializeMarker,
   action: 0,
 };
-function ExperimentPanel(): JSX.Element {
+function CommentListPanel(): JSX.Element {
   const [editedCommentId, setEditedCommentId] = useState<number | undefined>(
     undefined
   );
@@ -318,15 +319,19 @@ function ExperimentPanel(): JSX.Element {
             </Box>
             <Spacer size={3} vertical />
           </>
-        ) : null}
+        ) : (
+          <Typography>
+            If you want to add comment, publish point on 3D panel...
+          </Typography>
+        )}
       </Box>
     </Container>
   );
 }
 
-ExperimentPanel.panelType = "CurrentCaptionPanel";
-ExperimentPanel.defaultConfig = {};
+CommentListPanel.panelType = "CommentListPanel";
+CommentListPanel.defaultConfig = {};
 
-const Wrapped = Panel(ExperimentPanel);
+const Wrapped = Panel(CommentListPanel);
 
-export { Wrapped as Experiment };
+export { Wrapped as CommentList };
