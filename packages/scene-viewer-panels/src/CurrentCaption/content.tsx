@@ -1,11 +1,11 @@
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import Box from "@mui/material/Box";
 import MuiIconButton, {
   IconButtonProps as MuiIconButtonProps,
 } from "@mui/material/IconButton";
-import Box from "@mui/material/Box";
-import { Spacer } from "../components/Spacer";
 import Paper from "@mui/material/Paper";
+import { Spacer } from "../components/Spacer";
 
 export type TimestampCaption = { timestamp: number; caption: string };
 export type CurrentCaptionPresentationProps = {

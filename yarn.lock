@@ -16637,6 +16637,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fast-equals@npm:4.0.1":
+  version: 4.0.1
+  resolution: "fast-equals@npm:4.0.1"
+  checksum: 4a5d9c711c7e8832aac8d46681a7041dc4e5fd64b8969b8f7367573389e490d1abe78f9f5ef3d7a86e8460b22919676156860a47fe0bd38242aad9c608641d4d
+  languageName: node
+  linkType: hard
+
 "fast-glob@npm:^2.2.6":
   version: 2.2.7
   resolution: "fast-glob@npm:2.2.7"
@@ -27256,6 +27263,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.3.0
     eslint-plugin-standard: ^5.0.0
     eslint-plugin-unused-imports: 2.0.0
+    fast-equals: 4.0.1
     flexsearch: 0.7.21
     inter-ui: ^3.0.0
     leaflet: ^1.7.1
