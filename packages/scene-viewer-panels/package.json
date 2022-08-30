@@ -46,7 +46,7 @@
     "@types/roslib": "^1.1.8",
     "@typescript-eslint/eslint-plugin": "5.23.0",
     "@typescript-eslint/parser": "5.23.0",
-    "@typescript-eslint/utils": "5.23.0",
+    "@typescript-eslint/utils": "5.36.0",
     "babel-loader": "^8.2.3",
     "babel-plugin-transform-import-meta": "2.1.1",
     "concurrently": "7.2.1",
