@@ -129,7 +129,7 @@ function CommentListPanel(): JSX.Element {
           },
           color: checkIfCommentHighlighted(comment)
             ? { r: 0.3, g: 0.3, b: 1, a: 1 }
-            : { r: 0.4, g: 0.4, b: 0.4, a: 0.5 },
+            : { r: 1, g: 1, b: 1, a: 0.5 },
           text: comment.text,
         })),
       ];
@@ -161,7 +161,7 @@ function CommentListPanel(): JSX.Element {
             ...markerBase.pose,
             position: comment.target.point,
           },
-          text: `${comment.annotationId}`,
+          text: `(${comment.annotationId})`,
         })),
       ];
 
