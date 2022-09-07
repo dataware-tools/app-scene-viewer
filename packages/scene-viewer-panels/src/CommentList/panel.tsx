@@ -239,8 +239,7 @@ function CommentListPanel(): JSX.Element {
           target: {
             point: clickedPoint.point,
           },
-          // 本当は clickedPoint.header.frame_id が正しいが、デモはこうしないとうまくうごないのでこれにしておく
-          frameId: "base_link",
+          frameId: clickedPoint.header.frame_id,
         } as typeof prev[number],
       ]);
     } else {
