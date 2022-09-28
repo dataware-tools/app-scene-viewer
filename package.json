@@ -21,7 +21,8 @@
     "prepare": "husky install"
   },
   "volta": {
-    "node": "16.13.0"
+    "node": "16.13.0",
+    "yarn": "1.22.19"
   },
   "resolutions": {
     "@types/node": "15.3.0",
